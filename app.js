@@ -7,11 +7,11 @@ const app = express();
 const port = 3000;
 
 // MongoDB bağlantısı
-mongoose.connect('mongodb://localhost:27017/authexample', {
+/*mongoose.connect('mongodb://localhost:27017/authexample', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
-
+*/
 // Kullanıcı şeması
 const userSchema = new mongoose.Schema({
   username: String,
@@ -43,7 +43,7 @@ app.post('/signup', async (req, res) => {
 });
 
 // Giriş yap endpoint'i
-app.post('/login', async (req, res) => {
+app.post('/login', async (req, res) => { 
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
@@ -63,7 +63,7 @@ app.post('/login', async (req, res) => {
     res.status(500).send('Giriş sırasında bir hata oluştu.');
   }
 });
-
+app.use(express.static('public'));
 app.listen(port, () => {
   console.log(`Server çalışıyor: http://localhost:${port}`);
 });
