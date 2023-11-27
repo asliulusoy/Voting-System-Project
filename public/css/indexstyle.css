@@ -3,26 +3,25 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Comfortaa';
-  font-size: 45px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
 }
 
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  flex-shrink: 0;
-  padding: 25px 12.5%;
-  background-color:rgba(29, 53, 87, 0.75) ;
-  opacity: 0.75;
+  height: 100px;
+  background-color: rgba(29, 53, 87, 0.75);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
   z-index: 100;
+}
+
+.navbar {
+  text-align: right;
+  width: 95%; 
 }
 
 .navbar a {
@@ -33,6 +32,8 @@
   line-height: normal;
   color: #f2f2f2;
   text-decoration-line: none;
+  margin-right: 40px;
+  display: inline-block; /* Dikey hizalama için eklenmiş bir satır */
 }
 
 .navbar a::after {
@@ -45,7 +46,7 @@
   background: #f2f2f2;
   border-radius: 5px;
   transform: translateY(5px);
-  transition: .5s;
+  transition: 0.5s;
   opacity: 0%;
 }
 
