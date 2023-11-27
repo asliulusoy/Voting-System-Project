@@ -29,8 +29,9 @@ app.use(express.urlencoded({ extended: true }));
 //app.use('/', userRoute);
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html');
+    res.render('index', { title: 'Your Page Title', message: 'Your page message' });
   });
+  
 app.listen(PORT, () => {
     console.log("Listening Port: " + PORT);
 });
