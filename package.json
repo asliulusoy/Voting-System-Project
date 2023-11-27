@@ -1,15 +1,44 @@
 {
-  "name": "mongodb-nodejs-auth",
+  "name": "voting-system-project",
   "version": "1.0.0",
-  "description": "MongoDB and Node.js Authentication Example",
+  "description": "This project is a user-friendly web application designed for computer engineering students to conduct project evaluations. Built using Node.js and MongoDB, it offers a secure login, a sleek project showcase, intuitive voting, and real-time result updates. The platform promotes collaboration, fair evaluations, and showcases technological excellence.",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asliulusoy/Voting-System-Project.git"
+  },
+  "keywords": [
+    "secure",
+    "authentication",
+    "project",
+    "showcase",
+    "intuitive",
+    "voting",
+    "real-time",
+    "updates",
+    "results",
+    "dashboard",
+    "node.js",
+    "backend",
+    "mongodb",
+    "database",
+    "responsive",
+    "design"
+  ],
+  "author": "Aslı Gizem Ulusoy, Ramiz Kadayıfçı, Furkan Şakir Ünal, Uygar Evciman, Abitter Kaan Uçar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asliulusoy/Voting-System-Project/issues"
+  },
+  "homepage": "https://github.com/asliulusoy/Voting-System-Project#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^6.0.0",
-    "body-parser": "^1.19.0",
-    "bcrypt": "^5.0.1"
+    "bcrypt": "^5.1.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.1"
   }
 }
