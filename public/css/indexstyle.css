@@ -1,18 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  color: #FFF;
+  font-family: 'Comfortaa';
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
-.header{
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  flex-shrink: 0;
   padding: 25px 12.5%;
-  background-color:rgb(20, 107, 122);
+  background-color: rgba(29, 53, 87, 0.75);
+  opacity: 0.75;
   display: flex;
   justify-content: space-between;
   align-items: center;
