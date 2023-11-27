@@ -1,3 +1,4 @@
+/*
 import express from 'express';
 import * as userController from '../controllers/userController.js';
 
@@ -7,3 +8,4 @@ router.route('/').post(userController.createUser);
 router.route('/').post(userController.loginUser);
 
 export default router;
+*/
