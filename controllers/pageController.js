@@ -1,3 +1,4 @@
+/*
 const getProfilePage = (req, res) => {
     res.render("index")
 };
@@ -13,3 +14,4 @@ const getHomePage = (req, res) => {
     });
 };
 export { getDashboardPage, getHomePage, getProfilePage, getVotingPage };
+*/

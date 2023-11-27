@@ -1,3 +1,4 @@
+/*
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 import bcrypt from 'bcrypt';
@@ -62,3 +63,4 @@ const createToken = (userId) => {
     });
 }
 export { createUser, loginUser };
+*/
