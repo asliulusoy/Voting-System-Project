@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 //routes
 app.use('/', pageRoute);
-app.use('/', userRoute);
+//app.use('/', userRoute);
 
 app.get('/', (req, res) => {
     res.render('index', { title: 'Your Page Title', message: 'Your page message' });

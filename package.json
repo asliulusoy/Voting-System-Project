@@ -1,7 +1,7 @@
 {
   "name": "voting-system-project",
   "version": "1.0.0",
-  "description": "This project is a user-friendly web application designed for computer engineering students to conduct project evaluations. Built using Node.js and MongoDB, it offers a secure login, a sleek project showcase, intuitive voting, and real-time result updates. The platform promotes collaboration, fair evaluations, and showcases technological excellence.",
+  "description": "A project for CMPE 331",
   "main": "app.js",
   "type": "module",
   "scripts": {
@@ -11,25 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/asliulusoy/Voting-System-Project.git"
   },
-  "keywords": [
-    "secure",
-    "authentication",
-    "project",
-    "showcase",
-    "intuitive",
-    "voting",
-    "real-time",
-    "updates",
-    "results",
-    "dashboard",
-    "node.js",
-    "backend",
-    "mongodb",
-    "database",
-    "responsive",
-    "design"
-  ],
-  "author": "Aslı Gizem Ulusoy, Ramiz Kadayıfçı, Furkan Şakir Ünal, Uygar Evciman, Abitter Kaan Uçar",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/asliulusoy/Voting-System-Project/issues"
