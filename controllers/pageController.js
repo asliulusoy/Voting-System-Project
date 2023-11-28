@@ -1,17 +1,17 @@
 /*
 const getProfilePage = (req, res) => {
-    res.render("index")
+    res.render("profile")
 };
+*/
 const getDashboardPage = (req, res) => {
-    res.render("stuindex")
+    res.render("dashboard")
 };
 const getVotingPage = (req, res) => {
-    res.render("insindex")
+    res.render("voting")
 };
 const getHomePage = (req, res) => {
     res.render("home", {
-        link: "home",
+        link: "index",
     });
 };
-export { getDashboardPage, getHomePage, getProfilePage, getVotingPage };
-*/
+export { getDashboardPage, getHomePage, getVotingPage };

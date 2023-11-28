@@ -1,19 +1,18 @@
 import express from 'express';
-//import dotenv from 'dotenv';
-//import conn from './database.js';
-//import cookieParser from 'cookie-parser';
-//import pageRoute from "./routes/pageRoute.js";
-//import userRoute from "./routes/userRoute.js";
+import dotenv from 'dotenv';
+import conn from './database.js';
+import cookieParser from 'cookie-parser';
+import pageRoute from "./routes/pageRoute.js";
+import userRoute from "./routes/userRoute.js";
 
-//dotenv.config();
+dotenv.config();
 
 //db connection  
-//conn();
+conn();
 
 //const express = require('express');
 const app = express();
-const PORT = 3000;
-//const PORT = process.env.PORT;
+const PORT = process.env.PORT;
 
 //ejs template engine
 app.set('view engine', 'ejs');
@@ -22,11 +21,11 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//app.use(cookieParser());
+app.use(cookieParser());
 
 //routes
-//app.use('/', pageRoute);
-//app.use('/', userRoute);
+app.use('/', pageRoute);
+app.use('/', userRoute);
 
 app.get('/', (req, res) => {
     res.render('index', { title: 'Your Page Title', message: 'Your page message' });
