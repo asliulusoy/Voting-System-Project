@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "A project for CMPE 331",
   "main": "app.js",
+  "type": "module",
   "dependencies": {
     "ansi-styles": "^4.3.0",
     "async": "^3.2.5",
+    "bcrypt": "^5.1.1",
     "buffer-equal-constant-time": "^1.0.1",
     "chalk": "^4.1.2",
     "color-convert": "^2.0.1",
@@ -14,6 +16,7 @@
     "dotenv": "^16.3.1",
     "ecdsa-sig-formatter": "^1.0.11",
     "ejs": "^3.1.9",
+    "express": "^4.18.2",
     "filelist": "^1.0.4",
     "has-flag": "^4.0.0",
     "jake": "^10.8.7",
@@ -27,9 +30,10 @@
     "lodash.isplainobject": "^4.0.6",
     "lodash.isstring": "^4.0.1",
     "lodash.once": "^4.1.1",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.1",
     "supports-color": "^7.2.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
