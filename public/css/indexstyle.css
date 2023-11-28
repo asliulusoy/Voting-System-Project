@@ -22,7 +22,7 @@ font-family: 'Comfortaa';
 
 .navbar {
   text-align: right;
-  width: 95%;
+  width: 35%;
 }
 
 .logo a {
@@ -145,7 +145,7 @@ h6 span{
   width: 100%;
   display: block;
   bottom: 20px;
-  color: #020201;
+  color: rgb(18, 18, 46);
   opacity: 100%;
 }
 .full-height{
