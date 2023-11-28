@@ -1,7 +1,7 @@
 {
   "name": "voting-system-project",
   "version": "1.0.0",
-  "description": "A project for CMPE 331",
+  "description": "a group project based on voting systems",
   "main": "app.js",
   "type": "module",
   "scripts": {
