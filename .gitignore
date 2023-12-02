@@ -42,6 +42,13 @@ build/Release
 node_modules/
 jspm_packages/
 
+### VisualStudioCode ###
+.vscode/*      # Maybe .vscode/**/* instead - see comments
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
