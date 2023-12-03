@@ -16,6 +16,12 @@ const userSchema = new Schema({
         trim: true,
         maxlength: 9
     },
+    projectno: {
+        type: Number,
+        required: true,
+        trim: true,
+        maxlength: 2
+    },
     email: {
         type: String,
         required: true,

@@ -1,12 +1,12 @@
 
-const getProfilePage = (req, res) => {
+const getIndexPage = (req, res) => {
     res.render("index")
 };
-/*
-const getDashboardPage = (req, res) => {
-    res.render("dashboard")
-};
 
+const getDashboardPage = (req, res) => {
+    res.render("dashboardindex")
+};
+/*
 const getVotingPage = (req, res) => {
     res.render("voting")
 };
@@ -16,4 +16,4 @@ const getHomePage = (req, res) => {
     });
 };
 */
-export {getProfilePage};
+export {getIndexPage, getDashboardPage};

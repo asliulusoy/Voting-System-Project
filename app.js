@@ -10,7 +10,7 @@ dotenv.config();
 //db connection  
 conn();
 
-//const express = require('express');
+
 const app = express();
 const PORT = process.env.PORT;
 
@@ -24,8 +24,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 //routes
-app.use('/', pageRoute);
-//app.use('/', userRoute);
+app.use('/dashboard', pageRoute);
+app.use('/', userRoute);
 
 app.get('/', (req, res) => {
     res.render('index', { title: 'Your Page Title', message: 'Your page message' });
