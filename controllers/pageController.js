@@ -23,6 +23,11 @@ const getDashboardPage = (req, res) => {
         link: 'dashboard',
     });
 };
+const getProjectsPage = (req, res) => {
+    res.render("projects", {
+        link: 'projects',
+    });
+};
 /*
 const getProfilePage = (req, res) => {
     res.render("profile", {
@@ -40,4 +45,4 @@ const getProfilePage = (req, res) => {
 const getALVotingPage = (req, res) => {
     res.render("voting")
 };
-export {getIndexPage, getDashboardPage, getALVotingPage};
+export {getIndexPage, getProjectsPage, getDashboardPage, getALVotingPage};

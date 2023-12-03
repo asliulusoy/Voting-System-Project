@@ -14,6 +14,6 @@ router.route("/signup").get(pageController.getIndexPage);
 router.route("/dashboard").get(auth.authenticateToken, pageController.getDashboardPage);
 router.route("/voting").get(auth.authenticateToken,pageController.getALVotingPage);
 //router.route("/profile").get(auth.authenticateToken, pageController.getProfilePage);
-//router.route("/projects").get(auth.authenticateToken, pageController.getProfilePage);
+router.route("/projects").get(pageController.getProjectsPage); //auth.authenticateToken,
 
 export default router;
