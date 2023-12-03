@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const conn = () => {
-    mongoose.connect(process.env.MONGODB_URI, {
+    mongoose.connect(process.env.db_URI, {
         dbName: "Voting-System-Project",
     }).then(() => {
         console.log("Successfully connected to the Voting-System-Project Database");
