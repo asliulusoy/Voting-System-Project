@@ -24,12 +24,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 //routes
+app.use('/', pageRoute);
 app.use('/dashboard', pageRoute);
-app.use('/', userRoute);
-
-app.get('/', (req, res) => {
-    res.render('index', { title: 'Your Page Title', message: 'Your page message' });
-  });
+app.use('/users', userRoute);
   
 app.listen(PORT, () => {
     console.log("Listening Port: " + PORT);
