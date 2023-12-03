@@ -35,3 +35,11 @@ body{
 .ratings span:hover ~ span{
     color: orange;
 }
+
+.ratings span[data-clicked]{
+    color:orange;
+}
+
+.ratings span[data-clicked] ~ span{
+    color: orange;
+}
