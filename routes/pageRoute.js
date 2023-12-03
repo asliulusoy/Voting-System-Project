@@ -7,8 +7,13 @@ const router = express.Router();
 router.route("/").get(pageController.getIndexPage);
 router.route("/login").get(pageController.getIndexPage);
 router.route("/signup").get(pageController.getIndexPage);
+//router.route("/voting").get(, pageController.getBLVotingPage);
+//router.route("/contact").get(, pageController.getContactPage);
+
+
 router.route("/dashboard").get(auth.authenticateToken, pageController.getDashboardPage);
-//router.route("/voting").get(auth.authenticateToken, pageController.getVotingPage);
+router.route("/voting").get(auth.authenticateToken,pageController.getALVotingPage);
 //router.route("/profile").get(auth.authenticateToken, pageController.getProfilePage);
+//router.route("/projects").get(auth.authenticateToken, pageController.getProfilePage);
 
 export default router;
