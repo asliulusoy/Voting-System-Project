@@ -7,13 +7,13 @@ const userSchema = new Schema({
     fullname: {
         type: String,
         required: true,
-        trim: true,
+        unique: true,
         maxlength: 20
     },
     stuid: {
         type: Number,
         required: true,
-        trim: true,
+        unique: true,
         maxlength: 9
     },
     /*

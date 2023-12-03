@@ -1,10 +1,14 @@
 
 const getIndexPage = (req, res) => {
-    res.render("index")
+    res.render("index", {
+        link:'index',
+    });
 };
 
 const getDashboardPage = (req, res) => {
-    res.render("dashboardindex")
+    res.render("dashboardindex", {
+        link: 'dashboard',
+    });
 };
 /*
 const getVotingPage = (req, res) => {

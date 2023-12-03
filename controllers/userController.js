@@ -19,9 +19,9 @@ const createUser = async (req, res) => {
 };
 const loginUser = async (req, res) => {
     try {
-      const { stuid, password } = req.body;
+      const { email, password } = req.body;
   
-      const user = await User.findOne({ stuid });
+      const user = await User.findOne({ email });
   
       let same = false;
   

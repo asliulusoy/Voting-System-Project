@@ -8,13 +8,13 @@ const authenticateToken = async (req, res, next) => {
                jwt.verify(token, process.env.SECRET_TOKEN, (err) => {
                     if(err){
                          console.log(err.message);
-                         res.redirect("/");
+                         res.redirect("/dashboard");
                     }else {
                          next();
                     }
                });
           }else {
-               res.redirect("/dashboard");
+               res.redirect("/login");
           }
      } catch (error) {
           res.status(401).json({
