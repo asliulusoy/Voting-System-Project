@@ -19,7 +19,7 @@ const getContactPage = (req, res) => {
 
 // AFTER LOGIN (AL)
 const getDashboardPage = (req, res) => {
-    res.render("dashboardindex", {
+    res.render("dashboard", {
         link: 'dashboard',
     });
 };
