@@ -5,8 +5,8 @@ const getIndexPage = (req, res) => {
     });
 };
 const getBLVotingtPage = (req, res) => {
-    res.render("voting", {
-        link: "voting",
+    res.render("blvoting", {
+        link: "blvoting",
     });
 };
 /*
@@ -28,6 +28,11 @@ const getProjectsPage = (req, res) => {
         link: 'projects',
     });
 };
+const getALVotingPage = (req, res) => {
+    res.render("afterlogvoting", {
+        link: 'voting',
+    });
+};
 /*
 const getProfilePage = (req, res) => {
     res.render("profile", {
@@ -42,7 +47,4 @@ const getProfilePage = (req, res) => {
     });
 };
 */
-const getALVotingPage = (req, res) => {
-    res.render("voting")
-};
 export {getIndexPage, getProjectsPage, getDashboardPage, getALVotingPage};

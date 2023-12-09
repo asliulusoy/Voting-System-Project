@@ -28,6 +28,7 @@ app.use('/', pageRoute);
 app.use('/dashboard', pageRoute);
 app.use('/users', userRoute);
 app.use('/projects', pageRoute);
+app.use('/voting', pageRoute);
   
 app.listen(PORT, () => {
     console.log("Listening Port: " + PORT);
