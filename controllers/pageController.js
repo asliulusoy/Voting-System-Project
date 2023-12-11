@@ -12,7 +12,7 @@ const getBLVotingtPage = (req, res) => {
 const getContactPage = (req, res) => {
     res.render('contact', {
         link: 'contact',
-    }); // EJS dosyasının adını belirtiyoruz
+    });
   };
 // AFTER LOGIN (AL)
 const getDashboardPage = (req, res) => {
