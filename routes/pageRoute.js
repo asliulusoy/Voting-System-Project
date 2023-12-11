@@ -11,5 +11,4 @@ router.route("/HowtoVote").get(pageController.getBLVotingtPage);
 router.route("/contact").get(pageController.getContactPage);
 router.route("/logout").get(pageController.getLogoutPage);
 
-
 export default router;

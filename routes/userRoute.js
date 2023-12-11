@@ -9,7 +9,8 @@ router.route('/signup').post(userController.createUser);
 router.route('/login').post(userController.loginUser);
 
 router.route('/dashboard').get(auth.authenticateToken, userController.getDashboardPage);
-router.route("/voting").get(auth.authenticateToken,pageController.getALVotingPage);
-router.route("/profile").get(auth.authenticateToken, pageController.getProfilePage);
-router.route("/projects").get(auth.authenticateToken, pageController.getProjectsPage);
+router.route("/voting").get(auth.authenticateToken,userController.getALVotingPage);
+router.route("/profile").get(auth.authenticateToken, userController.getProfilePage);
+router.route("/projects").get(auth.authenticateToken, userController.getProjectsPage);
+
 export default router;

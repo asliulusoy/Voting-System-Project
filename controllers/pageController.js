@@ -14,28 +14,11 @@ const getContactPage = (req, res) => {
         link: 'contact',
     });
   };
-// AFTER LOGIN (AL)
-const getProjectsPage = (req, res) => {
-    res.render("projects", {
-        link: 'projects',
-    });
-};
-const getALVotingPage = (req, res) => {
-    res.render("afterlogvoting", {
-        link: 'voting',
-    });
-};
-
-const getProfilePage = (req, res) => {
-    res.render("profile", {
-        link: "profile",
-    });
-};
-const getLogoutPage = (req, res) => {
+  const getLogoutPage = (req, res) => {
     res.cookie('jwt','',{
         maxAge: 1,
     });
     res.redirect("/");
-};
+  };
 
-export {getIndexPage, getProjectsPage, getALVotingPage, getBLVotingtPage, getContactPage, getProfilePage, getLogoutPage};
+export {getIndexPage,getBLVotingtPage, getContactPage, getLogoutPage};

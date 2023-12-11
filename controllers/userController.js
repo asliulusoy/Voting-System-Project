@@ -64,5 +64,23 @@ const getDashboardPage = async (req, res) => {
     link: 'dashboard',
   });
 };
+// AFTER LOGIN (AL)
+const getProjectsPage = (req, res) => {
+  res.render("projects", {
+      link: 'projects',
+  });
+};
+const getALVotingPage = (req, res) => {
+  res.render("afterlogvoting", {
+      link: 'voting',
+  });
+};
 
-export { createUser, loginUser, getDashboardPage };
+const getProfilePage = (req, res) => {
+  res.render("profile", {
+      link: "profile",
+  });
+};
+
+
+export { createUser, loginUser, getDashboardPage, getALVotingPage, getProfilePage, getProjectsPage};

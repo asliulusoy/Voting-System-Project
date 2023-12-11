@@ -12,9 +12,9 @@
           <nav class="site-navbar">
             <ul>
               <% if (user) { %>
-                <li><a class="<%= link === 'profile' && 'active' %>" href="/profile">Profile</a></li>
-                <li><a class="<%= link === 'voting' && 'active' %>" href="/voting">Voting</a></li>
-                <li><a class="<%= link === 'projects' && 'active' %>" href="/projects">Projects</a></li>
+                <li><a class="<%= link === 'profile' && 'active' %>" href="/users/profile">Profile</a></li>
+                <li><a class="<%= link === 'voting' && 'active' %>" href="/users/voting">Voting</a></li>
+                <li><a class="<%= link === 'projects' && 'active' %>" href="/users/projects">Projects</a></li>
                 <li><a class="<%= link === 'dashboard' && 'active' %>" href="/users/dashboard">Dashboard</a></li>
                 <li><a href="/logout">Logout</a></li>
                 <% } else { %>
