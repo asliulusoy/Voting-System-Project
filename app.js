@@ -11,8 +11,8 @@ dotenv.config();
 //db connection  
 conn();
 //for html->css
-//const __filename = url.fileURLToPath(import.meta.url);
-//const __dirname = path.dirname(__filename);
+/*const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);*/
 const app = express();
 const PORT = process.env.PORT;
 
@@ -24,7 +24,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 
 //routes
