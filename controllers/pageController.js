@@ -5,8 +5,8 @@ const getIndexPage = (req, res) => {
     });
 };
 const getBLVotingtPage = (req, res) => {
-    res.render("HowtoVote", {
-        link: "HowtoVote",
+    res.render("beforelogvoting", {
+        link: "beforelogvoting",
     });
 };
 
