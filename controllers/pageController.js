@@ -9,14 +9,9 @@ const getBLVotingtPage = (req, res) => {
         link: "voting",
     });
 };
-/*
-const getContactPage = (req, res) => {
-    res.render("contact", {
-        link: "contact",
-    });
-};
-*/
-
+export const getContactPage = (req, res) => {
+    res.render('contact'); // EJS dosyasının adını belirtiyoruz
+  };
 // AFTER LOGIN (AL)
 const getDashboardPage = (req, res) => {
     res.render("dashboardindex", {
