@@ -15,11 +15,6 @@ const getContactPage = (req, res) => {
     });
   };
 // AFTER LOGIN (AL)
-const getDashboardPage = (req, res) => {
-    res.render("dashboard", {
-        link: 'dashboard',
-    });
-};
 const getProjectsPage = (req, res) => {
     res.render("projects", {
         link: 'projects',
@@ -37,4 +32,4 @@ const getProfilePage = (req, res) => {
     });
 };
 
-export {getIndexPage, getProjectsPage, getDashboardPage, getALVotingPage, getBLVotingtPage, getContactPage, getProfilePage};
+export {getIndexPage, getProjectsPage, getALVotingPage, getBLVotingtPage, getContactPage, getProfilePage};

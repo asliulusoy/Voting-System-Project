@@ -37,8 +37,8 @@ const loginUser = async (req, res) => {
           httpOnly: true,
           maxAge: 1000 * 60 * 60 * 24,
         });
-  
-        res.redirect('/dashboard');
+        res.redirect('/users/dashboard');
+        //
       } else {
         res.status(401).json({
           succeded: false,
@@ -59,4 +59,16 @@ const createToken = (userId) => {
     });
 }
 
-export { createUser, loginUser };
+const getDashboardPage = async (req, res) => {
+  //const photos = await Photo.find({ user: res.locals.user._id });
+  const user = await User.findById({ _id: res.locals.user._id }).populate([
+    'followings',
+    'followers',
+  ]);
+  res.render('dashboard', {
+    link: 'dashboard',
+    //photos,
+    user,
+  });
+};
+export { createUser, loginUser, getDashboardPage };

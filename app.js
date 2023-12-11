@@ -26,14 +26,10 @@ app.use(cookieParser());
 app.get("*", checkUser);
 //before login
 app.use('/', pageRoute);
-app.use('/HowtoVote', pageRoute); //before login voting page
-app.use('/contact', pageRoute);
+
 //after login
 app.use('/users', userRoute);
-app.use('/dashboard', pageRoute);
-app.use('/profile', pageRoute);
-app.use('/projects', pageRoute);
-app.use('/voting', pageRoute); //after login voting page
+
 
 
   
