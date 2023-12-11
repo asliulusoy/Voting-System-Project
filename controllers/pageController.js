@@ -31,5 +31,11 @@ const getProfilePage = (req, res) => {
         link: "profile",
     });
 };
+const getLogoutPage = (req, res) => {
+    res.cookie('jwt','',{
+        maxAge: 1,
+    });
+    res.redirect("/");
+};
 
-export {getIndexPage, getProjectsPage, getALVotingPage, getBLVotingtPage, getContactPage, getProfilePage};
+export {getIndexPage, getProjectsPage, getALVotingPage, getBLVotingtPage, getContactPage, getProfilePage, getLogoutPage};
