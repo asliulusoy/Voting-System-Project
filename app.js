@@ -4,6 +4,7 @@ import conn from './database.js';
 import cookieParser from 'cookie-parser';
 import pageRoute from "./routes/pageRoute.js";
 import userRoute from "./routes/userRoute.js";
+import { checkUser } from './middleware/auth.js';
 dotenv.config();
 
 //db connection  
@@ -22,16 +23,13 @@ app.use(cookieParser());
 
 
 //routes
+app.get("*", checkUser);
 //before login
 app.use('/', pageRoute);
-app.use('/HowtoVote', pageRoute); //before login voting page
-app.use('/contact', pageRoute);
+
 //after login
 app.use('/users', userRoute);
-app.use('/dashboard', pageRoute);
-app.use('/profile', pageRoute);
-app.use('/projects', pageRoute);
-app.use('/voting', pageRoute); //after login voting page
+
 
 
   
