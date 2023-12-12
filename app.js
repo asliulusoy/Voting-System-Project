@@ -5,12 +5,12 @@ import cookieParser from 'cookie-parser';
 import pageRoute from "./routes/pageRoute.js";
 import userRoute from "./routes/userRoute.js";
 import { checkUser } from './middleware/auth.js';
-import path from 'path';
-import url from 'url';
+/*import path from 'path';
+import url from 'url';*/
 dotenv.config();
 
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+/*const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);*/
 
 
 //db connection  
@@ -26,7 +26,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 
 //routes
