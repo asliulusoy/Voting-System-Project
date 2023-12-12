@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <%- include("partials/_header") %>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>UVote - Student Project Evaluation</title>
   <!-- CSS -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
@@ -16,18 +14,7 @@
 </head>
 
 <body>
-
-  <header class="header">
-    <div class="logo">
-      <a href="#">Uvote</a>
-    </div>
-    <nav class="navbar">
-      <a href="/">Home</a>
-      <a href="/HowtoVote">Voting</a>
-      <a href="#">About</a>
-      <a href="/contact">Contact</a>
-    </nav>
-  </header>
+  <%- include("partials/_menu") %>
 
   <div class="img"></div>
   <div class="container">
@@ -38,7 +25,7 @@
         <p>With this website,
           you will be able to evaluate and vote on projects
           prepared by students in groups.</p>
-      </div>
+  
       <div class="sign-up-in-box">
         <div class="container">
           <div class="row full-height justify-content-center">
@@ -104,6 +91,7 @@
           </div>
         </div>
       </div>
+    </div>
 
 </body>
 

@@ -5,10 +5,7 @@ import bcrypt from 'bcrypt';
 const createUser = async (req, res) => {
     try {
         const user = await User.create(req.body);
-        res.status(201).json({
-            succeded: true,
-            user,
-        });
+      res.redirect("/login");
     } catch (error) {
         res.status(500).json({
             succeded: false,
@@ -40,8 +37,8 @@ const loginUser = async (req, res) => {
           httpOnly: true,
           maxAge: 1000 * 60 * 60 * 24,
         });
-  
-        res.redirect('/dashboard');
+        res.redirect('/users/dashboard');
+        //
       } else {
         res.status(401).json({
           succeded: false,
@@ -61,4 +58,29 @@ const createToken = (userId) => {
         expiresIn: "1d",
     });
 }
-export { createUser, loginUser };
+
+const getDashboardPage = async (req, res) => {
+  res.render('dashboard', {
+    link: 'dashboard',
+  });
+};
+// AFTER LOGIN (AL)
+const getProjectsPage = (req, res) => {
+  res.render("projects", {
+      link: 'projects',
+  });
+};
+const getALVotingPage = (req, res) => {
+  res.render("afterlogvoting", {
+      link: 'voting',
+  });
+};
+
+const getProfilePage = (req, res) => {
+  res.render("profile", {
+      link: "profile",
+  });
+};
+
+
+export { createUser, loginUser, getDashboardPage, getALVotingPage, getProfilePage, getProjectsPage};
