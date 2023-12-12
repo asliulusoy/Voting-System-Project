@@ -66,12 +66,13 @@ const createToken = (userId) => {
     });
 }
 
+
+// AFTER LOGIN (AL)
 const getDashboardPage = async (req, res) => {
   res.render('dashboard', {
     link: 'dashboard',
   });
 };
-// AFTER LOGIN (AL)
 const getProjectsPage = (req, res) => {
   res.render("projects", {
       link: 'projects',
