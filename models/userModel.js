@@ -1,14 +1,16 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
+import validator from 'validator';
 
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
     fullname: {
         type: String,
-        required: true,
+        required: [true, "Name area is required."],
         unique: true,
-        maxlength: 20
+        maxlength: 20,
+        validate: [validator.isAlphanumeric, "Only alphanumeric characters."]
     },
     stuid: {
         type: Number,
@@ -26,13 +28,14 @@ const userSchema = new Schema({
     */
     email: {
         type: String,
-        required: true,
+        required: [true, "Email area is required"],
         unique: true,
         match: [/^\w+([-]?\w+)*@bilgiedu\.net$/, 'Please enter a valid email address.']
     },
     password: {
         type: String,
-        required: true,
+        required: [true, "Password area is required"],
+        minLength: [4, "At least 4 characters"]
     },
 },
     {
