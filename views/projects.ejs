@@ -1,99 +1,15 @@
 <!DOCTYPE html>
 <html>
+    <%- include("partials/_header") %>
+    <link rel="stylesheet" href="/css/projectsstyle.css">
 <head>
-<style>
- .square {
-    position: absolute;
-    top: 250px;
-    left: 50px;
-    width: 700px;
-    height: 600px;
-    opacity: 0.55; 
-    background: #003049; 
-    border-radius: 20px   
- }
- .button1 {
-    position: absolute;
-    top: 310px;
-    left: 100px;
-    width: 70px; 
-    height: 70px; 
-    opacity: 0.80; 
-    background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-    border-radius: 22px
- }
- .button1 {
-    position: absolute;
-    top: 310px;
-    left: 100px;
-    width: 70px; 
-    height: 70px; 
-    opacity: 0.80; 
-    background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-    border-radius: 22px
- }
- .button2 {
-    position: absolute;
-    top: 310px;
-    left: 200px;
-    width: 70px; 
-    height: 70px; 
-    opacity: 0.80; 
-    background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-    border-radius: 22px
- }
- .button3 {
-    position: absolute;
-    top: 310px;
-    left: 300px;
-    width: 70px; 
-    height: 70px; 
-    opacity: 0.80; 
-    background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-    border-radius: 22px
- }
- .button4 {
-    position: absolute;
-    top: 310px;
-    left: 400px;
-    width: 70px; 
-    height: 70px; 
-    opacity: 0.80; 
-    background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-    border-radius: 22px
- }
- .button5 {
-    position: absolute;
-    top: 310px;
-    left: 500px;
-    width: 70px; 
-    height: 70px; 
-    opacity: 0.80; 
-    background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-    border-radius: 22px
- }
- .button6 {
-    position: absolute;
-    top: 310px;
-    left: 600px;
-    width: 70px; 
-    height: 70px; 
-    opacity: 0.80; 
-    background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-    border-radius: 22px
- }
-</style>
+
 </head>
 <body>
-
+<%- include("partials/_menu") %>
+<div class="img"></div>
 <div class="square"></div>
+<div class="square2"></div>
 <div class="button1"></div>
 <div class="button2"></div>
 <div class="button3"></div>
@@ -118,7 +34,16 @@
 <div class="button22"></div>
 <div class="button23"></div>
 <div class="button24"></div>
-
+<div class="rattings-wrapper">
+    <div data-projectid="01" class="ratings">
+        <span data-rating="5">&#9733</span>
+        <span data-rating="4">&#9733</span>
+        <span data-rating="3">&#9733</span>
+        <span data-rating="2">&#9733</span>
+        <span data-rating="1">&#9733</span>
+        <button class="submit-btn">Submit</button>
+    </div>
+</div>
 
 </body>
 </html>
