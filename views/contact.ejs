@@ -4,13 +4,16 @@
     <%- include("partials/_header") %>
 <head>
     <title>Contact Page</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/contactsyle.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://kit.fontawesome.com/00541e821b.js" crossorigin="anonymous"></script>
+  </link>
 </head>
 <body>
+    <div class="img">
     <%- include("partials/_menu") %>
-    <header>
-        <h1>Contact Us</h1>
-    </header>
 
     <section>
         <form action="/submit" method="post">
@@ -26,10 +29,6 @@
             <button type="submit">Submit</button>
         </form>
     </section>
-
-    <footer>
-        <p>&copy; 2023 Contact Page</p>
-    </footer>
-
+</div>
 </body>
 </html>
