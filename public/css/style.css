@@ -18,10 +18,10 @@ font-family: 'Comfortaa';
 .logo a {
     text-decoration: none;
     color: #f2f2f2;
-    height: 80px;
+   
     font-weight: 700;
     white-space: nowrap;
-    font-size: 45px;
+    font-size: 35px;
   }
 
 .navbar-area {

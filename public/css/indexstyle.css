@@ -66,6 +66,7 @@ a:hover {
 	text-decoration: none;
 }
 .link {
+  font-size: 20px;
   color: #c7cfe0;
 }
 .link:hover {

@@ -13,13 +13,11 @@
             <ul>
               <% if (user) { %>
                 <li><a class="<%= link === 'profile' && 'active' %>" href="/users/profile">Profile</a></li>
-                <li><a class="<%= link === 'voting' && 'active' %>" href="/users/voting">Voting</a></li>
                 <li><a class="<%= link === 'projects' && 'active' %>" href="/users/projects">Projects</a></li>
                 <li><a class="<%= link === 'dashboard' && 'active' %>" href="/users/dashboard">Dashboard</a></li>
                 <li><a href="/logout">Logout</a></li>
                 <% } else { %>
                   <li><a class="<%= link === 'index' && 'active' %>" href="/">Home</a></li>
-                  <li><a class="<%= link === 'voting' && 'active' %>" href="/HowtoVote">Voting</a></li>
                   <li><a class="<%= link === 'about' && 'active' %>" href="/about">About</a></li>
                   <li><a class="<%= link === 'contact' && 'active' %>" href="/contact">Contact</a></li>
                   <% }%>
