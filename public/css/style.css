@@ -7,26 +7,31 @@ font-family: 'Comfortaa';
 }
 /*-- header --*/
 .header-area {
-    position: fixed;
-    z-index: 1;
+    
     width: 100%;
     background: rgba(29, 53, 87, 0.75);
     height: 80px;
     padding: 23px 20px;
     justify-content: space-between;
+    z-index: 1;
 }
 .logo a {
+    padding: 15px 5px;
     text-decoration: none;
     color: #f2f2f2;
-    height: 80px;
+<<<<<<< HEAD
+   
+=======
+>>>>>>> 6ae47b396f926529a8c6b12948bfd8226787609e
     font-weight: 700;
     white-space: nowrap;
-    font-size: 45px;
+    font-size: 35px;
   }
 
 .navbar-area {
     float: left;
 }
+
 .site-navbar ul {
     margin: 0;
     padding: 0;

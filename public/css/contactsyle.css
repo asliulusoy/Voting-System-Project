@@ -1,13 +1,19 @@
 /* Reset some default styles */
-body, h1, p, form {
+body{
     margin: 0;
     padding: 0;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f8f8;
-}
+    box-sizing: border-box;
+    font-family: 'Comfortaa';
+    }
+.img{
+    background: url("/images/pxfuel.jpg") no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    }    
 
 header {
     background-color: #333;
@@ -17,12 +23,13 @@ header {
 }
 
 section {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #5a3f3f;
+    margin-left:500px;
+    margin-top: 70px;
+    max-width: 500px;
+    background-color: #2B2A4C;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 20px;
 }
 
 form {
@@ -41,13 +48,14 @@ textarea {
     padding: 10px;
     box-sizing: border-box;
     margin-bottom: 10px;
-    border: 1px solid #831c1c;
+    border: 1px solid #2B2A4C;
+    
     border-radius: 4px;
 }
 
 button {
     background-color: #333;
-    color: #721f1f;
+    color: white;
     padding: 10px 15px;
     border: none;
     cursor: pointer;

@@ -5,12 +5,19 @@ import bcrypt from 'bcrypt';
 const createUser = async (req, res) => {
     try {
         const user = await User.create(req.body);
-      res.redirect("/login");
+      res.status(200).json({user: user._id});
     } catch (error) {
-        res.status(500).json({
-            succeded: false,
-            error,
+
+      let errors2 = {};
+      if (error.code === 11000) {
+        errors2.email = 'The Email is already registered';
+      }
+      if (error.name ==="ValidationError"){
+        Object.keys(error.errors).forEach((key)=>{
+          errors2[key]= error.errors[key].message;
         });
+      }
+        res.status(400).json(errors2);
     }
 
 };
@@ -38,7 +45,7 @@ const loginUser = async (req, res) => {
           maxAge: 1000 * 60 * 60 * 24,
         });
         res.redirect('/users/dashboard');
-        //
+        
       } else {
         res.status(401).json({
           succeded: false,
@@ -59,12 +66,13 @@ const createToken = (userId) => {
     });
 }
 
+
+// AFTER LOGIN (AL)
 const getDashboardPage = async (req, res) => {
   res.render('dashboard', {
     link: 'dashboard',
   });
 };
-// AFTER LOGIN (AL)
 const getProjectsPage = (req, res) => {
   res.render("projects", {
       link: 'projects',
