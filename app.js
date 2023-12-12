@@ -4,13 +4,11 @@ import conn from './database.js';
 import cookieParser from 'cookie-parser';
 import pageRoute from "./routes/pageRoute.js";
 import userRoute from "./routes/userRoute.js";
-
+import { checkUser } from './middleware/auth.js';
 dotenv.config();
 
 //db connection  
 conn();
-
-
 const app = express();
 const PORT = process.env.PORT;
 
@@ -23,11 +21,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+
 //routes
+app.get("*", checkUser);
+//before login
 app.use('/', pageRoute);
-app.use('/dashboard', pageRoute);
+
+//after login
 app.use('/users', userRoute);
-app.use('/projects', pageRoute);
+
+
+
   
 app.listen(PORT, () => {
     console.log("Listening Port: " + PORT);

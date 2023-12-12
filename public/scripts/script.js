@@ -1,36 +1,76 @@
-let stars = document.querySelectorAll('.ratings span');
 let projects = document.querySelectorAll('.ratings');
-let ratings = [];
+let submitButtons = document.querySelectorAll('.submit-btn');
+let ratings = {};
 
-for (let star of stars) {
-    star.addEventListener("click", function () {
-        let children = star.parentElement.children;
-        for (let child of children) {
-            if (child.getAttribute("data-clicked")) {
-                return false;
-            }
-        }
-        this.setAttribute("data-clicked", "true");
-        let rating = this.dataset.rating;
-        let projectId = this.parentElement.dataset.projectid;
+for (let i = 0; i < projects.length; i++) {
+    let project = projects[i];
+    let submitBtn = submitButtons[i];
 
-        let data = {
-            "stars": rating,
-            "project-id": projectId,
+    project.addEventListener("click", function (event) {
+        let clickedElement = event.target;
+
+        if (clickedElement.tagName === 'SPAN') {
+            let rating = clickedElement.dataset.rating;
+            let projectId = this.dataset.projectid;
+
+            // Set the selected rating in the ratings object
+            ratings[projectId] = {
+                "stars": rating
+            };
+
+            // Update the star colors
+            updateStarColors(project, rating);
         }
-        ratings.push(data);
-        localStorage.setItem("rating", JSON.stringify(ratings));
+    });
+
+    submitBtn.addEventListener("click", function () {
+        // Get the project ID associated with the submit button
+        let projectId = project.dataset.projectid;
+
+        // Find the rating data for the corresponding project
+        let ratingData = ratings[projectId];
+
+        if (ratingData) {
+            // You can use ratingData["stars"] for the number of stars submitted
+            console.log("Stars submitted for Project " + projectId + ": " + ratingData["stars"]);
+
+            // Store the rating data in local storage
+            localStorage.setItem("rating", JSON.stringify(ratingData));
+        } else {
+            console.log("No rating submitted for Project " + projectId);
+        }
     });
 }
+
+// Function to update star colors
+function updateStarColors(project, selectedRating) {
+    let stars = project.querySelectorAll('.ratings span');
+    let reversedStars = Array.from(stars).reverse();
+
+    reversedStars.forEach((star, index) => {
+        if (index < selectedRating) {
+            star.style.color = 'orange';
+        } else {
+            star.style.color = 'gray';
+        }
+    });
+}
+
+// Restore previous selections
 if (localStorage.getItem("rating")) {
-    ratings = JSON.parse(localStorage.getItem("rating"));
-    for (let rating of ratings) {
-        for (let project of projects) {
-            if (rating["project-id"] == project.dataset.projectid) {
-                let reversedStars = Array.from(project.children).reverse();
-                let index = parseInt(rating["stars"]) - 1;
-                reversedStars[index].setAttribute("data-clicked", "true");
-            }
+    let storedRating = JSON.parse(localStorage.getItem("rating"));
+
+    for (let project of projects) {
+        let projectId = project.dataset.projectid;
+
+        if (ratings[projectId]) {
+            // Set the selected rating in the ratings object
+            ratings[projectId] = {
+                "stars": storedRating.stars
+            };
+
+            // Update the star colors
+            updateStarColors(project, storedRating.stars);
         }
     }
 }
