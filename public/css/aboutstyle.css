@@ -8,7 +8,7 @@ body{
     box-sizing: border-box;
     font-family: 'Comfortaa';
     }
-  .img {
+.img {
         background: url("/images/FirstPage1.png") no-repeat;
         position: absolute;
         width: 100%;
@@ -17,10 +17,29 @@ body{
         background-position: center;
         position: relative;
       }
-      header {
+header {
         background-color: #333;
         color: #fff;
         text-align: center;
         padding: 1em 0;
     }
+.hero-container{
+display: flex;
+margin-top: 234px;
+justify-content:space-between;
+align-items: center;
+
+}  
+.hero-container .left{
+  margin-right: 5px;
+}
+.hero-container .left p{
+font-size: 30px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+width: 677px;
+color: #FFFFFF
+;
+}
     

@@ -10,5 +10,5 @@ router.route("/signup").get(pageController.getIndexPage);
 router.route("/HowtoVote").get(pageController.getBLVotingtPage);
 router.route("/contact").get(pageController.getContactPage);
 router.route("/logout").get(pageController.getLogoutPage);
-
+router.route("/about").get(pageController.getAboutPage);
 export default router;
