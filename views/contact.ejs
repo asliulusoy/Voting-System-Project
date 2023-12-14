@@ -16,19 +16,53 @@
     <%- include("partials/_menu") %>
 
     <section>
-        <form action="/submit" method="post">
+        <form id="request" class="main_form" action="/contact" method="POST">
+            <div class="col-md-12">
+                <div style="display:none;" class="alert alert-success" id="sendMessage"></div>
+            </div>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
-
+    
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-
+    
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
-
+    
             <button type="submit">Submit</button>
         </form>
     </section>
 </div>
+    <script>
+      const form = document.querySelector('#request')
+      const sendMessage = document.querySelector('#sendMessage')
+
+      form.addEventListener("submit", async (e) => {
+         e.preventDefault();
+
+
+         const name = form.name.value
+         const email = form.email.value
+         const message = form.message.value
+  
+
+         try {
+            const res = await fetch('/contact', {
+               method: "POST",
+               body: JSON.stringify({ name, email, message}),
+               headers: { "Content-Type": "application/json" }
+            })
+
+            const data = await res.json();
+
+            if (data.succeeded) {
+                sendMessage.textContent = "Your Message Received." 
+                sendMessage.style.display="block"
+            }
+         } catch (err) {
+            console.log("ERR::", err)
+         }
+      })
+   </script>
 </body>
 </html>
