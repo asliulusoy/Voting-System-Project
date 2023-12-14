@@ -14,11 +14,16 @@ const getContactPage = (req, res) => {
         link: 'contact',
     });
   };
-  const getLogoutPage = (req, res) => {
+const getLogoutPage = (req, res) => {
     res.cookie('jwt','',{
         maxAge: 1,
     });
     res.redirect("/");
   };
+const getAboutPage = (req, res) => {
+    res.render('about', {
+        link: 'about',
+    });
+  };
 
-export {getIndexPage,getBLVotingtPage, getContactPage, getLogoutPage};
+export {getIndexPage,getBLVotingtPage, getContactPage, getLogoutPage,getAboutPage};
