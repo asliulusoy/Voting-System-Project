@@ -122,38 +122,15 @@ font-family: 'Comfortaa';
     bottom: 942px;
     left: 800px;
   }
-  .home,
-  .log-out,
-  .profile,
-  .projects,
-  .voting {
-    position: absolute;
-    text-decoration: underline;
-    font-weight: 600;
-    display: inline-block;
-    width: 137px;
-    height: 29px;
-    color: white;
-  }
+ 
   .home {
     bottom: 942px;
     left: 669px;
     color: white;
   }
-  .log-out,
-  .profile,
-  .voting {
-    top: 53px;
-    left: 937px;
-    color: white;
-  }
-  .log-out,
-  .voting {
-    left: 1098px;
-  }
-  .log-out {
-    left: 1259px;
-  }
+  
+  
+  
   .votingscreen1 {
     margin: 0;
   }
