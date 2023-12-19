@@ -14,7 +14,7 @@ body{
       background-position: center;
       position: relative;
     }
-  .rattings-wrapper {
+ /* .rattings-wrapper {
       *{
       position: absolute;
       top:400px;
@@ -64,7 +64,7 @@ body{
 .ratings span:hover ~ span{
    color: orange;
 }
-  }
+  }*/
    .square {
       position: absolute;
       top: 250px;

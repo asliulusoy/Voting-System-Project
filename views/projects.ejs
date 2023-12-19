@@ -4,108 +4,64 @@
     <link rel="stylesheet" href="/css/projectsstyle.css">
 <head>
     <script>
-let projects = document.querySelectorAll('.ratings');
-let submitButtons = document.querySelectorAll('.submit-btn');
-let ratings = {};
+        let selectedProjectNumber = 0;
+        let selectedStars = 0;
 
-for (let i = 0; i < projects.length; i++) {
-    let project = projects[i];
-    let submitBtn = submitButtons[i];
-
-    project.addEventListener("click", function (event) {
-        let clickedElement = event.target;
-
-        if (clickedElement.tagName === 'SPAN') {
-            let rating = clickedElement.dataset.rating;
-            let projectId = this.dataset.projectid;
-
-            // Set the selected rating in the ratings object
-            ratings[projectId] = {
-                "stars": rating
-            };
-
-            // Update the star colors
-            updateStarColors(project, rating);
+        function resetRating() {
+            const stars = document.querySelectorAll('.star input');
+            stars.forEach(star => {
+                star.checked = false;
+            });
+            selectedStars = 0; // Yıldız sayısını sıfırla
         }
-    });
 
-    submitBtn.addEventListener("click", function () {
-        // Get the project ID associated with the submit button
-        let projectId = project.dataset.projectid;
+        function submitRating() {
+            if (selectedProjectNumber === 0) {
+                alert('Please choose a project.');
+                return;
+            }
 
-        // Find the rating data for the corresponding project
-        let ratingData = ratings[projectId];
-
-        if (ratingData) {
-            // You can use ratingData["stars"] for the number of stars submitted
-            console.log("Stars submitted for Project " + projectId + ": " + ratingData["stars"]);
-
-            // Store the rating data in local storage
-            localStorage.setItem("rating", JSON.stringify(ratingData));
-        } else {
-            console.log("No rating submitted for Project " + projectId);
+            alert(`Project Number: ${selectedProjectNumber}, Star Rating: ${selectedStars}`);
+            resetRating(); // Oy verildikten sonra yıldızları sıfırla
         }
-    });
-}
 
-// Function to update star colors
-function updateStarColors(project, selectedRating) {
-    let stars = project.querySelectorAll('.ratings span');
-    let reversedStars = Array.from(stars).reverse();
+        function toggleTik(button, projectNumber) {
+    // Butondaki mevcut tik işaretini bul
+    var tikIsareti = button.querySelector('.tik-isareti');
 
-    reversedStars.forEach((star, index) => {
-        if (index < selectedRating) {
-            star.style.color = 'orange';
-        } else {
-            star.style.color = 'gray';
-        }
-    });
-}
-
-// Restore previous selections
-if (localStorage.getItem("rating")) {
-    let storedRating = JSON.parse(localStorage.getItem("rating"));
-
-    for (let project of projects) {
-        let projectId = project.dataset.projectid;
-
-        if (ratings[projectId]) {
-            // Set the selected rating in the ratings object
-            ratings[projectId] = {
-                "stars": storedRating.stars
-            };
-
-            // Update the star colors
-            updateStarColors(project, storedRating.stars);
-        }
-    }
-}//butonlara tik ekleme fonksiyonu
-function toggleTik(button, tikId) {
-      var tikIsareti = document.getElementById(tikId);
-
-      // Diğer butonlardaki tik işaretlerini kaldır
-      document.querySelectorAll('.tik-isareti').forEach(function (tik) {
-        tik.remove();
-      });
-
-      if (tikIsareti) {
+    // Eğer tik işareti zaten varsa, kaldır
+    if (tikIsareti) {
         tikIsareti.remove();
+        selectedProjectNumber = 0;
         button.classList.remove("active");
-      } else {
+    } else {
+        // Diğer butonlardaki tik işaretlerini kaldır
+        document.querySelectorAll('.tik-isareti').forEach(function (tik) {
+            tik.remove();
+        });
+
+        // Yeni tik işaretini oluştur ve ekle
         tikIsareti = document.createElement("span");
-        tikIsareti.id = tikId;
         tikIsareti.className = "tik-isareti";
         tikIsareti.innerHTML = "✔";
 
         var buttonRect = button.getBoundingClientRect();
-        tikIsareti.style.top = buttonRect.top + buttonRect.height / 2 -230 + 'px';
-        tikIsareti.style.left = buttonRect.right -40 + 'px';
+        tikIsareti.style.top = buttonRect.top + buttonRect.height / 2 - 230 + 'px';
+        tikIsareti.style.left = buttonRect.right - 40 + 'px';
 
         button.appendChild(tikIsareti);
         button.classList.add("active");
-      }
-    }
 
+        // Seçilen proje numarasını güncelle
+        selectedProjectNumber = projectNumber;
+    }
+}
+
+
+
+        function toggleStar(starId) {
+            selectedStars = starId;
+        }
     </script>
 </head>
 <body>
@@ -149,23 +105,21 @@ function toggleTik(button, tikId) {
 </div>
 <div class="square2"></div>
 <div class="star">
-
-    <input type="radio" id="r1">
+    <input type="radio" id="r1" onclick="toggleStar(5)">
     <label for="r1"></label>
    
-    <input type="radio" id="r2">
+    <input type="radio" id="r2" onclick="toggleStar(4)">
     <label for="r2"></label>
    
-    <input type="radio"  id="r3">
+    <input type="radio"  id="r3" onclick="toggleStar(3)">
     <label for="r3"></label>
    
-    <input type="radio" id="r4">
+    <input type="radio" id="r4" onclick="toggleStar(2)">
     <label for="r4"></label>
    
-    <input type="radio" id="r5">
+    <input type="radio" id="r5" onclick="toggleStar(1)">
     <label for="r5"></label>
-    <button class="submit-btn">Submit</button>
-   
-   </div>
+    <button class="submit-btn" onclick="submitRating()">Submit</button>
+</div>
 </body>
 </html>
