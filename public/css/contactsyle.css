@@ -1,11 +1,12 @@
 /* Reset some default styles */
-body{
+body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Comfortaa';
-    }
-.img{
+}
+
+.img {
     background: url("/images/pxfuel.jpg") no-repeat;
     position: absolute;
     width: 100%;
@@ -13,7 +14,7 @@ body{
     background-size: cover;
     background-position: center;
     position: relative;
-    }    
+}
 
 header {
     background-color: #333;
@@ -23,15 +24,21 @@ header {
 }
 
 section {
-    margin-left:500px;
-    margin-top: 70px;
-    max-width: 500px;
-    background-color: #2B2A4C;
+    margin: 170px auto; 
+    max-width: 700px;
+    background-color: #151c2d;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
 }
-
+.text-contact {
+    text-align: center; 
+}
+.text-contact h2 {
+    color: #f2f2f2;
+    font-size: 40px; 
+    font-weight: bold; 
+}
 form {
     display: grid;
     grid-gap: 15px;
@@ -39,7 +46,7 @@ form {
 
 label {
     font-weight: bold;
-    color: #2961aa;
+    color: #f2f2f2;
 }
 
 input,
@@ -49,13 +56,13 @@ textarea {
     box-sizing: border-box;
     margin-bottom: 10px;
     border: 1px solid #2B2A4C;
-    
+
     border-radius: 4px;
 }
 
 button {
-    background-color: #333;
-    color: white;
+    background-color: #625f6e;
+    color: #f2f2f2;
     padding: 10px 15px;
     border: none;
     cursor: pointer;
@@ -63,12 +70,12 @@ button {
 }
 
 button:hover {
-    background-color: #555;
+    background-color: #7a778a;
 }
 
 footer {
     background-color: #333;
-    color: #fff;
+    color: #f2f2f2;
     text-align: center;
     padding: 1em 0;
     position: fixed;

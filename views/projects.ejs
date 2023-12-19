@@ -3,47 +3,87 @@
     <%- include("partials/_header") %>
     <link rel="stylesheet" href="/css/projectsstyle.css">
 <head>
+   <%# <script 
+    
+    let selectedRating = 0;
+
+    document.querySelectorAll('.star').forEach(star => {
+        star.addEventListener('click', function() {
+            selectedRating = parseInt(this.getAttribute('data-rating'));
+            updateStars();
+        });
+    };
+
+        function updateStars() {
+            document.querySelectorAll('.star').forEach(star => {
+                const rating = parseInt(star.getAttribute('data-rating'));
+                star.style.color = rating <= selectedRating ? 'orange' : '#555';
+            });
+        }
+
+        function submitRating() {
+            console.log('Selected Rating:', selectedRating);
+            // Burada seçilen puanı kullanabilir veya gönderebilirsiniz.
+        }
+</script>    #%>
 </head>
 <body>
 <%- include("partials/_menu") %>
 <div class="img"></div>
-<div class="square"></div>
-<div class="square2"></div>
-<div class="button1"></div>
-<div class="button2"></div>
-<div class="button3"></div>
-<div class="button4"></div>
-<div class="button5"></div>
-<div class="button6"></div>
-<div class="button7"></div>
-<div class="button8"></div>
-<div class="button9"></div>
-<div class="button10"></div>
-<div class="button11"></div>
-<div class="button12"></div>
-<div class="button13"></div>
-<div class="button14"></div>
-<div class="button15"></div>
-<div class="button16"></div>
-<div class="button17"></div>
-<div class="button18"></div>
-<div class="button19"></div>
-<div class="button20"></div>
-<div class="button21"></div>
-<div class="button22"></div>
-<div class="button23"></div>
-<div class="button24"></div>
-<div class="rattings-wrapper">
-    <div data-projectid="01" class="ratings">
-        <span data-rating="5">&#9733</span>
-        <span data-rating="4">&#9733</span>
-        <span data-rating="3">&#9733</span>
-        <span data-rating="2">&#9733</span>
-        <span data-rating="1">&#9733</span>
-        <button class="submit-btn">Submit</button>
-    </div>
+<div class="square">
+    <div class="button-container">
+        <button class="btn">Button 1</button>
+        <button class="btn">Button 2</button>
+        <button class="btn">Button 3</button>
+        <button class="btn">Button 4</button>
+        <button class="btn">Button 5</button>
+        <button class="btn">Button 6</button>
+      </div>
+      <div class="button-container">
+        <button class="btn">Button 7</button>
+        <button class="btn">Button 8</button>
+        <button class="btn">Button 9</button>
+        <button class="btn">Button 10</button>
+        <button class="btn">Button 11</button>
+        <button class="btn">Button 12</button>
+      </div>
+      <div class="button-container">
+        <button class="btn">Button 13</button>
+        <button class="btn">Button 14</button>
+        <button class="btn">Button 15</button>
+        <button class="btn">Button 16</button>
+        <button class="btn">Button 17</button>
+        <button class="btn">Button 18</button>
+      </div>
+      <div class="button-container">
+        <button class="btn">Button 19</button>
+        <button class="btn">Button 20</button>
+        <button class="btn">Button 21</button>
+        <button class="btn">Button 22</button>
+        <button class="btn">Button 23</button>
+        <button class="btn">Button 24</button>
+      </div>
+  
 </div>
+<div class="square2"></div>
+<div class="star">
 
->>>>>>> furkan
+    <input type="radio" id="r1">
+    <label for="r1"></label>
+   
+    <input type="radio" id="r2">
+    <label for="r2"></label>
+   
+    <input type="radio"  id="r3">
+    <label for="r3"></label>
+   
+    <input type="radio" id="r4">
+    <label for="r4"></label>
+   
+    <input type="radio" id="r5">
+    <label for="r5"></label>
+    <button class="submit-btn">Submit</button>
+   
+   </div>
 </body>
 </html>
