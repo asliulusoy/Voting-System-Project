@@ -114,8 +114,21 @@ body{
         border-radius: 22px;
         font-size: 20px;
     }
-   
-   .star {
+    .tik-isareti {
+      position: absolute;
+      top: 0%;
+      left: 15%;
+      transform: translate(-50%, -50%);
+      display: none; /* Başlangıçta gizli */
+      color: #00ff00; /* Yeşil renk kodu */
+      font-size: 20px;
+    }
+    
+  .btn:hover .tik-isareti,
+  .btn.active .tik-isareti {
+      display: block;
+    }
+  .star {
    width: 400px;
    position: absolute;
    top: 800px;

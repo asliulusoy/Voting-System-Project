@@ -3,65 +3,147 @@
     <%- include("partials/_header") %>
     <link rel="stylesheet" href="/css/projectsstyle.css">
 <head>
-   <%# <script 
-    
-    let selectedRating = 0;
+    <script>
+        let projects = document.querySelectorAll('.ratings');
+let submitButtons = document.querySelectorAll('.submit-btn');
+let ratings = {};
 
-    document.querySelectorAll('.star').forEach(star => {
-        star.addEventListener('click', function() {
-            selectedRating = parseInt(this.getAttribute('data-rating'));
-            updateStars();
-        });
-    };
+for (let i = 0; i < projects.length; i++) {
+    let project = projects[i];
+    let submitBtn = submitButtons[i];
 
-        function updateStars() {
-            document.querySelectorAll('.star').forEach(star => {
-                const rating = parseInt(star.getAttribute('data-rating'));
-                star.style.color = rating <= selectedRating ? 'orange' : '#555';
-            });
+    project.addEventListener("click", function (event) {
+        let clickedElement = event.target;
+
+        if (clickedElement.tagName === 'SPAN') {
+            let rating = clickedElement.dataset.rating;
+            let projectId = this.dataset.projectid;
+
+            // Set the selected rating in the ratings object
+            ratings[projectId] = {
+                "stars": rating
+            };
+
+            // Update the star colors
+            updateStarColors(project, rating);
         }
+    });
 
-        function submitRating() {
-            console.log('Selected Rating:', selectedRating);
-            // Burada seçilen puanı kullanabilir veya gönderebilirsiniz.
+    submitBtn.addEventListener("click", function () {
+        // Get the project ID associated with the submit button
+        let projectId = project.dataset.projectid;
+
+        // Find the rating data for the corresponding project
+        let ratingData = ratings[projectId];
+
+        if (ratingData) {
+            // You can use ratingData["stars"] for the number of stars submitted
+            console.log("Stars submitted for Project " + projectId + ": " + ratingData["stars"]);
+
+            // Store the rating data in local storage
+            localStorage.setItem("rating", JSON.stringify(ratingData));
+        } else {
+            console.log("No rating submitted for Project " + projectId);
         }
-</script>    #%>
+    });
+}
+
+// Function to update star colors
+function updateStarColors(project, selectedRating) {
+    let stars = project.querySelectorAll('.ratings span');
+    let reversedStars = Array.from(stars).reverse();
+
+    reversedStars.forEach((star, index) => {
+        if (index < selectedRating) {
+            star.style.color = 'orange';
+        } else {
+            star.style.color = 'gray';
+        }
+    });
+}
+
+// Restore previous selections
+if (localStorage.getItem("rating")) {
+    let storedRating = JSON.parse(localStorage.getItem("rating"));
+
+    for (let project of projects) {
+        let projectId = project.dataset.projectid;
+
+        if (ratings[projectId]) {
+            // Set the selected rating in the ratings object
+            ratings[projectId] = {
+                "stars": storedRating.stars
+            };
+
+            // Update the star colors
+            updateStarColors(project, storedRating.stars);
+        }
+    }
+}
+function toggleTik(button, tikId) {
+      var tikIsareti = document.getElementById(tikId);
+
+      // Diğer butonlardaki tik işaretlerini kaldır
+      document.querySelectorAll('.tik-isareti').forEach(function (tik) {
+        tik.remove();
+      });
+
+      if (tikIsareti) {
+        tikIsareti.remove();
+        button.classList.remove("active");
+      } else {
+        tikIsareti = document.createElement("span");
+        tikIsareti.id = tikId;
+        tikIsareti.className = "tik-isareti";
+        tikIsareti.innerHTML = "✔";
+
+        var buttonRect = button.getBoundingClientRect();
+        tikIsareti.style.top = buttonRect.top + buttonRect.height / 2 -230 + 'px';
+        tikIsareti.style.left = buttonRect.right -40 + 'px';
+
+        button.appendChild(tikIsareti);
+        button.classList.add("active");
+      }
+    }
+
+    </script>
 </head>
 <body>
 <%- include("partials/_menu") %>
+
 <div class="img"></div>
 <div class="square">
     <div class="button-container">
-        <button class="btn">Button 1</button>
-        <button class="btn">Button 2</button>
-        <button class="btn">Button 3</button>
-        <button class="btn">Button 4</button>
-        <button class="btn">Button 5</button>
-        <button class="btn">Button 6</button>
+        <button class="btn" onclick="toggleTik(this, 1)">Button 1</button>
+        <button class="btn" onclick="toggleTik(this, 2)">Button 2</button>
+        <button class="btn" onclick="toggleTik(this, 3)">Button 3</button>
+        <button class="btn" onclick="toggleTik(this, 4)">Button 4</button>
+        <button class="btn" onclick="toggleTik(this, 5)">Button 5</button>
+        <button class="btn" onclick="toggleTik(this, 6)">Button 6</button>
       </div>
       <div class="button-container">
-        <button class="btn">Button 7</button>
-        <button class="btn">Button 8</button>
-        <button class="btn">Button 9</button>
-        <button class="btn">Button 10</button>
-        <button class="btn">Button 11</button>
-        <button class="btn">Button 12</button>
+        <button class="btn" onclick="toggleTik(this, 7)">Button 7</button>
+        <button class="btn" onclick="toggleTik(this, 8)">Button 8</button>
+        <button class="btn" onclick="toggleTik(this, 9)">Button 9</button>
+        <button class="btn" onclick="toggleTik(this, 10)">Button 10</button>
+        <button class="btn" onclick="toggleTik(this, 11)">Button 11</button>
+        <button class="btn" onclick="toggleTik(this, 12)">Button 12</button>
       </div>
       <div class="button-container">
-        <button class="btn">Button 13</button>
-        <button class="btn">Button 14</button>
-        <button class="btn">Button 15</button>
-        <button class="btn">Button 16</button>
-        <button class="btn">Button 17</button>
-        <button class="btn">Button 18</button>
+        <button class="btn" onclick="toggleTik(this, 13)">Button 13</button>
+        <button class="btn" onclick="toggleTik(this, 14)">Button 14</button>
+        <button class="btn" onclick="toggleTik(this, 15)">Button 15</button>
+        <button class="btn" onclick="toggleTik(this, 16)">Button 16</button>
+        <button class="btn" onclick="toggleTik(this, 17)">Button 17</button>
+        <button class="btn" onclick="toggleTik(this, 18)">Button 18</button>
       </div>
       <div class="button-container">
-        <button class="btn">Button 19</button>
-        <button class="btn">Button 20</button>
-        <button class="btn">Button 21</button>
-        <button class="btn">Button 22</button>
-        <button class="btn">Button 23</button>
-        <button class="btn">Button 24</button>
+        <button class="btn" onclick="toggleTik(this, 19)">Button 19</button>
+        <button class="btn" onclick="toggleTik(this, 20)">Button 20</button>
+        <button class="btn" onclick="toggleTik(this, 21)">Button 21</button>
+        <button class="btn" onclick="toggleTik(this, 22)">Button 22</button>
+        <button class="btn" onclick="toggleTik(this, 23)">Button 23</button>
+        <button class="btn" onclick="toggleTik(this, 24)">Button 24</button>
       </div>
   
 </div>

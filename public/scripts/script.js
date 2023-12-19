@@ -74,3 +74,14 @@ if (localStorage.getItem("rating")) {
         }
     }
 }
+function toggleTik(button) {
+    var tikIsareti = document.createElement("span");
+    tikIsareti.className = "tik-isareti";
+    tikIsareti.innerHTML = "✔";
+  
+    if (button.contains(tikIsareti)) {
+      button.removeChild(tikIsareti);
+    } else {
+      button.appendChild(tikIsareti);
+    }
+  }
