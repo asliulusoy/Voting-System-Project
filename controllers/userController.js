@@ -60,6 +60,8 @@ const loginUser = async (req, res) => {
     }
   };
 
+
+
 const createToken = (userId) => {
     return jwt.sign({ userId }, process.env.SECRET_TOKEN, {
         expiresIn: "1d",
@@ -87,8 +89,13 @@ const getALVotingPage = (req, res) => {
 const getProfilePage = (req, res) => {
   res.render("profile", {
       link: "profile",
+      User,
   });
 };
 
+const extractUserIdFromToken = (token) => {
+  const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
+  return decodedToken.userId;
+};
 
 export { createUser, loginUser, getDashboardPage, getALVotingPage, getProfilePage, getProjectsPage};
