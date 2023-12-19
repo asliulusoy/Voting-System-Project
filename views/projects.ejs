@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/css/projectsstyle.css">
 <head>
     <script>
-        let projects = document.querySelectorAll('.ratings');
+let projects = document.querySelectorAll('.ratings');
 let submitButtons = document.querySelectorAll('.submit-btn');
 let ratings = {};
 
@@ -79,7 +79,7 @@ if (localStorage.getItem("rating")) {
             updateStarColors(project, storedRating.stars);
         }
     }
-}
+}//butonlara tik ekleme fonksiyonu
 function toggleTik(button, tikId) {
       var tikIsareti = document.getElementById(tikId);
 
