@@ -33,14 +33,12 @@ body {
     justify-content: space-between;   
     flex-wrap: wrap;
 }
-
-
-.square {
+.container .content{
    width: 40%;
    padding: 20px;
    height: 450px;
-   opacity: 0.55;
-   background: #003049;
+   
+   background: rgba(29, 53, 87, 0.55);
    border-radius: 20px;
    display: flex;
    flex-direction: column;
@@ -51,15 +49,14 @@ body {
 .square2 {
     width: 50%; 
     height: 750px;
-    opacity: 0.85;
-    background: #003049;
+    background: rgba(29, 53, 87, 0.85);
     border-radius: 20px;
 }
 
 .ratings-wrapper {
    position: absolute;
-   top: 700px;
-   left: 400px;
+   top: 800px;
+   left: 450px;
 }
 
 .ratings {
@@ -99,7 +96,7 @@ body {
    color: orange;
 }
 
-.buttons {
+.button-container {
    display: grid;
    grid-template-columns: repeat(6, 1fr);
    grid-gap: 30px; 
@@ -107,203 +104,20 @@ body {
    justify-content: start;
    align-items: center;
 }
-.button1 {
+
+.btn {
+
+   top: 310px;
+   left: 100px;
    width: 70px; 
    height: 70px; 
    opacity: 0.80; 
    background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
    border-radius: 22px;
+   font-size: 20px;
 }
-.button2 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button3 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button4 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button5 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button6 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button7 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button8 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button9 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button10 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button11 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button12 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button13 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button13 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button14 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button15 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button16 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button17 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button18 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button19 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button20 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button21 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button22 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button23 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
-}
-.button24 {
-   width: 70px; 
-   height: 70px; 
-   opacity: 0.80; 
-   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-   border-radius: 22px;
+.tik-isareti {
+   position: absolute;
+   color: green; /* or the color you prefer */
 }

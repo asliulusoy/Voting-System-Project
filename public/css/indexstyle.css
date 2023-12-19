@@ -1,12 +1,12 @@
 @import url('https://fonts.cdnfonts.com/css/comfortaa');
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Comfortaa';
-  overflow: hidden; 
+body{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Comfortaa';
+overflow: hidden;
 }
 
 .img {
@@ -67,6 +67,7 @@ a:hover {
 	text-decoration: none;
 }
 .link {
+  font-size: 20px;
   font-size:20px;
   color: #c7cfe0;
 }
@@ -233,6 +234,7 @@ display: none;
   height: 44px;
   font-size: 13px;
   font-weight: 600;
+  text-transform: uppercase;
   -webkit-transition : all 200ms linear;
   transition: all 200ms linear;
   padding: 0 30px;
@@ -242,10 +244,10 @@ display: none;
   display: inline-flex;
   align-items: center;
   background-color: #c7cfe0;
-  color: #1B1B1B;
+  color: #000000;
 }
 .btn:hover{  
-  background-color: #1B1B1B;
+  background-color: #000000;
   color: #c7cfe0;
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
 }

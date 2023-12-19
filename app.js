@@ -38,8 +38,7 @@ app.use('/', pageRoute);
 app.use('/users', userRoute);
 
 
-
-  
+ 
 app.listen(PORT, () => {
     console.log("Listening Port: " + PORT);
 });

@@ -12,11 +12,13 @@
         <div class="img">
             <%- include("partials/_menu") %>
                 <div class="container">
-                    <div class="square">
-                        <div class="buttons">
-                            <% for (let i = 1; i <= 24; i++) { %>
-                                <div class="button<%= i %>"></div>
-                            <% } %>
+                    <div class="content">
+                        <div class="button-container">
+                            <% for (let i=1; i <=24; i++) { %>
+                                <button class="btn" onclick="toggleTik(this, i )">
+                                    <%= i %>
+                                </button>
+                                <% } %>
                         </div>
                     </div>
                     <div class="square2"></div>
@@ -30,11 +32,13 @@
                         <span data-rating="3">&#9733</span>
                         <span data-rating="2">&#9733</span>
                         <span data-rating="1">&#9733</span>
-                        
+
                     </div>
                 </div>
         </div>
+        
         <script src="scripts/script.js"></script>
+        <script src="scripts/tikfunc.js"></script>
     </body>
 
 </html>
