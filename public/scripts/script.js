@@ -49,9 +49,9 @@ function updateStarColors(project, selectedRating) {
 
     reversedStars.forEach((star, index) => {
         if (index < selectedRating) {
-            star.style.color = 'orange';
+            star.style.color = 'orange'; // Set the color to orange or any other color you prefer
         } else {
-            star.style.color = 'gray';
+            star.style.color = 'gray'; // Set the color to the default color
         }
     });
 }
