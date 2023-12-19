@@ -4,6 +4,7 @@
 
 body{
 font-family: 'Comfortaa';
+overflow: hidden; 
 }
 /*-- header --*/
 .header-area {

@@ -1,9 +1,10 @@
-/* Reset some default styles */
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Comfortaa';
+    overflow: hidden; 
 }
 
 .img {
@@ -26,7 +27,7 @@ header {
 section {
     margin: 170px auto; 
     max-width: 700px;
-    background-color: #151c2d;
+    background-color: #181424;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
