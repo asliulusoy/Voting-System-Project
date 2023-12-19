@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="css/dashboardstyle.css">
   </head>
   <body>
+    <div class="img">
+        <%- include("partials/_menu") %>   
     <div class="main-page">
-      <img class="dashboard-1-icon" alt="" src="/images/pxfuel.jpg" />
-      <%- include("partials/_menu") %>
       <div class="main-page-inner"></div>
-      <b class="welcome-back-username">Welcome Back, UserName !</b>
+      <b class="welcome-back-username">Welcome Back, <%= user.fullname %></b>
       <div class="rectangle-div"></div>
       <b class="projects-deadline">Projects Deadline</b>
       <b class="what-do-we">What do we aim to:</b>
@@ -26,6 +26,7 @@
       <b class="b">23:12:54:16</b>
       <b class="votingscreen">
       </b>
+    </div>
     </div>
   </body>
 </html> 

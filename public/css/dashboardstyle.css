@@ -6,14 +6,16 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: 'Comfortaa';
+overflow:hidden;
 }
-.dashboard-1-icon {
+.img {
+    background: url("/images/pxfuel.jpg") no-repeat;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 1436px;
-    height: 1024px;
-    object-fit: contain;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
   }
   .main-page-child,
   .main-page-item {
@@ -46,7 +48,7 @@ font-family: 'Comfortaa';
   }
   .welcome-back-username {
     position: absolute;
-    top: 134px;
+    top: 24px;
     left: 0;
     font-size:41px;
     display: flex;
@@ -70,7 +72,7 @@ font-family: 'Comfortaa';
   }
   .projects-deadline {
     position: absolute;
-    top: 374px;
+    top: 274px;
     left: 92px;
     font-size: 26px;
     text-transform: capitalize;
@@ -88,20 +90,20 @@ font-family: 'Comfortaa';
     width: 630px;
   }
   .what-do-we {
-    top: 262px;
+    top: 162px;
     font-size: 45px;
     height: 53px;
     color: white;
   }
   .b,
   .what-do-we1 {
-    top: 361px;
+    top: 261px;
     font-size: 30px;
     height: 448px;
     color: white;
   }
   .b {
-    top: 478px;
+    top: 378px;
     left: 47px;
     font-size: 100px;
     width: 541px;
@@ -123,27 +125,6 @@ font-family: 'Comfortaa';
     left: 800px;
   }
  
-  .home {
-    bottom: 942px;
-    left: 669px;
-    color: white;
-  }
-  
-  
-  
-  .votingscreen1 {
-    margin: 0;
-  }
-  .votingscreen {
-    position: absolute;
-    top: 35px;
-    left: 53px;
-    font-size: 45px;
-    display: inline-block;
-    width: 366px;
-    height: 89px;
-    color: white;
-  }
   .main-page {
     position: relative;
     background-color: var(--color-white);
