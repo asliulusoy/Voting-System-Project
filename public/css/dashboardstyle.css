@@ -6,5 +6,154 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: 'Comfortaa';
-overflow: hidden; 
 }
+.dashboard-1-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1436px;
+    height: 1024px;
+    object-fit: contain;
+  }
+  .main-page-child,
+  .main-page-item {
+    position: absolute;
+    top: -5px;
+    left: 4px;
+    width: 1432px;
+    height: 120px;
+    object-fit: cover;
+    opacity: 0.75;
+  }
+  .main-page-item {
+    top: 208px;
+    left: 43px;
+    border-radius: 20px;
+    width: 531px;
+    height: 88px;
+    opacity: 0.7;
+  }
+  .main-page-inner {
+    position: absolute;
+    top: 221px;
+    left: 76px;
+    border-radius: var(--br-8xs);
+    background-color: var(--color-darkslategray);
+    filter: blur(4px);
+    width: 446px;
+    height: 78px;
+    opacity: 0;
+  }
+  .welcome-back-username {
+    position: absolute;
+    top: 134px;
+    left: 0;
+    font-size:41px;
+    display: flex;
+    text-align:center;
+    align-items: flex-end;
+    justify-content: center;
+    width: 608px;
+    height: 167px;
+    backdrop-filter: blur(4px);
+    color: white;
+  }
+  .rectangle-div {
+    position: absolute;
+    top: 202px;
+    left: 869px;
+    border-radius: var(--br-8xs);
+    background-color: var(--color-darkslategray);
+    width: 364px;
+    height: 58px;
+    opacity: 0;
+  }
+  .projects-deadline {
+    position: absolute;
+    top: 374px;
+    left: 92px;
+    font-size: 26px;
+    text-transform: capitalize;
+    display: flex;
+    align-items: flex-end;
+    width: 432px;
+    color: white;
+  }
+  .b,
+  .what-do-we,
+  .what-do-we1 {
+    position: absolute;
+    left: 776px;
+    display: inline-block;
+    width: 630px;
+  }
+  .what-do-we {
+    top: 262px;
+    font-size: 45px;
+    height: 53px;
+    color: white;
+  }
+  .b,
+  .what-do-we1 {
+    top: 361px;
+    font-size: 30px;
+    height: 448px;
+    color: white;
+  }
+  .b {
+    top: 478px;
+    left: 47px;
+    font-size: 100px;
+    width: 541px;
+    height: 137px;
+    backdrop-filter: blur(4px);
+    color: white;
+  }
+  .rectangle-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1432px;
+    height: 120px;
+    object-fit: cover;
+    opacity: 0.75;
+  }
+  .projects {
+    bottom: 942px;
+    left: 800px;
+  }
+ 
+  .home {
+    bottom: 942px;
+    left: 669px;
+    color: white;
+  }
+  
+  
+  
+  .votingscreen1 {
+    margin: 0;
+  }
+  .votingscreen {
+    position: absolute;
+    top: 35px;
+    left: 53px;
+    font-size: 45px;
+    display: inline-block;
+    width: 366px;
+    height: 89px;
+    color: white;
+  }
+  .main-page {
+    position: relative;
+    background-color: var(--color-white);
+    box-shadow: 0 4px 4px rgb(255, 255, 255);
+    width: 100%;
+    height: 1024px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-11xl);
+    color: var(--color-white);
+    font-family: var(--font-comfortaa);
+  }
+  
