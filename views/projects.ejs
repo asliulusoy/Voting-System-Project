@@ -1,50 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("partials/_header") %>
+<%- include("partials/_header") %>
     <link rel="stylesheet" href="/css/projectsstyle.css">
-<head>
-    <title>UVote: Projects</title>
-</head>
-<body>
 
-<div class="img">
-    <%- include("partials/_menu") %>
-</div>
-<div class="square"></div>
-<div class="square2"></div>
-<div class="button1"></div>
-<div class="button2"></div>
-<div class="button3"></div>
-<div class="button4"></div>
-<div class="button5"></div>
-<div class="button6"></div>
-<div class="button7"></div>
-<div class="button8"></div>
-<div class="button9"></div>
-<div class="button10"></div>
-<div class="button11"></div>
-<div class="button12"></div>
-<div class="button13"></div>
-<div class="button14"></div>
-<div class="button15"></div>
-<div class="button16"></div>
-<div class="button17"></div>
-<div class="button18"></div>
-<div class="button19"></div>
-<div class="button20"></div>
-<div class="button21"></div>
-<div class="button22"></div>
-<div class="button23"></div>
-<div class="button24"></div>
-<div class="rattings-wrapper">
-    <div data-projectid="01" class="ratings">
-        <span data-rating="5">&#9733</span>
-        <span data-rating="4">&#9733</span>
-        <span data-rating="3">&#9733</span>
-        <span data-rating="2">&#9733</span>
-        <span data-rating="1">&#9733</span>
-        <button class="submit-btn">Submit</button>
-    </div>
-</div>
-</body>
+    <head>
+        <title>UVote: Projects</title>
+    </head>
+
+    <body>
+
+        <div class="img">
+            <%- include("partials/_menu") %>
+                <div class="container">
+                    <div class="square">
+                        <div class="buttons">
+                            <% for (let i = 1; i <= 24; i++) { %>
+                                <div class="button<%= i %>"></div>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="square2"></div>
+                </div>
+
+                <div class="ratings-wrapper">
+                    <div data-projectid="01" class="ratings">
+                        <button class="submit-btn">Submit</button>
+                        <span data-rating="5">&#9733</span>
+                        <span data-rating="4">&#9733</span>
+                        <span data-rating="3">&#9733</span>
+                        <span data-rating="2">&#9733</span>
+                        <span data-rating="1">&#9733</span>
+                        
+                    </div>
+                </div>
+        </div>
+        <script src="scripts/script.js"></script>
+    </body>
+
 </html>
