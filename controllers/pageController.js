@@ -187,4 +187,4 @@ const getContactPage = (req, res) => {
     }
   };
 
-export {getIndexPage,getBLVotingtPage, getContactPage, getLogoutPage,getAboutPage};
+export {getIndexPage,getBLVotingtPage, getContactPage, getLogoutPage,getAboutPage, sendMail};

@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("partials/_header") %>
-<head>
+  <%- include("partials/_header") %>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
 
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="/css/dashboardstyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&display=swap"
+    />
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/dashboardstyle.css">
-</head>
-<body>
-    <%- include("partials/_menu") %>
-    <h2>Welcome <%= user.fullname %></h2>
-</body>
+  </head>
+  <body>
+    <div class="main-page">
+      <img class="dashboard-1-icon" alt="" src="/images/pxfuel.jpg" />
+      <%- include("partials/_menu") %>
+      <img class="main-page-child" alt="" src="./public/rectangle-16@2x.png" />
+
+      <img class="main-page-item" alt="" src="./public/rectangle-14@2x.png" />
+
+      <div class="main-page-inner"></div>
+      <b class="welcome-back-username">Welcome Back, UserName !</b>
+      <div class="rectangle-div"></div>
+      <b class="projects-deadline">Projects Deadline</b>
+      <b class="what-do-we">What do we aim to:</b>
+      <b class="what-do-we1">What do we aim to:</b>
+      <b class="b">23:12:54:16</b>
+      <img class="rectangle-icon" alt="" src="./public/rectangle-18@2x.png" />
+
+      <img class="rectangle-icon" alt="" src="./public/rectangle-19@2x.png" />
+
+      <b class="votingscreen">
+        <p class="votingscreen1">VotingScreen</p>
+        
+        <h2>Welcome <%= user.fullname %></h2>
+      </b>
+    </div>
+  </body>
 </html>
