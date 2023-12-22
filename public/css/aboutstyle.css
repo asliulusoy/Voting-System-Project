@@ -35,8 +35,8 @@ body{
 
 
 .how-uvote-works {
-  right: 512px;
-  bottom: 641px;
+  right: 880px;
+  bottom: 750px;
   font-size: 85px;
   text-align: justify;
   width: 863px;
@@ -45,10 +45,12 @@ body{
 .front-piece-icon,
 .image-1-icon {
   position: absolute;
-  top: 354px;
+  top: 275px;
   border-radius: var(--br-11xl);
-  position:center;
-}
+  float: 750px;;
+  margin-left: 200px;
+  }
+ 
 .front-piece-icon {
   left: 65px;
   width: 1343px;
@@ -61,6 +63,7 @@ body{
   width: 661px;
   height: 440px;
   object-fit: cover;
+ 
 }
 .login-voting-part {
   position: relative;
@@ -73,4 +76,30 @@ body{
   font-size: var(--font-size-11xl);
   color: var(--color-white);
   font-family: var(--font-comfortaa);
+}
+.students-register-individually {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  padding-left: var(--padding-21xl);
+}
+.blank-line {
+  margin: 0;
+}
+.then-they-upload {
+  margin-bottom: 0;
+}
+.students-register-individually-container {
+  position: relative;
+  font-size: 24px;
+  display: inline-block;
+  font-family: var(--font-comfortaa);
+  color: #fff;
+  text-align: left;
+  width: 625px;
+  height: 417px;
+  color:white;
+  top: 325px;
+  left: 320px;
+  line-height: 1.5;
 }
