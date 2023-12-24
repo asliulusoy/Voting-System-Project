@@ -15,16 +15,16 @@ const getContactPage = (req, res) => {
         link: 'contact',
     });
   };
-const getLogoutPage = (req, res) => {
+  const getAboutPage = (req, res) =>{
+  res.render('about', {
+    link: 'about',
+  });
+}
+  const getLogoutPage = (req, res) => {
     res.cookie('jwt','',{
         maxAge: 1,
     });
     res.redirect("/");
-  };
-const getAboutPage = (req, res) => {
-    res.render('about', {
-        link: 'about',
-    });
   };
   const sendMail = async (req, res) => {
     const htmlTemplate = `
@@ -187,4 +187,4 @@ const getAboutPage = (req, res) => {
     }
   };
 
-export {getIndexPage,getBLVotingtPage, getContactPage, getLogoutPage,getAboutPage, sendMail};
+export {getIndexPage,getBLVotingtPage, getContactPage, getLogoutPage,getAboutPage,sendMail};

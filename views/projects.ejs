@@ -1,45 +1,126 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <%- include("partials/_header") %>
     <link rel="stylesheet" href="/css/projectsstyle.css">
-    <script src="scripts/script.js"></script>
+<head>
+    <script>
+        let selectedProjectNumber = 0;
+        let selectedStars = 0;
 
-    <head>
-        <title>UVote: Projects</title>
-    </head>
+        function resetRating() {
+            const stars = document.querySelectorAll('.star input');
+            stars.forEach(star => {
+                star.checked = false;
+            });
+            selectedStars = 0; // Yıldız sayısını sıfırla
+        }
 
-    <body>
+        function submitRating() {
+            if (selectedProjectNumber === 0) {
+                alert('Please choose a project.');
+                return;
+            }
 
-        <div class="img">
-            <%- include("partials/_menu") %>
-                <div class="container">
-                    <div class="content">
-                        <div class="button-container">
-                            <% for (let i=1; i <=24; i++) { %>
-                                <button class="btn" onclick="toggleTik(this, i )">
-                                    <%= i %>
-                                </button>
-                                <% } %>
-                        </div>
-                    </div>
-                    <div class="square2"></div>
-                </div>
+            alert(`Project Number: ${selectedProjectNumber}, Star Rating: ${selectedStars}`);
+            resetRating(); // Oy verildikten sonra yıldızları sıfırla
+        }
 
-                <div class="ratings-wrapper">
-                    <div data-projectid="01" class="ratings">
-                        <button class="submit-btn">Submit</button>
-                        <span data-rating="5">&#9733</span>
-                        <span data-rating="4">&#9733</span>
-                        <span data-rating="3">&#9733</span>
-                        <span data-rating="2">&#9733</span>
-                        <span data-rating="1">&#9733</span>
+        function toggleTik(button, projectNumber) {
+    // Butondaki mevcut tik işaretini bul
+    var tikIsareti = button.querySelector('.tik-isareti');
 
-                    </div>
-                </div>
-        </div>
+    // Eğer tik işareti zaten varsa, kaldır
+    if (tikIsareti) {
+        tikIsareti.remove();
+        selectedProjectNumber = 0;
+        button.classList.remove("active");
+    } else {
+        // Diğer butonlardaki tik işaretlerini kaldır
+        document.querySelectorAll('.tik-isareti').forEach(function (tik) {
+            tik.remove();
+        });
 
-       
-    
-    </body>
+        // Yeni tik işaretini oluştur ve ekle
+        tikIsareti = document.createElement("span");
+        tikIsareti.className = "tik-isareti";
+        tikIsareti.innerHTML = "✔";
 
+        var buttonRect = button.getBoundingClientRect();
+        tikIsareti.style.top = buttonRect.top + buttonRect.height / 2 - 230 + 'px';
+        tikIsareti.style.left = buttonRect.right - 40 + 'px';
+
+        button.appendChild(tikIsareti);
+        button.classList.add("active");
+
+        // Seçilen proje numarasını güncelle
+        selectedProjectNumber = projectNumber;
+    }
+}
+
+
+
+        function toggleStar(starId) {
+            selectedStars = starId;
+        }
+    </script>
+</head>
+<body>
+<%- include("partials/_menu") %>
+
+<div class="img"></div>
+<div class="square">
+    <div class="button-container">
+        <button class="btn" onclick="toggleTik(this, 1)">Button 1</button>
+        <button class="btn" onclick="toggleTik(this, 2)">Button 2</button>
+        <button class="btn" onclick="toggleTik(this, 3)">Button 3</button>
+        <button class="btn" onclick="toggleTik(this, 4)">Button 4</button>
+        <button class="btn" onclick="toggleTik(this, 5)">Button 5</button>
+        <button class="btn" onclick="toggleTik(this, 6)">Button 6</button>
+      </div>
+      <div class="button-container">
+        <button class="btn" onclick="toggleTik(this, 7)">Button 7</button>
+        <button class="btn" onclick="toggleTik(this, 8)">Button 8</button>
+        <button class="btn" onclick="toggleTik(this, 9)">Button 9</button>
+        <button class="btn" onclick="toggleTik(this, 10)">Button 10</button>
+        <button class="btn" onclick="toggleTik(this, 11)">Button 11</button>
+        <button class="btn" onclick="toggleTik(this, 12)">Button 12</button>
+      </div>
+      <div class="button-container">
+        <button class="btn" onclick="toggleTik(this, 13)">Button 13</button>
+        <button class="btn" onclick="toggleTik(this, 14)">Button 14</button>
+        <button class="btn" onclick="toggleTik(this, 15)">Button 15</button>
+        <button class="btn" onclick="toggleTik(this, 16)">Button 16</button>
+        <button class="btn" onclick="toggleTik(this, 17)">Button 17</button>
+        <button class="btn" onclick="toggleTik(this, 18)">Button 18</button>
+      </div>
+      <div class="button-container">
+        <button class="btn" onclick="toggleTik(this, 19)">Button 19</button>
+        <button class="btn" onclick="toggleTik(this, 20)">Button 20</button>
+        <button class="btn" onclick="toggleTik(this, 21)">Button 21</button>
+        <button class="btn" onclick="toggleTik(this, 22)">Button 22</button>
+        <button class="btn" onclick="toggleTik(this, 23)">Button 23</button>
+        <button class="btn" onclick="toggleTik(this, 24)">Button 24</button>
+      </div>
+  
+</div>
+<div class="square2"></div>
+<div class="star">
+    <input type="radio" id="r1" onclick="toggleStar(5)">
+    <label for="r1"></label>
+   
+    <input type="radio" id="r2" onclick="toggleStar(4)">
+    <label for="r2"></label>
+   
+    <input type="radio"  id="r3" onclick="toggleStar(3)">
+    <label for="r3"></label>
+   
+    <input type="radio" id="r4" onclick="toggleStar(2)">
+    <label for="r4"></label>
+   
+    <input type="radio" id="r5" onclick="toggleStar(1)">
+    <label for="r5"></label>
+    <button class="submit-btn" onclick="submitRating()">Submit</button>
+</div>
+</body>
 </html>

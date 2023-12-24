@@ -9,7 +9,7 @@ overflow: hidden;
 /*-- header --*/
 .header-area {
     
-    width: 100%;
+    width: 97.9%;
     background: rgba(29, 53, 87, 0.75);
     height: 80px;
     padding: 23px 20px;
@@ -17,7 +17,7 @@ overflow: hidden;
     z-index: 1;
 }
 .logo a {
-    padding: 15px 5px;
+    padding: 10px 5px;
     text-decoration: none;
     color: #f2f2f2;
    

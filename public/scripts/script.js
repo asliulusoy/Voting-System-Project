@@ -49,9 +49,9 @@ function updateStarColors(project, selectedRating) {
 
     reversedStars.forEach((star, index) => {
         if (index < selectedRating) {
-            star.style.color = 'orange';
+            star.style.color = 'orange'; // Set the color to orange or any other color you prefer
         } else {
-            star.style.color = 'gray';
+            star.style.color = 'gray'; // Set the color to the default color
         }
     });
 }
@@ -74,29 +74,14 @@ if (localStorage.getItem("rating")) {
         }
     }
 }
-function toggleTik(button, tikId) {
-    console.log('Toggle Tik called for button ' + tikId);
-    var tikIsareti = button.querySelector('.tik-isareti');
-
-    // Diğer butonlardaki tik işaretlerini kaldır
-    document.querySelectorAll('.tik-isareti').forEach(function (tik) {
-        tik.remove();
-    });
-
-    if (tikIsareti) {
-        tikIsareti.remove();
-        button.classList.remove("active");
+function toggleTik(button) {
+    var tikIsareti = document.createElement("span");
+    tikIsareti.className = "tik-isareti";
+    tikIsareti.innerHTML = "✔";
+  
+    if (button.contains(tikIsareti)) {
+      button.removeChild(tikIsareti);
     } else {
-        tikIsareti = document.createElement("span");
-        tikIsareti.id = tikId;
-        tikIsareti.className = "tik-isareti";
-        tikIsareti.innerHTML = "✔";
-
-        var buttonRect = button.getBoundingClientRect();
-        tikIsareti.style.top = buttonRect.top + buttonRect.height / 2 - 230 + 'px';
-        tikIsareti.style.left = buttonRect.right - 40 + 'px';
-
-        button.appendChild(tikIsareti);
-        button.classList.add("active");
+      button.appendChild(tikIsareti);
     }
-}
+  }
