@@ -12,6 +12,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/00541e821b.js" crossorigin="anonymous"></script>
     </link>
+
   </head>
 
   <body>
@@ -72,28 +73,28 @@
                                   </div>
                                   <div class="col-md-12">
                                     <div style="display: none;" class="alert alert-danger" id="fullname"></div>
-                                 </div>
+                                  </div>
                                   <div class="form-group mt-2">
                                     <input type="tel" class="form-style" placeholder="Student ID" name="stuid">
                                     <i class="input-icon uil fas fa-id-card" style="top: 13px;"></i>
                                   </div>
                                   <div class="col-md-12">
                                     <div style="display: none;" class="alert alert-danger" id="stuid"></div>
-                                 </div>
+                                  </div>
                                   <div class="form-group mt-2">
                                     <input type="email" class="form-style" placeholder="Email" name="email">
                                     <i class="input-icon uil uil-at"></i>
                                   </div>
                                   <div class="col-md-12">
                                     <div style="display: none;" class="alert alert-danger" id="email"></div>
-                                 </div>
+                                  </div>
                                   <div class="form-group mt-2">
                                     <input type="password" class="form-style" placeholder="Password" name="password">
                                     <i class="input-icon uil uil-lock-alt"></i>
                                   </div>
                                   <div class="col-md-12">
                                     <div style="display: none;" class="alert alert-danger" id="password"></div>
-                                 </div>
+                                  </div>
                                   <button type="submit" class="btn mt-4">Sign Up</button>
                                 </form>
 
@@ -109,72 +110,7 @@
             </div>
           </div>
         </div>
-        <script>
-          const form = document.querySelector('#signup-Form')
-          const emailError = document.querySelector('#email')
-          const passwordError = document.querySelector('#password')
-          const fullnameError = document.querySelector('#fullname')
-          const stuidError = document.querySelector('#stuid')
-    
-          form.addEventListener("submit", async (e) => {
-             e.preventDefault();
-    
-             emailError.textContent = "";
-             passwordError.textContent = "";
-             fullnameError.textContent = "";
-             stuidError.textContent = "";
-             emailError.style.display = "none"
-             passwordError.style.display = "none"
-             fullnameError.style.display = "none"
-             stuidError.style.display = "none"
-    
-             const email = form.email.value
-             const password = form.password.value
-             const fullname = form.fullname.value
-             const stuid= form.stuid.value
-    
-             try {
-                const res = await fetch('users/signup', {
-                   method: "POST",
-                   body: JSON.stringify({ email, password, fullname, stuid }),
-                   headers: { "Content-Type": "application/json" }
-                })
-    
-                const data = await res.json();
-    
-                if (data) {
-    
-                   if (data.email) {
-                      emailError.textContent = data.email
-                      emailError.style.display = "block"
-                   }
-    
-                   if (data.password) {
-                      passwordError.textContent = data.password
-                      passwordError.style.display = "block"
-                   }
-    
-                   if (data.fullname) {
-                      fullnameError.textContent = data.fullname
-                      fullnameError.style.display = "block"
-                   }
-                   if (data.stuid) {
-                      stuidError.textContent = data.stuid
-                      stuidError.style.display = "block"
-                   }
-    
-    
-                }
-    
-                if (data.user) {
-                   location.assign("/login")
-                }
-    
-             } catch (err) {
-                console.log("ERR::", err)
-             }
-          })
-       </script>
+        <script src="/scripts/indexscript.js"></script>
   </body>
 
 </html>
