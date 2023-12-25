@@ -43,45 +43,7 @@ for (let i = 0; i < projects.length; i++) {
 }
 
 // Function to update star colors
-function updateStarColors(project, selectedRating) {
-    let stars = project.querySelectorAll('.ratings span');
-    let reversedStars = Array.from(stars).reverse();
 
-    reversedStars.forEach((star, index) => {
-        if (index < selectedRating) {
-            star.style.color = 'orange'; // Set the color to orange or any other color you prefer
-        } else {
-            star.style.color = 'gray'; // Set the color to the default color
-        }
-    });
-}
 
 // Restore previous selections
-if (localStorage.getItem("rating")) {
-    let storedRating = JSON.parse(localStorage.getItem("rating"));
 
-    for (let project of projects) {
-        let projectId = project.dataset.projectid;
-
-        if (ratings[projectId]) {
-            // Set the selected rating in the ratings object
-            ratings[projectId] = {
-                "stars": storedRating.stars
-            };
-
-            // Update the star colors
-            updateStarColors(project, storedRating.stars);
-        }
-    }
-}
-function toggleTik(button) {
-    var tikIsareti = document.createElement("span");
-    tikIsareti.className = "tik-isareti";
-    tikIsareti.innerHTML = "✔";
-  
-    if (button.contains(tikIsareti)) {
-      button.removeChild(tikIsareti);
-    } else {
-      button.appendChild(tikIsareti);
-    }
-  }

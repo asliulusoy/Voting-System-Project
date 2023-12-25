@@ -37,6 +37,10 @@ const userSchema = new Schema({
         required: [true, "Password area is required"],
         minLength: [4, "At least 4 characters"]
     },
+    votedProjects: {
+        type: [Number], // Assuming project numbers are integers
+        default: [],
+      },
 },
     {
         timestamps: true,
