@@ -1,35 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("partials/_header") %>
+<%- include("partials/_header") %>
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
     <link rel="stylesheet" href="./global.css" />
     <link rel="stylesheet" href="/css/dashboardstyle.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&display=swap"
-    />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="css/dashboardstyle.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+      integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   </head>
+
   <body>
     <div class="img">
-        <%- include("partials/_menu") %>   
-    <div class="main-page">
-      <div class="main-page-inner"></div>
-      <b class="welcome-back-username">Welcome Back, <%= user.fullname %></b>
-      <div class="rectangle-div"></div>
-      <b class="projects-deadline">Projects Deadline</b>
-      <b class="what-do-we">What do we aim to:</b>
-      <b class="what-do-we1">What do we aim to:</b>
-      <b class="b">23:12:54:16</b>
-      <b class="votingscreen">
-      </b>
+      <%- include("partials/_menu") %>
+        <div>
+          <div class="profile-box">
+            <div>
+              <b>
+                Welcome Back <%= user.fullname %> !
+              </b>
+            </div>
+          </div>
+          <div class="containerall">
+            <div class="container">
+              <b class="project-deadline"> Project Deadline</b>
+            </div>
+            <div class="clock">
+              <div class="days">
+                <div class="first">
+                  <div class="number"></div>
+                </div>
+                <div class="second">
+                  <div class="number"></div>
+                </div>
+              </div>
+
+              <div class="tick">:</div>
+
+              <div class="hours">
+                <div class="first">
+                  <div class="number"></div>
+                </div>
+                <div class="second">
+                  <div class="number"></div>
+                </div>
+              </div>
+              <div class="tick">:</div>
+
+              <div class="minutes">
+                <div class="first">
+                  <div class="number"></div>
+                </div>
+                <div class="second">
+                  <div class="number"></div>
+                </div>
+              </div>
+              <div class="tick">:</div>
+              <div class="seconds">
+                <div class="first">
+                  <div class="number"></div>
+                </div>
+                <div class="second infinite">
+                  <div class="number"></div>
+                </div>
+              </div>
+            </div>
+            <div class="container2">
+              <div class="labels-container">
+                <div class="label" id="days-label">Days</div>
+                <div class="label" id="hours-label">Hours</div>
+                <div class="label" id="minutes-label">Minutes</div>
+                <div class="label" id="seconds-label">Seconds</div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
-    </div>
+
   </body>
-</html> 
-        
-        
-     
+  <script>
+    var daysContainer = document.querySelector('.days')
+    var hoursContainer = document.querySelector('.hours')
+    var minutesContainer = document.querySelector('.minutes')
+    var secondsContainer = document.querySelector('.seconds')
+
+
+    var targetTime = new Date(2024, 0, 4, 19, 30, 0);
+
+    function updateTime() {
+      var now = new Date();
+
+      var timeDifference = targetTime - now;
+
+      if (timeDifference <= 0) {
+        // Eğer hedef tarih geçmişse, geri sayımı durdur
+        clearInterval(updateInterval);
+        return;
+      }
+
+      var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      var hours = Math.floor(timeDifference / (1000 * 60 * 60));
+      var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+      updateContainer(daysContainer, days);
+      updateContainer(hoursContainer, hours);
+      updateContainer(minutesContainer, minutes);
+      updateContainer(secondsContainer, seconds);
+    }
+
+    function updateContainer(container, newTime) {
+      var time = newTime.toString().split('');
+
+      if (time.length === 1) {
+        time.unshift('0');
+      }
+
+      var first = container.firstElementChild;
+      if (first.lastElementChild.textContent !== time[0]) {
+        updateNumber(first, time[0]);
+      }
+
+      var last = container.lastElementChild;
+      if (last.lastElementChild.textContent !== time[1]) {
+        updateNumber(last, time[1]);
+      }
+    }
+
+    function updateNumber(element, number) {
+      var second = element.lastElementChild.cloneNode(true);
+      second.textContent = number;
+
+      element.appendChild(second);
+      element.classList.add('move');
+
+      setTimeout(function () {
+        element.classList.remove('move');
+      }, 990);
+
+      setTimeout(function () {
+        element.removeChild(element.firstElementChild);
+      }, 990);
+    }
+
+    var updateInterval = setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+
+</html>
