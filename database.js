@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Project from "./models/userModel.js";
+import Project from "./models/projectsModel.js";
 
 const conn = async () => {
   try {

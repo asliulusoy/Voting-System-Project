@@ -6,8 +6,8 @@ const projectSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    required: true,
   },
+
   projectid: {
     type: String,
     required: true
