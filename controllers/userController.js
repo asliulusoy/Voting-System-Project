@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
-import User from "../models/userModel.js";
 import bcrypt from 'bcrypt';
+import User from "../models/userModel.js";
 import Project from "../models/projectsModel.js";
 
 const extractUserIdFromToken = (token) => {
@@ -31,7 +31,7 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
 
-    if (!user) {
+    if (!user) { // !email match
       return res.status(401).json({
         succeeded: false,
         error: 'There is no such user',
@@ -44,7 +44,7 @@ const loginUser = async (req, res) => {
       const token = createToken(user._id);
       res.cookie('jwt', token, {
         maxAge: 1000 * 60 * 60 * 24,
-        path: '/', // Set to the path relevant to your application
+        path: '/users', // Set to the path relevant to your application
       });
       res.redirect('/users/dashboard');
     } else {
@@ -75,14 +75,13 @@ const updateUserVotedProjects = async (userId, projectNumber) => {
 
 const submitVote = async (req, res) => {
   try {
-    const userId = extractUserIdFromToken(req.cookies.jwt);
+    const userId = extractUserIdFromToken(req.cookies.jwt); //objectid from mongodb
     const { selectedProjectNumber, selectedStars } = req.body;
 
     const user = await User.findById(userId);
 
     if (user.votedProjects.includes(selectedProjectNumber)) {
-      console.error('Already voted error:', 'You have already voted for this project.');
-      return res.status(400).json({ success: false, error: 'AlreadyVoted', message: 'You have already voted for this project.' });
+      return res.status(400).json({ success: false, error: 'AlreadyVoted', message: 'submitVote error: You have already voted for this project.' });
     }
 
     // Find the project based on projectid
@@ -90,10 +89,10 @@ const submitVote = async (req, res) => {
 
     if (!project) {
       return res.status(400).json({ success: false, error: 'Selected project not found.' });
-    }else
+    } else
 
     // Update the totalVotes field
-    project.totalVotes += 1;
+     project.totalVotes += 1;
 
     // Update the starsGiven field
     project.starsGiven += selectedStars;
@@ -103,8 +102,6 @@ const submitVote = async (req, res) => {
 
     // Update user's votedProjects
     await updateUserVotedProjects(userId, selectedProjectNumber);
-
-    // Handle the vote submission logic here (if needed)
 
     res.status(200).json({ success: true, message: 'Vote submitted successfully.' });
   } catch (error) {
@@ -134,7 +131,7 @@ const getProjectsPage = (req, res) => {
   });
 };
 
-const getALVotingPage = (req, res) => {
+const getALVotingPage = (req, res) => { //BURAYA VOTING SONUCLARI GELECEK
   res.render("afterlogvoting", {
     link: 'voting',
   });
@@ -148,4 +145,4 @@ const getProfilePage = (req, res) => {
 
 
 
-export { createUser, loginUser, getDashboardPage, getALVotingPage, getProfilePage, getProjectsPage, submitVote};
+export { createUser, loginUser, getDashboardPage, getALVotingPage, getProfilePage, getProjectsPage, submitVote };

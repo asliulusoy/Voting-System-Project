@@ -8,8 +8,6 @@ function resetRating() {
   });
   selectedStars = 0; // Yıldız sayısını sıfırla
 }
-console.log('All Cookies:', document.cookie);
-
 
 async function submitRating() {
   const cookies = document.cookie;
@@ -32,7 +30,7 @@ async function submitRating() {
   }
 
   try {
-    const response = await fetch('http://localhost:3000/users/vote', {
+    const response = await fetch('/users/vote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,10 +38,6 @@ async function submitRating() {
       },
       body: JSON.stringify({ selectedProjectNumber, selectedStars }),
     });
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
 
     const data = await response.json();
 
@@ -62,12 +56,18 @@ async function submitRating() {
 function handleVoteError(data) {
   if (data.error === 'AlreadyVoted') {
     alert('You have already voted for this project.');
+  } else if (data.error === 'ValidationFailed') {
+    // Handle validation errors
+    if (data.details && data.details.errors) {
+      const errorMessages = Object.values(data.details.errors).join('\n');
+      alert(`Validation failed:\n${errorMessages}`);
+    } else {
+      alert('Validation failed. Please check your input.');
+    }
   } else {
     alert(data.error || 'An error occurred.');
   }
 }
-
-
 
 function toggleTik(button, projectNumber) {
   // Butondaki mevcut tik işaretini bul

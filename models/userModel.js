@@ -23,14 +23,6 @@ const userSchema = new Schema({
             message: "Student ID must be a number with exactly 9 digits."
         }
     },
-    /*
-    projectno: {
-        type: Number,
-        required: true,
-        trim: true,
-        maxlength: 2
-    },
-    */
     email: {
         type: String,
         required: [true, "Email area is required"],
