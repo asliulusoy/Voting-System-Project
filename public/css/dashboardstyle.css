@@ -1,140 +1,158 @@
 @import url('https://fonts.cdnfonts.com/css/comfortaa');
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:400,500,600,700,800,900');
 
-body{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Comfortaa';
-overflow:hidden;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Comfortaa', sans-serif;
+  overflow: hidden;
+  position: relative;
 }
+
 .img {
-    background: url("/images/pxfuel.jpg") no-repeat;
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    position: relative;
+  background: url("/images/pxfuel.jpg") no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  /* Use 50% instead of 52% */
+  transform: translate(-50%, -50%);
+}
+
+.containerall {
+  position: absolute;
+  height: 20%;
+  width: 60%;
+  position: relative;
+}
+
+.container2 {
+  font-size: 2.5vw;
+  color: white;
+  position: absolute;
+  font-family: 'Tahoma', 'Geneva', sans-serif;
+  top: 70%;
+  left: 50%;
+  /* Use 50% instead of 45% */
+  transform: translate(-18%, -42%);
+}
+
+.labels-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0.6vw;
+}
+
+.label {
+  flex: 1;
+  text-align: center;
+  margin-top: 29vw;
+  margin-right: 2vw;
+  margin-left: 5vw;
+}
+
+.project-deadline {
+  font-size: 3vw;
+  font-weight: 1000;
+  color: white;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  font-family: 'Tahoma', 'Geneva', sans-serif;
+  top: 10%;
+  left: 50%;
+  transform: translate(100%, -30%);
+}
+
+.clock {
+  height: 20vh;
+  color: white;
+  font-size: 10vw;
+  font-family: sans-serif;
+  line-height: 20.4vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  left: 50%;
+  transform: translate(-10%, 110%);
+  top: 32%;
+}
+
+.clock::before,
+.clock::after {
+  content: '';
+  width: 9.5ch;
+  height: 3vh;
+  background: linear-gradient(to top, transparent, rgb(26,38,55));
+  position: absolute;
+  z-index: 2;
+}
+
+.clock::after {
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgb(26,38,55));
+}
+
+.clock>div {
+  display: flex;
+}
+
+.tick {
+  line-height: 17vh;
+}
+
+.tick-hidden {
+  opacity: 0;
+}
+
+.move {
+  animation: move linear 1s infinite;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(0vh);
   }
-  .main-page-child,
-  .main-page-item {
-    position: absolute;
-    top: -5px;
-    left: 4px;
-    width: 1432px;
-    height: 120px;
-    object-fit: cover;
-    opacity: 0.75;
+
+  to {
+    transform: translateY(-20vh);
   }
-  .main-page-item {
-    top: 208px;
-    left: 43px;
-    border-radius: 20px;
-    width: 531px;
-    height: 88px;
-    opacity: 0.7;
-  }
-  .main-page-inner {
-    position: absolute;
-    top: 221px;
-    left: 76px;
-    border-radius: var(--br-8xs);
-    background-color: var(--color-darkslategray);
-    filter: blur(4px);
-    width: 446px;
-    height: 78px;
-    opacity: 0;
-  }
-  .welcome-back-username {
-    position: absolute;
-    top: 24px;
-    left: 0;
-    font-size:41px;
-    display: flex;
-    text-align:center;
-    align-items: flex-end;
-    justify-content: center;
-    width: 608px;
-    height: 167px;
-    backdrop-filter: blur(4px);
-    color: white;
-  }
-  .rectangle-div {
-    position: absolute;
-    top: 202px;
-    left: 869px;
-    border-radius: var(--br-8xs);
-    background-color: var(--color-darkslategray);
-    width: 364px;
-    height: 58px;
-    opacity: 0;
-  }
-  .projects-deadline {
-    position: absolute;
-    top: 274px;
-    left: 92px;
-    font-size: 26px;
-    text-transform: capitalize;
-    display: flex;
-    align-items: flex-end;
-    width: 432px;
-    color: white;
-  }
-  .b,
-  .what-do-we,
-  .what-do-we1 {
-    position: absolute;
-    left: 776px;
-    display: inline-block;
-    width: 630px;
-  }
-  .what-do-we {
-    top: 162px;
-    font-size: 45px;
-    height: 53px;
-    color: white;
-  }
-  .b,
-  .what-do-we1 {
-    top: 261px;
-    font-size: 30px;
-    height: 448px;
-    color: white;
-  }
-  .b {
-    top: 378px;
-    left: 47px;
-    font-size: 100px;
-    width: 541px;
-    height: 137px;
-    backdrop-filter: blur(4px);
-    color: white;
-  }
-  .rectangle-icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1432px;
-    height: 120px;
-    object-fit: cover;
-    opacity: 0.75;
-  }
-  .projects {
-    bottom: 942px;
-    left: 800px;
-  }
- 
-  .main-page {
-    position: relative;
-    background-color: var(--color-white);
-    box-shadow: 0 4px 4px rgb(255, 255, 255);
-    width: 100%;
-    height: 1024px;
-    overflow: hidden;
-    text-align: left;
-    font-size: var(--font-size-11xl);
-    color: var(--color-white);
-    font-family: var(--font-comfortaa);
-  }
-  
+}
+
+.profile-box {
+  font-size: 2vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  height: 25px;
+  text-align: center;
+  color: white;
+  transition: all 0.5s ease;
+  top: 20%;
+  left: 10%;
+  transform: translate(0%, 0%);
+}
+
+.profile-box:hover {
+  transform: scale(1.10);
+}
+
+.profile-box h3 {
+  margin: 0;
+}
+
+.profile-box p {
+  margin: 10px 0;
+}
