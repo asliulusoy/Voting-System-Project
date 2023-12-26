@@ -48,7 +48,7 @@ const seedProjects = async () => {
 
     // Check if projects already exist
     const existingProjects = await Project.find();
-    console.log('Existing Projects:', existingProjects);
+    //console.log('Existing Projects:', existingProjects);
     
     if (existingProjects.length === 0) {
       // Insert the initial projects
