@@ -5,6 +5,12 @@ import User from "../models/userModel.js";
 
 const checkUser = async (req, res, next) => {
   const token = req.cookies.jwt;
+  
+  res.cookie('jwt', token, {
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60 * 24, // 1 day
+    // No path or domain specified
+  });
   if (token) {
     jwt.verify(token, process.env.SECRET_TOKEN, async (err, decodedToken) => {
       if (err) {

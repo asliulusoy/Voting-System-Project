@@ -11,6 +11,6 @@ router.route('/dashboard').get(auth.authenticateToken, userController.getDashboa
 router.route("/voting").get(auth.authenticateToken,userController.getALVotingPage);
 router.route("/profile").get(auth.authenticateToken, userController.getProfilePage);
 router.route("/projects").get(auth.authenticateToken, userController.getProjectsPage);
-
+router.route('/vote').post(auth.authenticateToken, userController.submitVote);
 
 export default router;

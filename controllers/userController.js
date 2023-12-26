@@ -67,7 +67,29 @@ const createToken = (userId) => {
         expiresIn: "1d",
     });
 }
+const submitVote = async (req, res) => {
+  try {
+    const userId = extractUserIdFromToken(req.cookies.jwt);
+    const { selectedProjectNumber, selectedStars } = req.body;
 
+    // Check if the user has already voted for the selected project
+    const user = await User.findById(userId);
+
+    if (user.votedProjects.includes(selectedProjectNumber)) {
+      return res.status(400).json({ success: false, error: 'You have already voted for this project.' });
+    }
+
+    // Update the user's votedProjects array
+    user.votedProjects.push(selectedProjectNumber);
+    await user.save();
+
+    // Handle the vote submission logic here (e.g., update project votes in the database)
+
+    res.status(200).json({ success: true, message: 'Vote submitted successfully.' });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
 
 // AFTER LOGIN (AL)
 const getDashboardPage = async (req, res) => {
@@ -98,4 +120,4 @@ const extractUserIdFromToken = (token) => {
   return decodedToken.userId;
 };
 
-export { createUser, loginUser, getDashboardPage, getALVotingPage, getProfilePage, getProjectsPage};
+export { createUser, loginUser, getDashboardPage, getALVotingPage, getProfilePage, getProjectsPage,submitVote};

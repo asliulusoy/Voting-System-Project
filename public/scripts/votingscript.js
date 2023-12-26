@@ -19,9 +19,46 @@ function submitRating() {
     return;
   }
 
-  alert(`Project Number: ${selectedProjectNumber}, Star Rating: ${selectedStars}`);
-  resetRating(); // Oy verildikten sonra yıldızları sıfırla
-  return selectedProjectNumber, selectedStars
+  // Retrieve the JWT token from cookies
+  const jwtToken = document.cookie.split(';')
+  .map(cookie => cookie.trim())
+  .find(cookie => cookie.startsWith('jwt='))
+  ?.split('=')[1];
+
+  console.log('JWT Token:', jwtToken);
+  console.log(document.cookie)
+  console.log('All Cookies:', document.cookie);
+
+  if (jwtToken) {
+    // Now jwtToken contains your JWT token
+    console.log('JWT Token:', jwtToken);
+
+    // Send a POST request to the server to submit the vote
+    fetch('/users/vote', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwtToken}`,
+      },
+      body: JSON.stringify({ selectedProjectNumber, selectedStars }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert('Vote submitted successfully.');
+        resetRating(); // Oy verildikten sonra yıldızları sıfırla
+      } else {
+        alert(data.error);
+      }
+    })
+    .catch(error => {
+      console.error('Error submitting vote:', error);
+    });
+  } else {
+    // Handle the case where the JWT cookie is not found
+    console.error('JWT cookie not found.');
+    console.log(document.cookie);
+  }
 }
 
 
