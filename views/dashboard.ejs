@@ -10,19 +10,25 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <script>
+        function redirectToProfile() {
+
+            window.location.href = "/users/profile";
+        }
+    </script>
   </head>
 
   <body>
     <div class="img">
       <%- include("partials/_menu") %>
         <div>
-          <div class="profile-box">
+          <div class="profile-box" onclick="redirectToProfile()">
             <div>
-              <b>
-                Welcome Back <%= user.fullname %> !
-              </b>
+                <b>
+                    Welcome Back <%= user.fullname %>!
+                </b>
             </div>
-          </div>
+        </div>
           <div class="containerall">
             <div class="container">
               <b class="project-deadline"> Project Deadline</b>

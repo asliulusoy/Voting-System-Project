@@ -54,7 +54,7 @@ body {
 .label {
   flex: 1;
   text-align: center;
-  margin-top: 27vw;
+  margin-top: 29vw;
   margin-right: 2vw;
   margin-left: 5vw;
 }
@@ -91,14 +91,14 @@ body {
   content: '';
   width: 9.5ch;
   height: 3vh;
-  background: linear-gradient(to top, transparent, black);
+  background: linear-gradient(to top, transparent, rgb(26,38,55));
   position: absolute;
   z-index: 2;
 }
 
 .clock::after {
   bottom: 0;
-  background: linear-gradient(to bottom, transparent, black);
+  background: linear-gradient(to bottom, transparent, rgb(26,38,55));
 }
 
 .clock>div {
