@@ -36,7 +36,7 @@ app.get("*", checkUser);
 app.use('/', pageRoute);
 //after login
 app.use('/users', userRoute);
-app.use('/results', userRoute);
+
 
  
 app.listen(PORT, () => {
