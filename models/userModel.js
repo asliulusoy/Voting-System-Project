@@ -10,13 +10,18 @@ const userSchema = new Schema({
         required: [true, "Name area is required."],
         unique: true,
         maxlength: 20,
-        validate: [validator.isAlphanumeric, "Only alphanumeric characters."]
     },
     stuid: {
         type: Number,
         required: true,
         unique: true,
-        maxlength: 9
+         validate: {
+            validator: function(value) {
+                // Check if it's a number and has exactly 9 digits
+                return Number.isInteger(value) && value.toString().length === 9;
+            },
+            message: "Student ID must be a number with exactly 9 digits."
+        }
     },
     /*
     projectno: {
