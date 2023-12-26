@@ -112,44 +112,7 @@ const submitVote = async (req, res) => {
     res.status(500).json({ success: false, error: 'Internal server error!' });
   }
 };
-function submitRating() {
 
-  try {
-    // Send a POST request to the server to submit the vote
-    fetch('http://localhost:3000/users/vote', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${tokenValue}`,
-      },
-      body: JSON.stringify({ selectedProjectNumber, selectedStars }),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (data.success) {
-          alert('Vote submitted successfully.');
-          resetRating(); // Reset stars after voting
-        } else {
-          // Check if the error message indicates that the user has already voted
-          if (data.error && data.error.includes('AlreadyVoted')) {
-            alert('You have already voted for this project.');
-          } else {
-            alert(data.error || 'An error occurred.');
-          }
-        }
-      })
-      .catch(error => {
-        console.error('Error submitting vote:', error);
-      });
-  } catch (error) {
-    console.error('Error:', error.message);
-  }
-}
 
 const createToken = (userId) => {
   return jwt.sign({ userId }, process.env.SECRET_TOKEN, {
