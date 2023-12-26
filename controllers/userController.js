@@ -61,9 +61,10 @@ const loginUser = async (req, res) => {
 
 const updateUserVotedProjects = async (userId, projectNumber) => {
   try {
-    const user = await User.findById(userId);
-    user.votedProjects.push(projectNumber);
-    await user.save();
+    await User.updateOne(
+      { _id: userId },
+      { $addToSet: { votedProjects: projectNumber } }
+    );
   } catch (error) {
     console.error('Error updating user voted projects:', error);
     throw error; // Rethrow the error to handle it in the calling function
@@ -91,6 +92,8 @@ const submitVote = async (req, res) => {
     res.status(500).json({ success: false, error: 'Internal server error!' });
   }
 };
+
+
 
 const createToken = (userId) => {
   return jwt.sign({ userId }, process.env.SECRET_TOKEN, {

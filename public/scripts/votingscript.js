@@ -11,25 +11,19 @@ function resetRating() {
 console.log('All Cookies:', document.cookie);
 
 
-function submitRating(req,res) {
-  const cookies1 = document.cookie;
-  console.log('All Cookies:', cookies1);
-  const token = req.cookies.jwt;
-  const cookies2 = document.cookie;
-  console.log('All Cookies:', cookies2);
-
+function submitRating() {
+  // Get the JWT token from cookies using js-cookie
+  const cookies = document.cookie;
+  console.log('All Cookies:', cookies);
   const tokenCookie = cookies.split(';').find(cookie => cookie.trim().startsWith('jwt='));
 
-  if (!token) {
+  if (!tokenCookie) {
     // Handle the case where the JWT token is not found in cookies
     console.error('JWT token not found in cookies.');
     return;
   }
-  const [, tokenValue] = token.split('=');
-  console.log('JWT Token:', tokenValue);
 
-  // Now 'token' contains your JWT token
-  console.log('JWT Token:', token);
+  const [, tokenValue] = tokenCookie.split('=');
   console.log('JWT Token:', tokenValue);
 
   if (selectedProjectNumber === 0) {
@@ -43,11 +37,11 @@ function submitRating(req,res) {
 
   try {
     // Send a POST request to the server to submit the vote
-    fetch('http://localhost:3000/users/projects', {
+    fetch('http://localhost:3000/users/vote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${tokenValue}`, // Use 'tokenValue' instead of 'token'
       },
       body: JSON.stringify({ selectedProjectNumber, selectedStars }),
     })
