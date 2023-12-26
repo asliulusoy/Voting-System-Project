@@ -11,21 +11,26 @@ function resetRating() {
 console.log('All Cookies:', document.cookie);
 
 
-function submitRating() {
-  // Get the JWT token from cookies using js-cookie
-  const tokenValue = Cookies.get('jwt');
+function submitRating(req,res) {
+  const cookies1 = document.cookie;
+  console.log('All Cookies:', cookies1);
+  const token = req.cookies.jwt;
+  const cookies2 = document.cookie;
+  console.log('All Cookies:', cookies2);
 
-  if (!tokenValue) {
+  const tokenCookie = cookies.split(';').find(cookie => cookie.trim().startsWith('jwt='));
+
+  if (!token) {
     // Handle the case where the JWT token is not found in cookies
     console.error('JWT token not found in cookies.');
     return;
   }
-
+  const [, tokenValue] = token.split('=');
   console.log('JWT Token:', tokenValue);
 
-  // Remove the following lines, as 'token' is not defined
-  // const [, tokenValue] = token.split('=');
-  // console.log('JWT Token:', tokenValue);
+  // Now 'token' contains your JWT token
+  console.log('JWT Token:', token);
+  console.log('JWT Token:', tokenValue);
 
   if (selectedProjectNumber === 0) {
     alert('Please choose a project.');
@@ -42,7 +47,7 @@ function submitRating() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${tokenValue}`, // Use 'tokenValue' instead of 'token'
+        'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify({ selectedProjectNumber, selectedStars }),
     })
