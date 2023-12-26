@@ -11,7 +11,7 @@ function resetRating() {
 console.log('All Cookies:', document.cookie);
 
 
-function submitRating() {
+async function submitRating() {
   const cookies = document.cookie;
   const tokenCookie = cookies.split(';').find(cookie => cookie.trim().startsWith('jwt='));
 
@@ -32,38 +32,38 @@ function submitRating() {
   }
 
   try {
-    fetch('http://localhost:3000/users/vote', {
+    const response = await fetch('http://localhost:3000/users/vote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${tokenValue}`,
       },
       body: JSON.stringify({ selectedProjectNumber, selectedStars }),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (data.success) {
-          alert('Vote submitted successfully.');
-          resetRating();
-        } else {
-          if (data.error === 'AlreadyVoted') {
-            alert('You have already voted for this project.');
-          } else {
-            alert(data.error || 'An error occurred.');
-          }
-        }
-      })
-      .catch(error => {
-        resetRating();
-        console.error('Error submitting vote:', error);
-      });
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const data = await response.json();
+
+    if (data.success) {
+      alert('Vote submitted successfully.');
+      resetRating();
+    } else {
+      handleVoteError(data);
+    }
   } catch (error) {
-    console.error('Error:', error.message);
+    resetRating();
+    console.error('Error submitting vote:', error);
+  }
+}
+
+function handleVoteError(data) {
+  if (data.error === 'AlreadyVoted') {
+    alert('You have already voted for this project.');
+  } else {
+    alert(data.error || 'An error occurred.');
   }
 }
 

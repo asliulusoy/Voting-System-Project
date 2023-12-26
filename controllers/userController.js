@@ -148,4 +148,4 @@ const getProfilePage = (req, res) => {
 
 
 
-export { createUser, loginUser, getDashboardPage, getALVotingPage, getProfilePage, getProjectsPage, submitVote, submitRating};
+export { createUser, loginUser, getDashboardPage, getALVotingPage, getProfilePage, getProjectsPage, submitVote};
