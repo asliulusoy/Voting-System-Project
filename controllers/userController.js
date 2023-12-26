@@ -153,10 +153,26 @@ const getProjectsPage = (req, res) => {
   });
 };
 
-const getResultsPage = (req, res) => { 
-  res.render("results", {
-    link: 'results',
-  });
+const getResultsPage = async (req, res) => {
+  try {
+    // Get voting results for all projects
+    // You may need to adjust the logic to get results for all projects based on your database structure
+    const allProjects = await Project.find(); // Update this line based on your database model
+
+    // Calculate result vote for each project
+    const resultVotes = await Promise.all(
+      allProjects.map(async (project) => {
+        const resultVote = await calculateResultVote(project.projectid);
+        return { projectNumber: project.projectid, resultVote };
+      })
+    );
+
+    // Render the EJS file and pass the resultVotes and link as variables
+    res.render('results.ejs', { resultVotes, link: 'results' }); // Pass the link variable
+  } catch (error) {
+    console.error('Error:', error.message);
+    res.status(500).send('Internal Server Error');
+  }
 };
 
 const getProfilePage = (req, res) => {
