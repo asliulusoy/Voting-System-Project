@@ -60,7 +60,7 @@ function handleVoteError(data) {
     // Handle validation errors
     if (data.details && data.details.errors) {
       const errorMessages = Object.values(data.details.errors).join('\n');
-      alert(`Validation failed:\n${errorMessages}`);
+      alert(`Validation failed:\n${errorMessages}`);S
     } else {
       alert('Validation failed. Please check your input.');
     }
