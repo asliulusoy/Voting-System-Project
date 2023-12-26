@@ -82,7 +82,7 @@ const submitVote = async (req, res) => {
 
     if (user.votedProjects.includes(selectedProjectNumber)) {
       console.error('Already voted error:', 'You have already voted for this project.');
-      return res.status(400).json({ success: false, error: 'You have already voted for this project.' });
+      return res.status(400).json({ success: false, error: 'AlreadyVoted', message: 'You have already voted for this project.' });
     }
 
     // Find the project based on projectid
@@ -136,7 +136,7 @@ function submitRating() {
           resetRating(); // Reset stars after voting
         } else {
           // Check if the error message indicates that the user has already voted
-          if (data.error && data.error.includes('already voted')) {
+          if (data.error && data.error.includes('AlreadyVoted')) {
             alert('You have already voted for this project.');
           } else {
             alert(data.error || 'An error occurred.');

@@ -56,10 +56,16 @@ function submitRating() {
           alert('Vote submitted successfully.');
           resetRating(); // Reset stars after voting
         } else {
-          alert(data.error);
+          // Check if the error message indicates that the user has already voted
+          if (data.error === 'AlreadyVoted') {
+            alert('You have already voted for this project.');
+          } else {
+            alert(data.error || 'An error occurred.');
+          }
         }
       })
       .catch(error => {
+        resetRating();
         console.error('Error submitting vote:', error);
       });
   } catch (error) {
