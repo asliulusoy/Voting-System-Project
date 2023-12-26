@@ -110,7 +110,29 @@ const submitVote = async (req, res) => {
   }
 };
 
+const calculateResultVote = async (projectNumber) => {
+  try {
+    // Find the project based on projectid
+    const project = await Project.findOne({ projectid: projectNumber });
 
+    if (!project) {
+      throw new Error(`Project with projectNumber ${projectNumber} not found.`);
+    }
+
+    // Check if totalVotes is zero to avoid division by zero
+    if (project.totalVotes === 0) {
+      throw new Error(`Project with projectNumber ${projectNumber} has no votes.`);
+    }
+
+    // Calculate the result vote
+    const resultVote = project.starsGiven / project.totalVotes;
+
+    return resultVote;
+  } catch (error) {
+    console.error('Error calculating result vote:', error);
+    throw error; // Rethrow the error to handle it in the calling function or return a default value
+  }
+};
 const createToken = (userId) => {
   return jwt.sign({ userId }, process.env.SECRET_TOKEN, {
     expiresIn: "1d",
@@ -131,9 +153,9 @@ const getProjectsPage = (req, res) => {
   });
 };
 
-const getALVotingPage = (req, res) => { //BURAYA VOTING SONUCLARI GELECEK
-  res.render("afterlogvoting", {
-    link: 'voting',
+const getResultsPage = (req, res) => { 
+  res.render("results", {
+    link: 'results',
   });
 };
 
@@ -145,4 +167,4 @@ const getProfilePage = (req, res) => {
 
 
 
-export { createUser, loginUser, getDashboardPage, getALVotingPage, getProfilePage, getProjectsPage, submitVote };
+export { createUser, loginUser, getDashboardPage, getResultsPage, getProfilePage, getProjectsPage, submitVote, calculateResultVote };
