@@ -8,8 +8,25 @@ function resetRating() {
   });
   selectedStars = 0; // Yıldız sayısını sıfırla
 }
+console.log('All Cookies:', document.cookie);
+
 
 function submitRating() {
+  // Get the JWT token from cookies using js-cookie
+  const tokenValue = Cookies.get('jwt');
+
+  if (!tokenValue) {
+    // Handle the case where the JWT token is not found in cookies
+    console.error('JWT token not found in cookies.');
+    return;
+  }
+
+  console.log('JWT Token:', tokenValue);
+
+  // Remove the following lines, as 'token' is not defined
+  // const [, tokenValue] = token.split('=');
+  // console.log('JWT Token:', tokenValue);
+
   if (selectedProjectNumber === 0) {
     alert('Please choose a project.');
     return;
@@ -19,47 +36,38 @@ function submitRating() {
     return;
   }
 
-  // Retrieve the JWT token from cookies
-  const jwtToken = document.cookie.split(';')
-  .map(cookie => cookie.trim())
-  .find(cookie => cookie.startsWith('jwt='))
-  ?.split('=')[1];
-
-  console.log('JWT Token:', jwtToken);
-  console.log(document.cookie)
-  console.log('All Cookies:', document.cookie);
-
-  if (jwtToken) {
-    // Now jwtToken contains your JWT token
-    console.log('JWT Token:', jwtToken);
-
+  try {
     // Send a POST request to the server to submit the vote
-    fetch('/users/vote', {
+    fetch('http://localhost:3000/users/projects', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${jwtToken}`,
+        'Authorization': `Bearer ${tokenValue}`, // Use 'tokenValue' instead of 'token'
       },
       body: JSON.stringify({ selectedProjectNumber, selectedStars }),
     })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        alert('Vote submitted successfully.');
-        resetRating(); // Oy verildikten sonra yıldızları sıfırla
-      } else {
-        alert(data.error);
-      }
-    })
-    .catch(error => {
-      console.error('Error submitting vote:', error);
-    });
-  } else {
-    // Handle the case where the JWT cookie is not found
-    console.error('JWT cookie not found.');
-    console.log(document.cookie);
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.success) {
+          alert('Vote submitted successfully.');
+          resetRating(); // Reset stars after voting
+        } else {
+          alert(data.error);
+        }
+      })
+      .catch(error => {
+        console.error('Error submitting vote:', error);
+      });
+  } catch (error) {
+    console.error('Error:', error.message);
   }
 }
+
 
 
 function toggleTik(button, projectNumber) {

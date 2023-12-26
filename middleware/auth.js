@@ -5,16 +5,10 @@ import User from "../models/userModel.js";
 
 const checkUser = async (req, res, next) => {
   const token = req.cookies.jwt;
-  
-  res.cookie('jwt', token, {
-    httpOnly: true,
-    maxAge: 1000 * 60 * 60 * 24, // 1 day
-    // No path or domain specified
-  });
   if (token) {
     jwt.verify(token, process.env.SECRET_TOKEN, async (err, decodedToken) => {
       if (err) {
-        console.log(err.message);
+        console.log('Error verifying token: ', err);
         res.locals.user = null;
         next();
       } else {
@@ -49,13 +43,23 @@ const authenticateToken = async (req, res, next) => {
       jwt.verify(token, process.env.SECRET_TOKEN, (err) => {
         if (err) {
           console.log(err.message);
-          res.redirect("/login");
+          // Redirect the user to the login page only if the URL is not already the login page
+          if (req.originalUrl !== '/login') {
+            res.redirect("/login");
+          } else {
+            next(); // Continue to the next middleware if already on the login page
+          }
         } else {
           next();
         }
       });
     } else {
-      res.redirect("/login");
+      // Redirect the user to the login page only if the URL is not already the login page
+      if (req.originalUrl !== '/login') {
+        res.redirect("/login");
+      } else {
+        next(); // Continue to the next middleware if already on the login page
+      }
     }
   } catch (error) {
     res.status(401).json({
