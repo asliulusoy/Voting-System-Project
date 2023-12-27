@@ -1,0 +1,24 @@
+@import url('https://fonts.cdnfonts.com/css/comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,500,600,700,800,900');
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Comfortaa';
+  overflow: hidden;
+  background: url("/images/pxfuel.jpg") no-repeat;
+  background-size: cover;
+}
+.square {
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    width: 1800px;
+    height: 800px;
+    opacity: 0.55; 
+    background: #003049; 
+    border-radius: 20px   
+ }
+
+
