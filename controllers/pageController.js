@@ -187,4 +187,5 @@ const sendMail = async (req, res) => {
   }
 };
 
+
 export { getIndexPage, getBLVotingtPage, getContactPage, getLogoutPage, getAboutPage, sendMail };

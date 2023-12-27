@@ -119,4 +119,3 @@ function toggleStar(starId) {
 
   selectedStars = starId;
 }
-

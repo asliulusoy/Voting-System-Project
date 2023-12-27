@@ -183,4 +183,6 @@ const getProfilePage = (req, res) => {
 
 
 
+
+
 export { createUser, loginUser, getDashboardPage, getResultsPage, getProfilePage, getProjectsPage, submitVote, calculateResultVote };

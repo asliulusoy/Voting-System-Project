@@ -2,8 +2,11 @@
 <html lang="en">
     <%- include("partials/_header") %>
 <head>
-    <title>UVote : Results</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./global.css" />
     <link rel="stylesheet" href="/css/resultsstyle.css">
+    <title>UVote : Results</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -15,6 +18,8 @@
             <div class="content">
                 <canvas id="myChart" width="400" height="400"></canvas>
                 <script>
+                    
+                    
                     // Assuming you have the resultVotes data available
                     console.log("resultVotes:", <%- JSON.stringify(resultVotes) %>); // Check console log
                     const resultVotes = <%- JSON.stringify(resultVotes) %>;
@@ -49,6 +54,7 @@
                             }
                         }
                     });
+                    
                 </script>
             </div>
         </div>
