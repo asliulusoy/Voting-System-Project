@@ -8,23 +8,17 @@ function resetRating() {
   });
   selectedStars = 0; // Yıldız sayısını sıfırla
 }
-console.log('All Cookies:', document.cookie);
 
-
-function submitRating() {
-  // Get the JWT token from cookies using js-cookie
+async function submitRating() {
   const cookies = document.cookie;
-  console.log('All Cookies:', cookies);
   const tokenCookie = cookies.split(';').find(cookie => cookie.trim().startsWith('jwt='));
 
   if (!tokenCookie) {
-    // Handle the case where the JWT token is not found in cookies
     console.error('JWT token not found in cookies.');
     return;
   }
 
   const [, tokenValue] = tokenCookie.split('=');
-  console.log('JWT Token:', tokenValue);
 
   if (selectedProjectNumber === 0) {
     alert('Please choose a project.');
@@ -36,38 +30,44 @@ function submitRating() {
   }
 
   try {
-    // Send a POST request to the server to submit the vote
-    fetch('http://localhost:3000/users/vote', {
+    const response = await fetch('/users/vote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${tokenValue}`, // Use 'tokenValue' instead of 'token'
+        'Authorization': `Bearer ${tokenValue}`,
       },
       body: JSON.stringify({ selectedProjectNumber, selectedStars }),
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (data.success) {
-          alert('Vote submitted successfully.');
-          resetRating(); // Reset stars after voting
-        } else {
-          alert(data.error);
-        }
-      })
-      .catch(error => {
-        console.error('Error submitting vote:', error);
-      });
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      alert('Vote submitted successfully.');
+      resetRating();
+    } else {
+      handleVoteError(data);
+    }
   } catch (error) {
-    console.error('Error:', error.message);
+    resetRating();
+    console.error('Error submitting vote:', error);
   }
 }
 
-
+function handleVoteError(data) {
+  if (data.error === 'AlreadyVoted') {
+    alert('You have already voted for this project.');
+  } else if (data.error === 'ValidationFailed') {
+    // Handle validation errors
+    if (data.details && data.details.errors) {
+      const errorMessages = Object.values(data.details.errors).join('\n');
+      alert(`Validation failed:\n${errorMessages}`);S
+    } else {
+      alert('Validation failed. Please check your input.');
+    }
+  } else {
+    alert(data.error || 'An error occurred.');
+  }
+}
 
 function toggleTik(button, projectNumber) {
   // Butondaki mevcut tik işaretini bul

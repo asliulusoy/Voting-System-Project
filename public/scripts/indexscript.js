@@ -42,22 +42,26 @@ form.addEventListener("submit", async (e) => {
       if (data) {
 
          if (data.email) {
+            adjustContainerHeight();
             emailError.textContent = data.email
             emailError.style.display = "block"
             adjustContainerHeight();
          }
          if (data.password) {
+            adjustContainerHeight();
             passwordError.textContent = data.password
             passwordError.style.display = "block"
             adjustContainerHeight();
          }
 
          if (data.fullname) {
+            adjustContainerHeight();
             fullnameError.textContent = data.fullname
             fullnameError.style.display = "block"
             adjustContainerHeight();
          }
          if (data.stuid) {
+            adjustContainerHeight();
             stuidError.textContent = data.stuid
             stuidError.style.display = "block"
             adjustContainerHeight();

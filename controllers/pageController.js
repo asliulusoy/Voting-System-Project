@@ -1,33 +1,31 @@
 import nodemailer from 'nodemailer';
 // BEFORE LOGIN (BL)
 const getIndexPage = (req, res) => {
-    res.render("index", {
-        link:'index',
-    });
+  res.render("index", {
+    link: 'index',
+  });
 };
 const getBLVotingtPage = (req, res) => {
-    res.render("beforelogvoting", {
-        link: "beforelogvoting",
-    });
+  res.render("beforelogvoting", {
+    link: "beforelogvoting",
+  });
 };
 const getContactPage = (req, res) => {
-    res.render('contact', {
-        link: 'contact',
-    });
-  };
-  const getAboutPage = (req, res) =>{
+  res.render('contact', {
+    link: 'contact',
+  });
+};
+const getAboutPage = (req, res) => {
   res.render('about', {
     link: 'about',
   });
 }
-  const getLogoutPage = (req, res) => {
-    res.cookie('jwt','',{
-        maxAge: 1,
-    });
-    res.redirect("/");
-  };
-  const sendMail = async (req, res) => {
-    const htmlTemplate = `
+const getLogoutPage = (req, res) => {
+  res.clearCookie("jwt");
+  res.redirect("/login");
+};
+const sendMail = async (req, res) => {
+  const htmlTemplate = `
     <!doctype html>
     <html>
       <head>
@@ -158,33 +156,33 @@ const getContactPage = (req, res) => {
       </body>
     </html>
     `;
-  
-    try {
-      // create reusable transporter object using the default SMTP transport
-      let transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true, // true for 465, false for other ports
-        auth: {
-          user: process.env.NODE_MAIL, // generated ethereal user
-          pass: process.env.NODE_PASS, // generated ethereal password
-        },
-      });
-  
-      // send mail with defined transport object
-      await transporter.sendMail({
-        to: 'project11cmpe331@gmail.com', // list of receivers
-        subject: `MAIL FROM ${req.body.email}`, // Subject line
-        html: htmlTemplate, // html body
-      });
-  
-      res.status(200).json({ succeeded: true });
-    } catch (error) {
-      res.status(500).json({
-        succeeded: false,
-        error,
-      });
-    }
-  };
 
-export {getIndexPage,getBLVotingtPage, getContactPage, getLogoutPage,getAboutPage,sendMail};
+  try {
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, // true for 465, false for other ports
+      auth: {
+        user: process.env.NODE_MAIL, // generated ethereal user
+        pass: process.env.NODE_PASS, // generated ethereal password
+      },
+    });
+
+    // send mail with defined transport object
+    await transporter.sendMail({
+      to: 'project11cmpe331@gmail.com', // list of receivers
+      subject: `MAIL FROM ${req.body.email}`, // Subject line
+      html: htmlTemplate, // html body
+    });
+
+    res.status(200).json({ succeeded: true });
+  } catch (error) {
+    res.status(500).json({
+      succeeded: false,
+      error,
+    });
+  }
+};
+
+export { getIndexPage, getBLVotingtPage, getContactPage, getLogoutPage, getAboutPage, sendMail };

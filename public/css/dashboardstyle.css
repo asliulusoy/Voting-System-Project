@@ -30,13 +30,13 @@ body {
 .containerall {
   position: absolute;
   height: 20%;
-  width: 60%;
+  width: 53%;
   position: relative;
 }
 
 .container2 {
   font-size: 2.5vw;
-  color: white;
+  color: #f2f2f2;
   position: absolute;
   font-family: 'Tahoma', 'Geneva', sans-serif;
   top: 70%;
@@ -48,7 +48,7 @@ body {
 .labels-container {
   display: flex;
   justify-content: space-between;
-  margin-left: 0.6vw;
+  margin-left: 3.0vw;
 }
 
 .label {
@@ -62,7 +62,7 @@ body {
 .project-deadline {
   font-size: 3vw;
   font-weight: 1000;
-  color: white;
+  color: #f2f2f2;
   text-align: center;
   margin: 0;
   position: absolute;
@@ -74,7 +74,8 @@ body {
 
 .clock {
   height: 20vh;
-  color: white;
+  color: #f2f2f2;
+  background-color: rgb(42,63,95, 0.7);
   font-size: 10vw;
   font-family: sans-serif;
   line-height: 20.4vh;
@@ -138,7 +139,7 @@ body {
   width: 400px;
   height: 25px;
   text-align: center;
-  color: white;
+  color: #f2f2f2;
   transition: all 0.5s ease;
   top: 20%;
   left: 10%;
