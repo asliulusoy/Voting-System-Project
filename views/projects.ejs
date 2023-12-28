@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <%- include("partials/_header") %>
-  <link rel="stylesheet" href="/css/projectsstyle.css">
 
   <head>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-    <script src="/scripts/votingscript.js" crossorigin="anonymous"></script>
+    <title>UVote : Projects</title>
+    <link rel="stylesheet" href="/css/projectsstyle.css">
   </head>
 
   <body>
@@ -14,64 +12,73 @@
 
     <div class="img">
       <%- include("partials/_menu") %>
-        <div class="square">
-          <div class="button-container">
-            <button class="btn" onclick="toggleTik(this, 1)">Button 1</button>
-            <button class="btn" onclick="toggleTik(this, 2)">Button 2</button>
-            <button class="btn" onclick="toggleTik(this, 3)">Button 3</button>
-            <button class="btn" onclick="toggleTik(this, 4)">Button 4</button>
-            <button class="btn" onclick="toggleTik(this, 5)">Button 5</button>
-            <button class="btn" onclick="toggleTik(this, 6)">Button 6</button>
+        <div class="container">
+          <div class="projects-container">
+          <div class="square">
+            <div class="button-container">
+              <button class="btn" id="project1" onclick="toggleTik(this, 1)">Button 1</button>
+              <button class="btn" id="project2" onclick="toggleTik(this, 2)">Button 2</button>
+              <button class="btn" id="project3" onclick="toggleTik(this, 3)">Button 3</button>
+              <button class="btn" id="project4" onclick="toggleTik(this, 4)">Button 4</button>
+              <button class="btn" id="project5" onclick="toggleTik(this, 5)">Button 5</button>
+              <button class="btn" id="project6" onclick="toggleTik(this, 6)">Button 6</button>
+            </div>
+            <div class="button-container">
+              <button class="btn" id="project7" onclick="toggleTik(this, 7)">Button 7</button>
+              <span class="tik-isareti"></span>
+              <button class="btn" id="project8" onclick="toggleTik(this, 8)">Button 8</button>
+              <button class="btn" id="project9" onclick="toggleTik(this, 9)">Button 9</button>
+              <button class="btn" id="project10" onclick="toggleTik(this, 10)">Button 10</button>
+              <button class="btn" id="project11" onclick="toggleTik(this, 11)">Button 11</button>
+              <button class="btn" id="project12" onclick="toggleTik(this, 12)">Button 12</button>
+            </div>
+            <div class="button-container">
+              <button class="btn" id="project13" onclick="toggleTik(this, 13)">Button 13</button>
+              <button class="btn" id="project14" onclick="toggleTik(this, 14)">Button 14</button>
+              <button class="btn" id="project15" onclick="toggleTik(this, 15)">Button 15</button>
+              <button class="btn" id="project16" onclick="toggleTik(this, 16)">Button 16</button>
+              <button class="btn" id="project17" onclick="toggleTik(this, 17)">Button 17</button>
+              <button class="btn" id="project18" onclick="toggleTik(this, 18)">Button 18</button>
+            </div>
+            <div class="button-container">
+              <button class="btn" id="project19" onclick="toggleTik(this, 19)">Button 19</button>
+              <button class="btn" id="project20" onclick="toggleTik(this, 20)">Button 20</button>
+              <button class="btn" id="project21" onclick="toggleTik(this, 21)">Button 21</button>
+              <button class="btn" id="project22" onclick="toggleTik(this, 22)">Button 22</button>
+              <button class="btn" id="project23" onclick="toggleTik(this, 23)">Button 23</button>
+              <button class="btn" id="project24" onclick="toggleTik(this, 24)">Button 24</button>
+            </div>
           </div>
-          <div class="button-container">
-            <button class="btn" onclick="toggleTik(this, 7)">Button 7</button>
-            <button class="btn" onclick="toggleTik(this, 8)">Button 8</button>
-            <button class="btn" onclick="toggleTik(this, 9)">Button 9</button>
-            <button class="btn" onclick="toggleTik(this, 10)">Button 10</button>
-            <button class="btn" onclick="toggleTik(this, 11)">Button 11</button>
-            <button class="btn" onclick="toggleTik(this, 12)">Button 12</button>
-          </div>
-          <div class="button-container">
-            <button class="btn" onclick="toggleTik(this, 13)">Button 13</button>
-            <button class="btn" onclick="toggleTik(this, 14)">Button 14</button>
-            <button class="btn" onclick="toggleTik(this, 15)">Button 15</button>
-            <button class="btn" onclick="toggleTik(this, 16)">Button 16</button>
-            <button class="btn" onclick="toggleTik(this, 17)">Button 17</button>
-            <button class="btn" onclick="toggleTik(this, 18)">Button 18</button>
-          </div>
-          <div class="button-container">
-            <button class="btn" onclick="toggleTik(this, 19)">Button 19</button>
-            <button class="btn" onclick="toggleTik(this, 20)">Button 20</button>
-            <button class="btn" onclick="toggleTik(this, 21)">Button 21</button>
-            <button class="btn" onclick="toggleTik(this, 22)">Button 22</button>
-            <button class="btn" onclick="toggleTik(this, 23)">Button 23</button>
-            <button class="btn" onclick="toggleTik(this, 24)">Button 24</button>
-          </div>
+            <div class="project-info-container" id="projectInfoContainer">
+              <img id="projectImage" src="" alt="Proje Resmi">
+              <div id="projectText">Proje Bilgileri</div>
+            </div>
 
-        </div>
-        <div class="square2"></div>
-        <div class="star">
-          <input type="radio" id="r5" onclick="toggleStar(5)">
-          <label for="r5"></label>
-        
-          <input type="radio" id="r4" onclick="toggleStar(4)">
-          <label for="r4"></label>
-        
-          <input type="radio" id="r3" onclick="toggleStar(3)">
-          <label for="r3"></label>
-        
-          <input type="radio" id="r2" onclick="toggleStar(2)">
-          <label for="r2"></label>
-        
-          <input type="radio" id="r1" onclick="toggleStar(1)">
-          <label for="r1"></label>
-          <button class="submit-btn" onclick="submitRating()">Submit</button>
-          
+          </div>
+          <div class="square2">
+            <div class="star">
+              <input type="radio" id="r5" onclick="toggleStar(5)">
+              <label for="r5"></label>
+
+              <input type="radio" id="r4" onclick="toggleStar(4)">
+              <label for="r4"></label>
+
+              <input type="radio" id="r3" onclick="toggleStar(3)">
+              <label for="r3"></label>
+
+              <input type="radio" id="r2" onclick="toggleStar(2)">
+              <label for="r2"></label>
+
+              <input type="radio" id="r1" onclick="toggleStar(1)">
+              <label for="r1"></label>
+              <button class="submit-btn" onclick="submitRating()">Submit</button>
+            </div>
+          </div>
         </div>
     </div>
+    <script src="/scripts/votingscript.js"></script>
+    <script src="/scripts/projectscript.js"></script>
 
-
-   
   </body>
 
 </html>

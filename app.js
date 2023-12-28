@@ -34,7 +34,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get("*", checkUser);
 //before login
 app.use('/', pageRoute);
-
 //after login
 app.use('/users', userRoute);
 

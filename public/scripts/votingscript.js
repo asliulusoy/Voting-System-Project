@@ -47,6 +47,7 @@ function submitRating() {
     })
       .then(response => {
         if (!response.ok) {
+          alert('You already voted this project.')
           throw new Error('Network response was not ok');
         }
         return response.json();
@@ -60,6 +61,7 @@ function submitRating() {
         }
       })
       .catch(error => {
+        resetRating();
         console.error('Error submitting vote:', error);
       });
   } catch (error) {
@@ -90,8 +92,8 @@ function toggleTik(button, projectNumber) {
     tikIsareti.innerHTML = "✔";
 
     var buttonRect = button.getBoundingClientRect();
-    tikIsareti.style.top = buttonRect.top + buttonRect.height / 2 - 230 + 'px';
-    tikIsareti.style.left = buttonRect.right - 40 + 'px';
+    tikIsareti.style.top = buttonRect.top + buttonRect.height / 2 - 200 + 'px';
+    tikIsareti.style.left = buttonRect.right - 80 + 'px';
 
     button.appendChild(tikIsareti);
     button.classList.add("active");
@@ -119,4 +121,5 @@ function toggleStar(starId) {
 
   selectedStars = starId;
 }
+
 

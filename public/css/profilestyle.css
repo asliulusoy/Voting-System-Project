@@ -11,15 +11,25 @@ body {
   background-size: cover;
 }
 
-.profile-info {
+.container {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-100%, -50%);
+}
+.container2 {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  transform: translate(100%, -50%);
+}
+
+.profile-info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 35%;
+  justify-content: center; /* Add this line */
+  height: 100%; /* Change this line to 100% */
   font-size: 20px;
 }
 
@@ -33,11 +43,13 @@ body {
   width: 400px;
   text-align: center;
   color: white;
-  transition: all 0.5s ease; /* Genel geçiş efekti */
+  transition: all 0.5s ease;
+  /* Genel geçiş efekti */
 }
 
 .profile-box:hover {
-  transform: scale(1.10); /* Hover efekti */
+  transform: scale(1.10);
+  /* Hover efekti */
 }
 
 .profile-box h3 {
@@ -47,4 +59,3 @@ body {
 .profile-box p {
   margin: 10px 0;
 }
-

@@ -9,13 +9,17 @@ overflow: hidden;
 /*-- header --*/
 .header-area {
     
-    width: 97.9%;
+    width: 100%;
     background: rgba(29, 53, 87, 0.75);
     height: 80px;
     padding: 23px 20px;
     justify-content: space-between;
     z-index: 1;
 }
+.navbar {
+    width: 100%;
+    /* Other styles */
+  }
 .logo a {
     padding: 10px 5px;
     text-decoration: none;
