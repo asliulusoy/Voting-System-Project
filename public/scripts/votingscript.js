@@ -27,11 +27,23 @@ function submitRating() {
   console.log('JWT Token:', tokenValue);
 
   if (selectedProjectNumber === 0) {
-    alert('Please choose a project.');
+    // Replace standard alert with SweetAlert2
+    Swal.fire({
+      icon: 'warning',
+      title: 'Oops...',
+      text: 'Please choose a project.',
+      confirmButtonColor: '#003049', 
+    });
     return;
   }
   if (selectedStars === 0) {
-    alert('Please give a rating.');
+    // Replace standard alert with SweetAlert2
+    Swal.fire({
+      icon: 'warning',
+      title: 'Oops...',
+      text: 'Please give a rating.',
+      confirmButtonColor: '#003049', 
+    });
     return;
   }
 
@@ -47,17 +59,35 @@ function submitRating() {
     })
       .then(response => {
         if (!response.ok) {
-          alert('You already voted this project.')
-          throw new Error('Network response was not ok');
-        }
+        // Replace standard alert with SweetAlert2
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'You already voted this project.',
+          confirmButtonColor: '#003049', 
+        });
+        throw new Error('Network response was not ok');
+      }
         return response.json();
       })
       .then(data => {
         if (data.success) {
-          alert('Vote submitted successfully.');
+          // Replace standard alert with SweetAlert2
+          Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Vote submitted successfully.',
+            confirmButtonColor: '#003049', 
+          });
           resetRating(); // Reset stars after voting
         } else {
-          alert(data.error);
+          // Replace standard alert with SweetAlert2
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: data.error,
+            confirmButtonColor: '#003049', 
+          });
         }
       })
       .catch(error => {
