@@ -12,15 +12,15 @@ const userSchema = new Schema({
         maxlength: 20,
     },
     stuid: {
-        type: Number,
+        type: String, // Change the type to String
         required: true,
         unique: true,
-         validate: {
+        validate: {
             validator: function(value) {
                 // Check if it's a number and has exactly 9 digits
-                return Number.isInteger(value) && value.toString().length === 9;
+                return /^\d{9}$/.test(value);
             },
-            message: "Student ID must be a number with exactly 9 digits."
+            message: "Student ID must be a string with exactly 9 digits."
         }
     },
     email: {
@@ -34,10 +34,10 @@ const userSchema = new Schema({
         required: [true, "Password area is required"],
         minLength: [4, "At least 4 characters"]
     },
-    votedProjects: {
-        type: [Number], // Assuming project numbers are integers
-        default: [],
-      },
+    votedProjects: [{
+        projectNumber: { type: Number, required: true },
+        starsGiven: { type: Number, required: true, min: 1, max: 5 },
+    }],
 },
     {
         timestamps: true,

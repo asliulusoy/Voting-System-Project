@@ -61,18 +61,21 @@ const loginUser = async (req, res) => {
   }
 };
 
-const updateUserVotedProjects = async (userId, projectNumber) => {
+const updateUserVotedProjects = async (userId, projectNumber, starsGiven) => {
   try {
     await User.updateOne(
       { _id: userId },
-      { $addToSet: { votedProjects: projectNumber } }
+      {
+        $addToSet: {
+          votedProjects: { projectNumber, starsGiven }
+        }
+      }
     );
   } catch (error) {
     console.error('Error updating user voted projects:', error);
-    throw error; // Rethrow the error to handle it in the calling function
+    throw error;
   }
 };
-
 const submitVote = async (req, res) => {
   try {
     const userId = extractUserIdFromToken(req.cookies.jwt); //objectid from mongodb
@@ -80,9 +83,9 @@ const submitVote = async (req, res) => {
 
     const user = await User.findById(userId);
 
-    if (user.votedProjects.includes(selectedProjectNumber)) {
+    if (user.votedProjects.some(project => project.projectNumber === selectedProjectNumber)) {
       return res.status(400).json({ success: false, error: 'AlreadyVoted', message: 'submitVote error: You have already voted for this project.' });
-    }
+  }
 
     // Find the project based on projectid
     const project = await Project.findOne({ projectid: selectedProjectNumber });
@@ -91,8 +94,8 @@ const submitVote = async (req, res) => {
       return res.status(400).json({ success: false, error: 'Selected project not found.' });
     } else
 
-    // Update the totalVotes field
-     project.totalVotes += 1;
+      // Update the totalVotes field
+      project.totalVotes += 1;
 
     // Update the starsGiven field
     project.starsGiven += selectedStars;
@@ -101,7 +104,7 @@ const submitVote = async (req, res) => {
     await project.save();
 
     // Update user's votedProjects
-    await updateUserVotedProjects(userId, selectedProjectNumber);
+    await updateUserVotedProjects(userId, selectedProjectNumber, selectedStars);
 
     res.status(200).json({ success: true, message: 'Vote submitted successfully.' });
   } catch (error) {
