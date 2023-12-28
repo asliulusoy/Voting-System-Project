@@ -11,26 +11,28 @@ body {
   background-size: cover;
 }
 
-.container {
+.img {
+  background: url("/images/pxfuel.jpg") no-repeat;
   position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-100%, -50%);
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
 }
+
 .container2 {
   position: absolute;
   top: 40%;
-  left: 20%;
+  left: 30%;
   transform: translate(100%, -50%);
 }
 
 .profile-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Add this line */
-  height: 100%; /* Change this line to 100% */
-  font-size: 20px;
+  position: absolute;
+  top: 40%;
+  left: 53%;
+  transform: translate(-100%, -50%);
 }
 
 .profile-box {
