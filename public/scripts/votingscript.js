@@ -8,13 +8,13 @@ function resetRating() {
   });
   selectedStars = 0; // Yıldız sayısını sıfırla
 }
-console.log('All Cookies:', document.cookie);
+
 
 
 function submitRating() {
   // Get the JWT token from cookies using js-cookie
   const cookies = document.cookie;
-  console.log('All Cookies:', cookies);
+
   const tokenCookie = cookies.split(';').find(cookie => cookie.trim().startsWith('jwt='));
 
   if (!tokenCookie) {
@@ -24,7 +24,7 @@ function submitRating() {
   }
 
   const [, tokenValue] = tokenCookie.split('=');
-  console.log('JWT Token:', tokenValue);
+
 
   if (selectedProjectNumber === 0) {
     // Replace standard alert with SweetAlert2

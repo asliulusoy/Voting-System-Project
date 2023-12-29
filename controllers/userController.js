@@ -12,7 +12,14 @@ const createUser = async (req, res) => {
   } catch (error) {
     let errors2 = {};
     if (error.code === 11000) {
-      errors2.email = 'The Email is already registered';
+      // MongoDB'den gelen benzersizlik (unique) hatası
+      if (error.keyPattern.stuid) {
+        errors2.stuid = 'The Student ID is already registered';
+      }
+
+      if (error.keyPattern.email) {
+        errors2.email = 'The Email is already registered';
+      }
     }
     if (error.name === "ValidationError") {
       Object.keys(error.errors).forEach((key) => {
@@ -120,7 +127,9 @@ const calculateResultVote = async (projectNumber) => {
 
     // Check if totalVotes is zero to avoid division by zero
     if (project.totalVotes === 0) {
-      throw new Error(`Project with projectNumber ${projectNumber} has no votes.`);
+      // Set resultVote to 0 when totalVotes is 0
+      const resultVote = 0;
+      return resultVote;
     }
 
     // Calculate the result vote
