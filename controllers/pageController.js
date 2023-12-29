@@ -21,7 +21,9 @@ const getAboutPage = (req, res) => {
   });
 }
 const getLogoutPage = (req, res) => {
-  res.clearCookie("jwt");
+  res.cookie('jwt','',{
+      maxAge: 1,
+  });
   res.redirect("/login");
 };
 const sendMail = async (req, res) => {
