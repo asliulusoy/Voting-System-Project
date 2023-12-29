@@ -17,7 +17,7 @@ body {
     background-size: cover;
     background-position: center;
     overflow: hidden;
-  }
+}
 
 .container {
     position: absolute;
@@ -36,9 +36,14 @@ body {
 }
 
 #myChart {
-    width: 100%; /* Genişlik değerini 100% olarak ayarla */
-    height: 80%; /* Yüksekliği ayarla (istediğiniz değere göre) */
-    display: block; /* Blok öğe olarak görüntüle */
-    margin: 0 auto; /* Merkezi hizalama */
-    max-width: 1000px; /* İstediğiniz maksimum genişlik değerini ayarlayın */
+    width: 100%;
+    /* Genişlik değerini 100% olarak ayarla */
+    height: 80%;
+    /* Yüksekliği ayarla (istediğiniz değere göre) */
+    display: block;
+    /* Blok öğe olarak görüntüle */
+    margin: 0 auto;
+    /* Merkezi hizalama */
+    max-width: 1000px;
+    /* İstediğiniz maksimum genişlik değerini ayarlayın */
 }

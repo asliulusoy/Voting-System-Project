@@ -1,5 +1,5 @@
 @import url('https://fonts.cdnfonts.com/css/comfortaa');
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
 body {
   margin: 0;
@@ -7,8 +7,6 @@ body {
   box-sizing: border-box;
   font-family: 'Comfortaa';
   overflow: hidden;
-  background: url("/images/pxfuel.jpg") no-repeat;
-  background-size: cover;
 }
 
 .img {
@@ -21,16 +19,28 @@ body {
   overflow: hidden;
 }
 
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 90%;
+  height: 90%;
+  background: transparent;
+  margin-top: 50px;
+  margin: 0 auto;
+}
+
 .container2 {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 30%;
   transform: translate(100%, -50%);
 }
 
-.profile-info {
+.container .content {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 53%;
   transform: translate(-100%, -50%);
 }
