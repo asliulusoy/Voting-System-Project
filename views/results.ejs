@@ -1,3 +1,5 @@
+<!-- results.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
     <%- include("partials/_header") %>
@@ -13,43 +15,70 @@
         <div class="container">
             <h2> Voting Results</h2>
             <div class="content">
-                <canvas id="myChart" width="400" height="400"></canvas>
+                <canvas id="myChart" width="900" height="900"></canvas>
+                
                 <script>
-                    // Assuming you have the resultVotes data available
-                    console.log("resultVotes:", <%- JSON.stringify(resultVotes) %>); // Check console log
-                    const resultVotes = <%- JSON.stringify(resultVotes) %>;
-
-                    // Extract data for chart
-                    const labels = resultVotes.map(result => result.projectNumber);
-                    const data = resultVotes.map(result => result.resultVote);
-
-                    // Sort data to get the top 10 projects
-                    const sortedData = data.slice().sort((a, b) => b - a).slice(0, 10);
-                    const sortedLabels = labels.slice(0, 10);
-
-                    // Create a bar chart
-                    const ctx = document.getElementById('myChart').getContext('2d');
-                    const myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: sortedLabels,
-                            datasets: [{
-                                label: 'Top 10 Vote Statistics',
-                                data: sortedData,
-                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                                borderColor: 'rgba(75, 192, 192, 1)',
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
+                    document.addEventListener('DOMContentLoaded', () => {
+                        // Assuming you have the resultVotes data available
+                        console.log("resultVotes:", <%- JSON.stringify(resultVotes || []) %>); // Check console log
+                        const resultVotes = <%- JSON.stringify(resultVotes || []) %>;
+                
+                        // Extract data for chart
+                        const labels = resultVotes.map(result => result.projectNumber);
+                        const data = resultVotes.map(result => result.resultVote);
+                
+                        // Sort data to get the top 10 projects
+                        const sortedData = data.slice().sort((a, b) => b - a).slice(0, 24);
+                        const sortedLabels = labels.slice(0, 24);
+                
+                        // Create a bar chart
+                        const ctx = document.getElementById('myChart').getContext('2d');
+                        const myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: sortedLabels,
+                                datasets: [{
+                                    label: 'Voting Results',
+                                    data: sortedData,
+                                    backgroundColor: 'rgba(242, 242, 242, 0.75)',
+                                    borderColor: 'rgba(15,21,33, 1)',
+                                    borderWidth: 2,
+                                    color: 'white' // Set label color to white
+                                }]
+                            },
+                            options: {
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'white', // Color of the tick labels on the x-axis
+                            font: {
+                                size: 16 // Size of the tick labels on the x-axis
                             }
                         }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'white', // Color of the tick labels on the y-axis
+                            font: {
+                                size: 16 // Size of the tick labels on the y-axis
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white' // Set legend label color to white
+                        }
+                    }
+                }
+            }
+                        });
                     });
                 </script>
+                
+                
             </div>
         </div>
     </div>
