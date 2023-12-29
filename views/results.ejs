@@ -23,57 +23,62 @@
                         console.log("resultVotes:", <%- JSON.stringify(resultVotes || []) %>); // Check console log
                         const resultVotes = <%- JSON.stringify(resultVotes || []) %>;
                 
-                        // Extract data for chart
-                        const labels = resultVotes.map(result => result.projectNumber);
-                        const data = resultVotes.map(result => result.resultVote);
+                        // Sort data to get the top projects based on result vote
+                        const sortedResultVotes = resultVotes.slice().sort((a, b) => b.resultVote - a.resultVote);
                 
-                        // Sort data to get the top 10 projects
-                        const sortedData = data.slice().sort((a, b) => b - a).slice(0, 24);
-                        const sortedLabels = labels.slice(0, 24);
+                        // Extract data for chart
+                        const labels = sortedResultVotes.map((result, index) => `${index + 1} - Project ${result.projectNumber}`); // Display ranking and projectNumber on x-axis
+                        const data = sortedResultVotes.map(result => result.resultVote);
+                        const projectNames = sortedResultVotes.map(result => `Project ${result.projectNumber}`); // Project names for tooltips
                 
                         // Create a bar chart
                         const ctx = document.getElementById('myChart').getContext('2d');
                         const myChart = new Chart(ctx, {
                             type: 'bar',
                             data: {
-                                labels: sortedLabels,
+                                labels: labels,
                                 datasets: [{
-                                    label: 'Voting Results',
-                                    data: sortedData,
+                                    label: 'Voting Results Sorted by Groups',
+                                    data: data,
                                     backgroundColor: 'rgba(242, 242, 242, 0.75)',
                                     borderColor: 'rgba(15,21,33, 1)',
                                     borderWidth: 2,
-                                    color: 'white' // Set label color to white
+                                    color: 'white', // Set label color to white
                                 }]
                             },
                             options: {
-                scales: {
-                    x: {
-                        ticks: {
-                            color: 'white', // Color of the tick labels on the x-axis
-                            font: {
-                                size: 16 // Size of the tick labels on the x-axis
+                                scales: {
+                                    x: {
+                                        ticks: {
+                                            color: 'white', // Color of the tick labels on the x-axis
+                                            font: {
+                                                size: 12 // Size of the tick labels on the x-axis
+                                            }
+                                        }
+                                    },
+                                    y: {
+                                        beginAtZero: true,
+                                        ticks: {
+                                            color: 'white', // Color of the tick labels on the y-axis
+                                            font: {
+                                                size: 16 // Size of the tick labels on the y-axis
+                                            }
+                                        }
+                                    }
+                                },
+                                plugins: {
+                                    legend: {
+                                        labels: {
+                                            color: 'white' // Set legend label color to white
+                                        }
+                                    },
+                                    tooltip: {
+                                        callbacks: {
+                                            title: (tooltipItem) => projectNames[tooltipItem[0].index] // Display project name as tooltip title
+                                        }
+                                    }
+                                }
                             }
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            color: 'white', // Color of the tick labels on the y-axis
-                            font: {
-                                size: 16 // Size of the tick labels on the y-axis
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: 'white' // Set legend label color to white
-                        }
-                    }
-                }
-            }
                         });
                     });
                 </script>
