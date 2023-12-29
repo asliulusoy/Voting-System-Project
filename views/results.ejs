@@ -38,7 +38,7 @@
                             data: {
                                 labels: labels,
                                 datasets: [{
-                                    label: 'Voting Results Sorted by Groups',
+                                    label: 'Total Calc.Votes for Projects',
                                     data: data,
                                     backgroundColor: 'rgba(242, 242, 242, 0.75)',
                                     borderColor: 'rgba(15,21,33, 1)',
@@ -50,7 +50,7 @@
                                 scales: {
                                     x: {
                                         ticks: {
-                                            color: 'white', // Color of the tick labels on the x-axis
+                                            color: '#f2f2f2', // Color of the tick labels on the x-axis
                                             font: {
                                                 size: 12 // Size of the tick labels on the x-axis
                                             }
@@ -59,7 +59,7 @@
                                     y: {
                                         beginAtZero: true,
                                         ticks: {
-                                            color: 'white', // Color of the tick labels on the y-axis
+                                            color: '#f2f2f2', // Color of the tick labels on the y-axis
                                             font: {
                                                 size: 16 // Size of the tick labels on the y-axis
                                             }
@@ -69,7 +69,7 @@
                                 plugins: {
                                     legend: {
                                         labels: {
-                                            color: 'white' // Set legend label color to white
+                                            color: '#f2f2f2' // Set legend label color to white
                                         }
                                     },
                                     tooltip: {
@@ -77,11 +77,37 @@
                                             title: (tooltipItem) => projectNames[tooltipItem[0].index] // Display project name as tooltip title
                                         }
                                     }
-                                }
+                                },
+                                layout: {
+                                    padding: {
+                                        top: 50,
+                                        bottom: 100
+                                    }
+                                },
+                                scales: {
+                    x: {
+                        ticks: {
+                            color: 'white', // Color of the tick labels on the x-axis
+                            font: {
+                                size: 16 // Size of the tick labels on the x-axis
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'white', // Color of the tick labels on the y-axis
+                            font: {
+                                size: 16 // Size of the tick labels on the y-axis
+                            }
+                        }
+                    }
+                },
                             }
                         });
                     });
                 </script>
+                
                 
                 
             </div>

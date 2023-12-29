@@ -22,8 +22,8 @@ body {
 .container {
     position: absolute;
     width: 80%;
-    height: 60%; /* Adjust the height based on your preference */
-    left: 5%;
+    height: 60%;
+    left: 10%;
     color: #f2f2f2;
     font-size: 18px;
     background-color: transparent;
@@ -31,8 +31,7 @@ body {
 
 .container .content {
     width: 100%;
-    height: 100%;
-    padding: 20px; /* Adjust the padding based on your preference */
+    height: 150%;
     background: transparent;
 }
 
