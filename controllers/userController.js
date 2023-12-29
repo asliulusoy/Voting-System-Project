@@ -3,10 +3,7 @@ import bcrypt from 'bcrypt';
 import User from "../models/userModel.js";
 import Project from "../models/projectsModel.js";
 
-const extractUserIdFromToken = (token) => {
-  const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
-  return decodedToken.userId;
-};
+
 
 const createUser = async (req, res) => {
   try {
@@ -44,7 +41,6 @@ const loginUser = async (req, res) => {
       const token = createToken(user._id);
       res.cookie('jwt', token, {
         maxAge: 1000 * 60 * 60 * 24,
-        path: '/users', // Set to the path relevant to your application
       });
       res.redirect('/users/dashboard');
     } else {
@@ -141,7 +137,10 @@ const createToken = (userId) => {
     expiresIn: "1d",
   });
 };
-
+const extractUserIdFromToken = (token) => {
+  const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
+  return decodedToken.userId;
+};
 
 // AFTER LOGIN (AL)
 const getDashboardPage = async (req, res) => {
