@@ -27,7 +27,7 @@ const userSchema = new Schema({
         type: String,
         required: [true, "Email area is required"],
         unique: true,
-        match: [/^\w+([-]?\w+)*@bilgiedu\.net$/, 'Please enter a valid email address.']
+        match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*\.\w+([.-]?\w+)*$/, 'Please enter a valid email address.']
     },
     password: {
         type: String,
