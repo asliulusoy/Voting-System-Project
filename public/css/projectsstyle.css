@@ -31,10 +31,11 @@ body {
   margin: 0 auto;
 }
 
-.project-container {
+/* .project-container {
   display: flex;
   justify-content: space-between;
 }
+*/
 
 .square {
   position: absolute;
@@ -53,7 +54,7 @@ body {
   left: 50%;
   width: 50%;
   height: 90%;
-  opacity: 0.85;
+  opacity: 0.90;
   background: #003049;
   border-radius: 20px;
 }
@@ -101,7 +102,7 @@ button {
 .project-info-container {
   display: none;
   float: right;
-  padding: 10px;
+  z-index: 1;  
 }
 
 .button-container {
