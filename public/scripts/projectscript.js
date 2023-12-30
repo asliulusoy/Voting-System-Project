@@ -6,17 +6,8 @@ const projects = {
         "aim": "Nowadays, the number of SMA patients in Turkey has increased a lot. Hopeless families are working to collect money for the treatment of their child. Medicine and surgery prices are too expensive for the families to effort. That is the reason we witness that people are trying to find volunteers at donation points, social media and public transportation vehicles. Unfortunately, there are some poisonous mentalities acting like patients’ parents to steal volunteers’ money. This situation makes volunteers feel uncomfortable and turn their donating desire off. Our project aims to minimize the doubt of the volunteers while creating a new and safe area for the patients to collect their donations more easily.",
         "importance": "According to the data of the ministry of health, approximately 150 babies are born with SMA disease. Every single baby can change the world in a good way, if we give them the opportunity to grow up healthy. Since the medicine prices are too high, donations are taking up an important space in the treatment process. In order to increase the number of donations, this project will make people more willing to donate. This mobile application will be a safety place with certificated IBAN numbers and the approvements of doctors. Therefore, the volunteers are able to make their donation with peace of mind. This official donation application will destroy donators’ hesitations of giving their money to a possible fake patient. So that, after breaking the question marks of the volunteers, this project has the potential to save thousands of lives.",
         "imagePaths": [
-          "/images/prj_img/project_1/project1_1.jpg",
-          "/images/prj_img/project_1/project1_2.jpg",
-          "/images/prj_img/project_1/project1_3.jpg",
-          "/images/prj_img/project_1/project1_4.jpg",
-          "/images/prj_img/project_1/project1_5.jpg",
-          "/images/prj_img/project_1/project1_6.jpg",
-          "/images/prj_img/project_1/project1_7.jpg",
-          "/images/prj_img/project_1/project1_8.jpg",
-          "/images/prj_img/project_1/project1_9.jpg",
-          "/images/prj_img/project_1/project1_10.jpg"
-        ]
+          "/images/prj_img/project_1/project1_1.jpg"]
+          
       },
     project2: {
         "id": 2,
@@ -244,7 +235,7 @@ const projects = {
         "aim": "The aim of this project is to construct a miniature replica of a smart home controllable through a mobile app to display IoT functionality and home automation. This project aims to highlight how home automation can enhance the general way of doing things.",
         "importance": "The importance of this project lies in the fact that it serves as a means to comprehend and illustrate the potential of IoT technology. Creating a small-scale replica of a smart home controllable through a mobile app allows for a practical display of how automation can enhance daily life beyond traditional methods.",
         "imagePaths": [
-          "/images/prj_img/project_21/project21_1.jpg",
+          "../images/prj_img/project_21/project21_1.jpg",
           "/images/prj_img/project_21/project21_2.jpg",
           "/images/prj_img/project_21/project21_3.jpg"
         ]
