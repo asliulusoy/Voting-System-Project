@@ -143,6 +143,7 @@
     "string-width": "^4.2.3",
     "strip-ansi": "^6.0.1",
     "supports-color": "^7.2.0",
+    "sweetalert2": "^11.10.2",
     "tar": "^6.2.0",
     "toidentifier": "^1.0.1",
     "type-is": "^1.6.18",

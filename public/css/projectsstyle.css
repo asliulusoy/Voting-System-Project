@@ -88,8 +88,16 @@ body {
 
 button {
   margin: 5px;
+  color: #f2f2f2;
 }
-
+.button-container #project7,
+.button-container #project8,
+.button-container #project19,
+.button-container #project20,
+.button-container #project23,
+.button-container #project24 {
+  background: black; 
+}
 .project-info-container {
   display: none;
   float: right;
@@ -111,7 +119,7 @@ button {
   left: 100px;
   width: 70px;
   height: 70px;
-  opacity: 0.80;
+  opacity: 1;
   background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 22px;
@@ -129,7 +137,7 @@ button {
 .btn:hover .tik-isareti,
 .btn.active .tik-isareti {
   display: block;
-  left: 100%; /* or adjust the value accordingly */
+  left: 10%; /* or adjust the value accordingly */
   transform: translateX(-100%);
 }
 
