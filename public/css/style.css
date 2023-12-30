@@ -1,33 +1,26 @@
+/* Reset styles or normalize.css can be included here */
 
-@import url('https://fonts.cdnfonts.com/css/comfortaa');
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
-
-body{
-font-family: 'Comfortaa';
-overflow: hidden; 
+body {
+    font-family: 'Comfortaa';
+    overflow: hidden;
 }
-/*-- header --*/
+
 .header-area {
-    
-    width: 97.9%;
+    width: 100%;
     background: rgba(29, 53, 87, 0.75);
     height: 80px;
     padding: 23px 20px;
     justify-content: space-between;
     z-index: 1;
 }
+
 .logo a {
     padding: 10px 5px;
     text-decoration: none;
     color: #f2f2f2;
-   
     font-weight: 700;
     white-space: nowrap;
     font-size: 35px;
-  }
-
-.navbar-area {
-    float: left;
 }
 
 .site-navbar ul {
@@ -43,7 +36,7 @@ overflow: hidden;
     font-size: 30px;
     display: block;
     text-decoration: none;
-    padding:0px;
+    padding: 0px;
     font-weight: 600;
 }
 
@@ -63,9 +56,9 @@ overflow: hidden;
     transform: translateY(5px);
     transition: 0.5s;
     opacity: 0%;
-  }
-  
-  .site-navbar a:hover::after {
+}
+
+.site-navbar a:hover::after {
     transform: translateY(0);
     opacity: 100%;
-  }
+}

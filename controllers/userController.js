@@ -3,10 +3,7 @@ import bcrypt from 'bcrypt';
 import User from "../models/userModel.js";
 import Project from "../models/projectsModel.js";
 
-const extractUserIdFromToken = (token) => {
-  const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
-  return decodedToken.userId;
-};
+
 
 const createUser = async (req, res) => {
   try {
@@ -15,7 +12,14 @@ const createUser = async (req, res) => {
   } catch (error) {
     let errors2 = {};
     if (error.code === 11000) {
-      errors2.email = 'The Email is already registered';
+      // MongoDB'den gelen benzersizlik (unique) hatası
+      if (error.keyPattern.stuid) {
+        errors2.stuid = 'The Student ID is already registered';
+      }
+
+      if (error.keyPattern.email) {
+        errors2.email = 'The Email is already registered';
+      }
     }
     if (error.name === "ValidationError") {
       Object.keys(error.errors).forEach((key) => {
@@ -44,7 +48,6 @@ const loginUser = async (req, res) => {
       const token = createToken(user._id);
       res.cookie('jwt', token, {
         maxAge: 1000 * 60 * 60 * 24,
-        path: '/users', // Set to the path relevant to your application
       });
       res.redirect('/users/dashboard');
     } else {
@@ -61,18 +64,21 @@ const loginUser = async (req, res) => {
   }
 };
 
-const updateUserVotedProjects = async (userId, projectNumber) => {
+const updateUserVotedProjects = async (userId, projectNumber, starsGiven) => {
   try {
     await User.updateOne(
       { _id: userId },
-      { $addToSet: { votedProjects: projectNumber } }
+      {
+        $addToSet: {
+          votedProjects: { projectNumber, starsGiven }
+        }
+      }
     );
   } catch (error) {
     console.error('Error updating user voted projects:', error);
-    throw error; // Rethrow the error to handle it in the calling function
+    throw error;
   }
 };
-
 const submitVote = async (req, res) => {
   try {
     const userId = extractUserIdFromToken(req.cookies.jwt); //objectid from mongodb
@@ -80,9 +86,9 @@ const submitVote = async (req, res) => {
 
     const user = await User.findById(userId);
 
-    if (user.votedProjects.includes(selectedProjectNumber)) {
+    if (user.votedProjects.some(project => project.projectNumber === selectedProjectNumber)) {
       return res.status(400).json({ success: false, error: 'AlreadyVoted', message: 'submitVote error: You have already voted for this project.' });
-    }
+  }
 
     // Find the project based on projectid
     const project = await Project.findOne({ projectid: selectedProjectNumber });
@@ -91,8 +97,8 @@ const submitVote = async (req, res) => {
       return res.status(400).json({ success: false, error: 'Selected project not found.' });
     } else
 
-    // Update the totalVotes field
-     project.totalVotes += 1;
+      // Update the totalVotes field
+      project.totalVotes += 1;
 
     // Update the starsGiven field
     project.starsGiven += selectedStars;
@@ -101,7 +107,7 @@ const submitVote = async (req, res) => {
     await project.save();
 
     // Update user's votedProjects
-    await updateUserVotedProjects(userId, selectedProjectNumber);
+    await updateUserVotedProjects(userId, selectedProjectNumber, selectedStars);
 
     res.status(200).json({ success: true, message: 'Vote submitted successfully.' });
   } catch (error) {
@@ -121,7 +127,9 @@ const calculateResultVote = async (projectNumber) => {
 
     // Check if totalVotes is zero to avoid division by zero
     if (project.totalVotes === 0) {
-      throw new Error(`Project with projectNumber ${projectNumber} has no votes.`);
+      // Set resultVote to 0 when totalVotes is 0
+      const resultVote = 0;
+      return resultVote;
     }
 
     // Calculate the result vote
@@ -138,7 +146,10 @@ const createToken = (userId) => {
     expiresIn: "1d",
   });
 };
-
+const extractUserIdFromToken = (token) => {
+  const decodedToken = jwt.verify(token, process.env.SECRET_TOKEN);
+  return decodedToken.userId;
+};
 
 // AFTER LOGIN (AL)
 const getDashboardPage = async (req, res) => {

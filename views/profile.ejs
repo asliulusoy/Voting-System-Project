@@ -1,42 +1,61 @@
+<!-- profile.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <%- include("partials/_header") %>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/profilestyle.css">
-  <link rel="stylesheet" href="/css/projectsstyle.css"> <!-- Gerekli stil dosyasını ekleyin -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-ACVc/JkBc/qLcFbcN2fbQ84FlsXjSCQegwMrSkSZafFcvkdIrXCeU5qLb9BwYBMRz9lRgI/8Zl6dtIA+4r02NQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>UVote: Projects</title>
-</head>
-<body>
-  <div class="img">
-    <%- include("partials/_menu") %>
-  </div>
-  <div class="main-page">
-    <div class="profile-info">
-      <!--User Name -->
-      <div class="profile-box" id="username-box">
-        <h3>Username</h3>
-        <p><%= user.fullname %></p>
-      </div>
-      
-       <!-- ID -->
-       <div class="profile-box" id="id-box">
-        <h3>Student Id</h3>
-        <p><%= user.stuid %></p>
-      </div>
 
-      <!-- E-posta -->
-      <div class="profile-box" id="email-box">
-        <h3>Email</h3>
-        <p><%= user.email %></p>
-      </div>
-      
-      <!-- Password -->
-      <div class="profile-box" id="password-box">
-        <h3>Password</h3> 
-        <p id="password">*********</p>
-      </div>
-</body>
+  <head>
+
+    <title>UVote : Projects</title>
+
+
+    <link rel="stylesheet" href="/css/profilestyle.css">
+    <title>UVote : Projects</title>
+  </head>
+
+  <body>
+    <div class="img">
+      <%- include("partials/_menu") %>
+
+        <div class="container">
+          <div class="content">
+            <!--User Name -->
+            <div class="profile-box" id="username-box">
+              <h3>Username</h3>
+              <p>
+                <%= user.fullname %>
+              </p>
+            </div>
+
+            <!-- ID -->
+            <div class="profile-box" id="id-box">
+              <h3>Student Id</h3>
+              <p>
+                <%= user.stuid %>
+              </p>
+            </div>
+
+            <!-- E-posta -->
+            <div class="profile-box" id="email-box">
+              <h3>Email</h3>
+              <p>
+                <%= user.email %>
+              </p>
+            </div>
+
+            <!-- Password -->
+            <div class="profile-box" id="password-box">
+              <h3>Password</h3>
+              <p id="password">*********</p>
+            </div>
+
+          </div>
+          <div class="container2">
+            <div>
+              <img src="/images/user.png" alt="Profile Image">
+            </div>
+          </div>
+        </div>
+  </body>
+
 </html>
