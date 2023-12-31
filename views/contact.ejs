@@ -4,7 +4,7 @@
 <%- include("partials/_header") %>
 
     <head>
-        <title>Contact Page</title>
+        <title>Uvote - Contact </title>
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
@@ -38,37 +38,7 @@
                     </form>
                 </section>
         </div>
-        <script>
-            const form = document.querySelector('#request')
-            const sendMessage = document.querySelector('#sendMessage')
-
-            form.addEventListener("submit", async (e) => {
-                e.preventDefault();
-
-
-                const name = form.name.value
-                const email = form.email.value
-                const message = form.message.value
-
-
-                try {
-                    const res = await fetch('/contact', {
-                        method: "POST",
-                        body: JSON.stringify({ name, email, message }),
-                        headers: { "Content-Type": "application/json" }
-                    })
-
-                    const data = await res.json();
-
-                    if (data.succeeded) {
-                        sendMessage.textContent = "Your Message Received."
-                        sendMessage.style.display = "block"
-                    }
-                } catch (err) {
-                    console.log("ERR::", err)
-                }
-            })
-        </script>
+        <script src="/scripts/contactscript.js"></script>
     </body>
 
 </html>

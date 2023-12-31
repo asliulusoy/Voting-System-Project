@@ -5,36 +5,42 @@ import User from "../models/userModel.js";
 
 const checkUser = async (req, res, next) => {
   const token = req.cookies.jwt;
-  if (token) {
-    jwt.verify(token, process.env.SECRET_TOKEN, async (err, decodedToken) => {
-      if (err) {
-        console.log(err.message);
-        res.locals.user = null;
+
+  try {
+    if (token) {
+      jwt.verify(token, process.env.SECRET_TOKEN, async (err, decodedToken) => {
+        if (err) {
+          console.log(err.message);
+          res.locals.user = null;
+          next();
+        } else {
+          const user = await User.findById(decodedToken.userId);
+          res.locals.user = user;
+
+          if (req.originalUrl === '/' && User) {
+            // Check if the user is authenticated before redirecting
+            res.redirect('/users/dashboard');
+          } else {
+            next();
+          }
+        }
+      });
+    } else {
+      res.locals.user = null;
+
+      // Kullanıcı giriş yapmamışsa ve isteği index sayfasıysa, direkt olarak dashboard sayfasına yönlendir
+      if (req.originalUrl === '/' && !User) {
+        // Check if the user is not authenticated before redirecting
         next();
       } else {
-        const user = await User.findById(decodedToken.userId);
-        res.locals.user = user;
-
-        // Kullanıcı giriş yapmışsa ve giriş yaptığı sayfa index ise direkt olarak dashboard'a yönlendir
-        if (req.originalUrl === '/' && user) {
-          res.redirect('/users/dashboard');
-        } else {
-          next();
-        }
+        next();
       }
-    });
-  } else {
-    res.locals.user = null;
-
-    // Kullanıcı giriş yapmamışsa ve isteği index sayfasıysa, direkt olarak dashboard sayfasına yönlendir
-    if (req.originalUrl === '/') {
-      res.redirect('/users/dashboard');
-    } else {
-      next();
     }
+  } catch (error) {
+    console.error('Error in checkUser middleware:', error);
+    next(error);
   }
 };
-
 const authenticateToken = async (req, res, next) => {
   try {
     const token = req.cookies.jwt;

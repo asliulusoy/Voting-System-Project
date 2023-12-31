@@ -1,15 +1,61 @@
+<!-- profile.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("partials/_header") %>
-<head>
+<%- include("partials/_header") %>
 
-    <title>Profile</title>
-    <link rel="stylesheet" href="css/profilestyle.css">
-</head>
-<body>
-    <%- include("partials/_menu") %>
-    <div class="text-sci">
-        <h2> Hello World profile</h2>
-    </div>
-</body>
+  <head>
+
+    <title>UVote : Projects</title>
+
+
+    <link rel="stylesheet" href="/css/profilestyle.css">
+    <title>UVote : Projects</title>
+  </head>
+
+  <body>
+    <div class="img">
+      <%- include("partials/_menu") %>
+
+        <div class="container">
+          <div class="content">
+            <!--User Name -->
+            <div class="profile-box" id="username-box">
+              <h3>Username</h3>
+              <p>
+                <%= user.fullname %>
+              </p>
+            </div>
+
+            <!-- ID -->
+            <div class="profile-box" id="id-box">
+              <h3>Student Id</h3>
+              <p>
+                <%= user.stuid %>
+              </p>
+            </div>
+
+            <!-- E-posta -->
+            <div class="profile-box" id="email-box">
+              <h3>Email</h3>
+              <p>
+                <%= user.email %>
+              </p>
+            </div>
+
+            <!-- Password -->
+            <div class="profile-box" id="password-box">
+              <h3>Password</h3>
+              <p id="password">*********</p>
+            </div>
+
+          </div>
+          <div class="container2">
+            <div>
+              <img src="/images/user.png" alt="Profile Image">
+            </div>
+          </div>
+        </div>
+  </body>
+
 </html>

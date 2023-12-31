@@ -1,367 +1,174 @@
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Comfortaa';
-    }
-.img {
-    background: url("/images/pxfuel.jpg") no-repeat;
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
-  .rattings-wrapper {
-      *{
-        position: absolute;
-        top:400px;
-        left:100px;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-  }
+@import url('https://fonts.cdnfonts.com/css/comfortaa');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
-  .ratings {
-      display: flex;
-      align-items: center;
-      flex-direction: row-reverse;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Comfortaa';
+  overflow: hidden;
+}
+
+.img {
+  background: url("/images/pxfuel.jpg") no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 90%;
+  height: 90%;
+  background: transparent;
+  margin-top: 50px;
+  margin: 0 auto;
+}
+
+.project-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.square {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 40%;
+  height: 55%;
+  opacity: 0.55;
+  background: #003049;
+  border-radius: 20px;
+}
+
+.square2 {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  width: 50%;
+  height: 90%;
+  opacity: 0.85;
+  background: #003049;
+  border-radius: 20px;
+}
+
+.star {
+  width: 50%;
+  position: absolute;
+  top: 75%;
+  left: -60%;
+  transform: translate(-50%, -50%);
+}
+
+.submit-btn {
+  position: relative;
+  top: -22px;
+  left: 110px;
+  margin-left: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #1a273f;
+  color: #f2f2f2;
+  border-color: #5d7190;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  border-radius: 10px;
+
+}
+
+.submit-btn:hover {
+  background-color: #1d2135;
+}
+
+button {
+  margin: 5px;
+  color: #f2f2f2;
+}
+.button-container #project7,
+.button-container #project8,
+.button-container #project19,
+.button-container #project20,
+.button-container #project23,
+.button-container #project24 {
+  background: black; 
+}
+.project-info-container {
+  display: none;
+  float: right;
+  padding: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
   
-  .star {
-      cursor: pointer;
-      color: #ece5e5;
-      font-size: 50px;
-      padding: 0 10px;
-      display: inline-block;
-      margin-bottom: 20px;
-  }
-  
-  .submit-btn {
-      margin-left: 10px;
-      padding: 5px 10px;
-      cursor: pointer;
-  }
-  
-  .ratings span{
-      cursor: pointer;
-      transition: color .2s, transform .2s;
-      font-size: 50px;
-  }
-  
-  .ratings span:hover{
-      color: orange;
-      transform: scale(1.3);
-  }
-  
-  .ratings span:hover ~ span{
-      color: orange;
-  }
-  }
-   .square {
-      position: absolute;
-      top: 250px;
-      left: 50px;
-      width: 670px;
-      height: 500px;
-      opacity: 0.55; 
-      background: #003049; 
-      border-radius: 20px   
-   }
-   .square2 {
-      position: absolute;
-      top: 150px;
-      left: 1200px;
-      width: 670px;
-      height: 800px;
-      opacity: 0.85; 
-      background: #003049; 
-      border-radius: 20px   
-   }
-   .button1 {
-      position: absolute;
-      top: 310px;
-      left: 100px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button1 {
-      position: absolute;
-      top: 310px;
-      left: 100px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button2 {
-      position: absolute;
-      top: 310px;
-      left: 200px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button3 {
-      position: absolute;
-      top: 310px;
-      left: 300px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button4 {
-      position: absolute;
-      top: 310px;
-      left: 400px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button5 {
-      position: absolute;
-      top: 310px;
-      left: 500px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button6 {
-      position: absolute;
-      top: 310px;
-      left: 600px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button7 {
-      position: absolute;
-      top: 410px;
-      left: 100px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button8 {
-      position: absolute;
-      top: 410px;
-      left: 200px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button9 {
-      position: absolute;
-      top: 410px;
-      left: 300px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button10 {
-      position: absolute;
-      top: 410px;
-      left: 400px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button11 {
-      position: absolute;
-      top: 410px;
-      left: 500px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button12 {
-      position: absolute;
-      top: 410px;
-      left: 600px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button13 {
-      position: absolute;
-      top: 510px;
-      left: 100px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button13 {
-      position: absolute;
-      top: 510px;
-      left: 100px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button14 {
-      position: absolute;
-      top: 510px;
-      left: 200px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button15 {
-      position: absolute;
-      top: 510px;
-      left: 300px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button16 {
-      position: absolute;
-      top: 510px;
-      left: 400px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button17 {
-      position: absolute;
-      top: 510px;
-      left: 500px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button18 {
-      position: absolute;
-      top: 510px;
-      left: 600px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button19 {
-      position: absolute;
-      top: 610px;
-      left: 100px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button20 {
-      position: absolute;
-      top: 610px;
-      left: 200px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button21 {
-      position: absolute;
-      top: 610px;
-      left: 300px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button22 {
-      position: absolute;
-      top: 610px;
-      left: 400px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button23 {
-      position: absolute;
-      top: 610px;
-      left: 500px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
-   .button24 {
-      position: absolute;
-      top: 610px;
-      left: 600px;
-      width: 70px; 
-      height: 70px; 
-      opacity: 0.80; 
-      background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%); 
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
-      border-radius: 22px
-   }
+}
+
+.btn {
+  margin-top: 35px;
+  margin-left: 20px;
+  margin-right: 20px;
+  top: 310px;
+  left: 100px;
+  width: 70px;
+  height: 70px;
+  opacity: 1;
+  background: linear-gradient(180deg, #274C77 0%, #778DA9 41%, #354879 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 22px;
+  font-size: 20px;
+}
+.tik-isareti {
+  position: absolute;
+  top: 50%;
+  display: none;
+  color: #00ff00;
+  font-size: 20px;
+  transform: translateX(-100%);
+}
+
+.btn:hover .tik-isareti,
+.btn.active .tik-isareti {
+  display: block;
+  left: 10%; /* or adjust the value accordingly */
+  transform: translateX(-100%);
+}
+
+.star>* {
+  float: inline-end;
+}
+
+.star label {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+
+.star label:after {
+  transition: all 1s ease-out;
+  position: absolute;
+  content: '☆';
+  color: orange;
+  font-size: 65px;
+}
+
+.star input {
+  display: none;
+}
+
+.star input:checked+label:after,
+.star input:checked~label:after {
+  content: '★';
+  color: gold;
+  text-shadow: 0 0 10px gold;
+}

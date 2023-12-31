@@ -1,8 +1,7 @@
-
-<link rel="stylesheet" href="reset.css"><header class="header-area">
+<header class="header-area">
+  <link rel="stylesheet" href="/css/style.css">
   <div class="container-fluid">
     <div class="row ">
-
       <div class=" col-md-2 col-sm-8">
         <div class="logo">
           <a href="/">Uvote<br></a>
@@ -16,12 +15,13 @@
                 <li><a class="<%= link === 'profile' && 'active' %>" href="/users/profile">Profile</a></li>
                 <li><a class="<%= link === 'projects' && 'active' %>" href="/users/projects">Projects</a></li>
                 <li><a class="<%= link === 'dashboard' && 'active' %>" href="/users/dashboard">Dashboard</a></li>
+                <li><a class="<%= link === 'results' && 'active' %>" href="/users/results">Results</a></li>
                 <li><a href="/logout">Logout</a></li>
-                <% } else { %>
-                  <li><a class="<%= link === 'index' && 'active' %>" href="/">Home</a></li>
-                  <li><a class="<%= link === 'about' && 'active' %>" href="/about">About</a></li>
-                  <li><a class="<%= link === 'contact' && 'active' %>" href="/contact">Contact</a></li>
-                  <% }%>
+              <% } else { %>
+                <li><a class="<%= link === 'index' && 'active' %>" href="/">Home</a></li>
+                <li><a class="<%= link === 'about' && 'active' %>" href="/about">About</a></li>
+                <li><a class="<%= link === 'contact' && 'active' %>" href="/contact">Contact</a></li>
+              <% } %>
             </ul>
           </nav>
         </div>

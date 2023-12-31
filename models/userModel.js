@@ -10,33 +10,34 @@ const userSchema = new Schema({
         required: [true, "Name area is required."],
         unique: true,
         maxlength: 20,
-        validate: [validator.isAlphanumeric, "Only alphanumeric characters."]
     },
     stuid: {
-        type: Number,
+        type: String, // Change the type to String
         required: true,
         unique: true,
-        maxlength: 9
+        validate: {
+            validator: function(value) {
+                // Check if it's a number and has exactly 9 digits
+                return /^\d{9}$/.test(value);
+            },
+            message: "Student ID must be a string with exactly 9 digits."
+        }
     },
-    /*
-    projectno: {
-        type: Number,
-        required: true,
-        trim: true,
-        maxlength: 2
-    },
-    */
     email: {
         type: String,
         required: [true, "Email area is required"],
         unique: true,
-        match: [/^\w+([-]?\w+)*@bilgiedu\.net$/, 'Please enter a valid email address.']
+        match: [/^\w+([.-]?\w+)*@\w+([.-]?\w+)*\.\w+([.-]?\w+)*$/, 'Please enter a valid email address.']
     },
     password: {
         type: String,
         required: [true, "Password area is required"],
         minLength: [4, "At least 4 characters"]
     },
+    votedProjects: [{
+        projectNumber: { type: Number, required: true },
+        starsGiven: { type: Number, required: true, min: 1, max: 5 },
+    }],
 },
     {
         timestamps: true,
