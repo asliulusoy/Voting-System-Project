@@ -58,9 +58,16 @@
           <div class="square2">
 
 
-            <div class="project-info-container" id="projectInfoContainer">
-              <img id="projectImage" src="/public/images/prj_img/" alt="Proje Resmi">
-              <div id="projectText">Proje Bilgileri</div>
+            <div id="projectInfo">
+              <!-- Projelerin bilgilerinin gösterileceği yer -->
+              <h1 id="projectTitle"></h1>
+              <p id="projectAim"></p>
+              <p id="projectImportance"></p>
+              <div id="imageSlider" class="slider-container">
+                <button onclick="prevImage()">Previous</button>
+                <img id="projectImage" src="" alt="Project Image">
+                <button onclick="nextImage()">Next</button>
+              </div>
             </div>
 
 

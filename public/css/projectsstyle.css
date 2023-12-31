@@ -173,3 +173,7 @@ button {
   color: gold;
   text-shadow: 0 0 10px gold;
 }
+.projectImage {
+  width:100px;
+  height:100px;
+}
