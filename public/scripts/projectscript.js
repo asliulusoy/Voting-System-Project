@@ -251,12 +251,38 @@ const projects = {
     // Diğer projeler...
 };
 
-let currentProjectId = 1; // İlk proje ile başla
 
 function toggleTik(button, projectId) {
   // Buton tıklanınca çağrılır
   // Projeyi güncelle
   currentProjectId = projectId;
+
+  // Butondaki mevcut tik işaretini bul
+  var tikIsareti = button.querySelector('.tik-isareti');
+
+  // Eğer tik işareti zaten varsa, kaldır
+  if (tikIsareti) {
+      tikIsareti.remove();
+      button.classList.remove("active");
+  } else {
+      // Diğer butonlardaki tik işaretlerini kaldır
+      document.querySelectorAll('.tik-isareti').forEach(function (tik) {
+          tik.remove();
+      });
+
+      // Yeni tik işaretini oluştur ve ekle
+      tikIsareti = document.createElement("span");
+      tikIsareti.className = "tik-isareti";
+      tikIsareti.innerHTML = "✔";
+
+      var buttonRect = button.getBoundingClientRect();
+      tikIsareti.style.top = buttonRect.top + buttonRect.height / 2 - 200 + 'px';
+      tikIsareti.style.left = buttonRect.right - 80 + 'px';
+
+      button.appendChild(tikIsareti);
+      button.classList.add("active");
+  }
+
   showProjectInfo();
 }
 
