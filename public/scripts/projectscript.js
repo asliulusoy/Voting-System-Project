@@ -251,10 +251,12 @@ const projects = {
     // Diğer projeler...
 };
 
+let currentProjectId=0;
 
 function toggleTik(button, projectId) {
   // Buton tıklanınca çağrılır
   // Projeyi güncelle
+
   currentProjectId = projectId;
 
   // Butondaki mevcut tik işaretini bul
