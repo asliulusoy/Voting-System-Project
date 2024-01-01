@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import conn from './database.js';
+import {conn} from './database.js';
 import cookieParser from 'cookie-parser';
 import pageRoute from "./routes/pageRoute.js";
 import userRoute from "./routes/userRoute.js";
