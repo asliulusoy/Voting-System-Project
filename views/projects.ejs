@@ -28,7 +28,7 @@
               </div>
               <div class="button-container">
                 <button class="btn" id="project7" onclick="toggleTik(this, 7)" disabled> x</button>
-                <button class="btn" id="project8" onclick="toggleTik(this, 8)"disabled>x</button>
+                <button class="btn" id="project8" onclick="toggleTik(this, 8)" disabled>x</button>
                 <button class="btn" id="project9" onclick="toggleTik(this, 9)">9</button>
                 <button class="btn" id="project10" onclick="toggleTik(this, 10)">10</button>
                 <button class="btn" id="project11" onclick="toggleTik(this, 11)">11</button>
@@ -43,15 +43,15 @@
                 <button class="btn" id="project18" onclick="toggleTik(this, 18)">18</button>
               </div>
               <div class="button-container">
-                <button class="btn" id="project19" onclick="toggleTik(this, 19)"disabled>x</button>
-                <button class="btn" id="project20" onclick="toggleTik(this, 20)"disabled>x</button>
+                <button class="btn" id="project19" onclick="toggleTik(this, 19)" disabled>x</button>
+                <button class="btn" id="project20" onclick="toggleTik(this, 20)" disabled>x</button>
                 <button class="btn" id="project21" onclick="toggleTik(this, 21)">21</button>
                 <button class="btn" id="project22" onclick="toggleTik(this, 22)">22</button>
-                <button class="btn" id="project23" onclick="toggleTik(this, 23)"disabled>x</button>
-                <button class="btn" id="project24" onclick="toggleTik(this, 24)"disabled>x</button>
+                <button class="btn" id="project23" onclick="toggleTik(this, 23)" disabled>x</button>
+                <button class="btn" id="project24" onclick="toggleTik(this, 24)" disabled>x</button>
               </div>
             </div>
-            
+
 
           </div>
 
@@ -59,15 +59,16 @@
 
 
             <div id="projectInfo">
-              <!-- Projelerin bilgilerinin gösterileceği yer -->
-              <h1 id="projectTitle"></h1>
-              <p id="projectAim"></p>
-              <p id="projectImportance"></p>
+              <h2 id="projectTitle"></h2>
               <div id="imageSlider" class="slider-container">
                 <button onclick="prevImage()">Previous</button>
                 <img id="projectImage" src="" alt="Project Image">
                 <button onclick="nextImage()">Next</button>
               </div>
+              <h3 id="projectAimLabel">Project Aim:</h3>
+              <p id="projectAim"></p>
+              <h3 id="projectImportanceLabel">Project Importance:</h3>
+              <p id="projectImportance"></p>
             </div>
 
 
@@ -88,7 +89,7 @@
               <label for="r1"></label>
               <button class="submit-btn" onclick="submitRating()">Submit</button>
             </div>
-            
+
 
 
 
