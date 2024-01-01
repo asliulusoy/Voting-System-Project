@@ -64,7 +64,7 @@ body {
   margin-bottom: 40px;
 }
 
-#imageSlider img {
+#projectImage {
   max-width: 120%;
   max-height: 120%;
   border: 1px solid #f2f2f2;
@@ -82,7 +82,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   position: absolute;
-  z-index: 2;
+
 }
 
 #imageSlider button.left {
@@ -123,13 +123,7 @@ body {
   margin-top: auto;
   margin-bottom: 50px;
 }
-.star {
-  width: 50%;
-  position: absolute;
-  top: 75%;
-  left: -60%;
-  transform: translate(-50%, -50%);
-}
+
 
 .submit-btn {
   position: relative;
@@ -206,7 +200,13 @@ button {
   left: 10%; /* or adjust the value accordingly */
   transform: translateX(-100%);
 }
-
+.star {
+  width: 50%;
+  position: absolute;
+  top: 75%;
+  left: -60%;
+  transform: translate(-50%, -50%);
+}
 .star>* {
   float: inline-end;
 }
