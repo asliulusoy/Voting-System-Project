@@ -49,7 +49,7 @@ function submitRating() {
 
   try {
     // Send a POST request to the server to submit the vote
-    fetch('http://localhost:3000/users/vote', {
+    fetch('/users/vote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
