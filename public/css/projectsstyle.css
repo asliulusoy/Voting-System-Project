@@ -31,11 +31,6 @@ body {
   margin: 0 auto;
 }
 
-.project-container {
-  display: flex;
-  justify-content: space-between;
-}
-
 .square {
   position: absolute;
   top: 10%;
@@ -53,11 +48,81 @@ body {
   left: 50%;
   width: 50%;
   height: 90%;
-  opacity: 0.85;
+  opacity: 0.90;
   background: #003049;
   border-radius: 20px;
+  overflow: auto; /* Add this line to enable scrolling */
 }
 
+#imageSlider {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+#imageSlider img {
+  max-width: 120%;
+  max-height: 120%;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: auto; /* Add this line to center the image horizontally */
+}
+#imageSlider button {
+  padding: 8px 12px;
+  background-color: #3e5175;
+  color: #f2f2f2;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+}
+
+#imageSlider button.left {
+  left: 5px;
+  top: 100px;
+}
+
+#imageSlider button.right {
+  right: 5px;
+  top: 100px;
+}
+
+#projectInfo {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #f2f2f2;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+#projectAimLabel,
+#projectImportanceLabel {
+  font-size: 18px;
+  margin-top: 60px;
+}
+
+#projectAim {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: 10px; /* Adjust the margin to move the text down */
+}
+#projectImportance {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-top: auto;
+  margin-bottom: 50px;
+}
 .star {
   width: 50%;
   position: absolute;
@@ -79,7 +144,6 @@ body {
   font-size: 16px;
   transition: background-color 0.3s ease;
   border-radius: 10px;
-
 }
 
 .submit-btn:hover {
@@ -90,6 +154,7 @@ button {
   margin: 5px;
   color: #f2f2f2;
 }
+
 .button-container #project7,
 .button-container #project8,
 .button-container #project19,
@@ -98,17 +163,17 @@ button {
 .button-container #project24 {
   background: black; 
 }
+
 .project-info-container {
   display: none;
   float: right;
-  padding: 10px;
+  z-index: 1;  
 }
 
 .button-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  
 }
 
 .btn {
@@ -125,6 +190,7 @@ button {
   border-radius: 22px;
   font-size: 20px;
 }
+
 .tik-isareti {
   position: absolute;
   top: 50%;
@@ -153,7 +219,6 @@ button {
   padding: 0 10px;
 }
 
-
 .star label:after {
   transition: all 1s ease-out;
   position: absolute;
@@ -171,4 +236,9 @@ button {
   content: '★';
   color: gold;
   text-shadow: 0 0 10px gold;
+}
+
+.projectImage {
+  width: 100px;
+  height: 100px;
 }
