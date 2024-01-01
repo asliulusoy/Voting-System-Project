@@ -257,7 +257,7 @@ const projects = {
     // Diğer projeler...
 };
 
-let currentProjectId=0;
+let currentProjectId=1;
 
 function toggleTik(button, projectId) {
   // Buton tıklanınca çağrılır
