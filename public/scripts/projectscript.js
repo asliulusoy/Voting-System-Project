@@ -36,7 +36,7 @@ const projects = {
         id: 3,
         name: "LearnBook - A Community Page for Bilgi Students",
         aim: "The primary goal of this project is to develop a website that enables students to create personal profiles and engage in social interactions. Users can connect with students by following various communities, such as “Chess Club” or “Robotics Club”. Moreover, they can join to seek assistance and ask questions regarding their courses or maybe even a university issue in a group chat. Lastly, the project will allow students to post diverse types of media on a centralized feed page. While the project resembles platforms such as “Facebook” in concept, it is specifically designed for the use of Bilgi students.",
-        importance: "The significance of this project is its potential to provide support for students in need of help, especially first-year students. First-year students often require help and a community page can serve as a platform to connect students. The project will facilitate the establishment of new connections with other students from other departments. For instance, it can connect students with shared interests, such as students with an interest in machine learning. And they can start helping each other or even start projects. Also, for every course given at Bilgi tends to have a certain 'WhatsApp' group created by a random student, and there exists hundreds of them. It would be very convenient if all those groups can be found in one place, So whenever a student is in need of help in any certain course they could simply search for such group on the platform.",
+        importance: "The significance of this project is its potential to provide support for students in need of help, especially first-year students. First-year students often require help and a community page can serve as a platform to connect students. The project will facilitate the establishment of new connections with other students from other departments. For instance, it can connect students with shared interests, such as students with an interest in machine learning. And they can start helping each other or even start projects. Also, for every course given at Bilgi tends to have a certain 'WhatsApp' group created by a random student, and there exists hundreds of them. It would be very convenient if all those groups can be found in one place, So whenever a student is in need of help in any certain course they could simply search for such group on the platform. \nLink: https://github.com/makifcevik/learnbook" ,
         imageSrc:  ["/images/prj_img/project_3/project3_1.jpg",
           "/images/prj_img/project_3/project3_2.jpg",
           "/images/prj_img/project_3/project3_3.jpg",
@@ -111,17 +111,23 @@ const projects = {
       },
     project11: {
         id: 11,
-        "name": "Proje 11",
-        "aim": "None",
-        "importance": "None",
-        "imagePaths": [ ]
+        name: "Voting System",
+        aim: "This project aims to develop a voting system that aims to objectively evaluate the projects of students in the class. The system aims to improve the quality of projects and create a motivating competitive environment by providing students with the opportunity to exhibit their projects and receive feedback from other students. It focuses on ensuring that students can evaluate their projects not only by a teacher but also through the eyes of people in the class. In this way, students will have the chance to evaluate and develop their projects from different perspectives, and at the same time, they will contribute to a broader learning environment by increasing the overall interaction of their projects. The project also allows students to learn from each other while working on their projects. Each student will be able to view their own project not only as an evaluation tool but also as an opportunity to learn different approaches and techniques by examining other projects. This will enrich student interaction and learning experience in the classroom. The 5-star evaluation system included in the project will provide quantitative feedback to students and they will have the opportunity to improve their projects accordingly.",
+        importance: "The importance of this project ensures that students can showcase their projects effectively and receive an objective evaluation from other students in the class. At the same time, the fact that the project provides the opportunity to evaluate the qualities of the projects in the classroom and follow them live will increase the quality of the projects by creating a positive competitive environment among students. The QR code-based access system included in the project will not only increase interaction in the classroom but also contribute to learning digital skills and the use of modern technology. This will give students the opportunity not only to showcase their projects but also to learn how to interact with current technologies.",
+        imageSrc: ["/images/prj_img/project_11/project11_1.jpg",
+        "/images/prj_img/project_11/project11_2.jpg",
+        "/images/prj_img/project_11/project11_3.jpg",
+        "/images/prj_img/project_11/project11_4.jpg",
+        "/images/prj_img/project_11/project11_5.jpg",
+        "/images/prj_img/project_11/project11_6.jpg",
+        "/images/prj_img/project_11/project11_7.jpg"]
       },
     project12: {
         id: 12,
         name: "Labyrinth Of The Damned",
         aim: "Labyrinth of the Damned is a 3D interactive horror exploration game set in an abandoned research facility infested with zombies. As a lone survivor, your goal is to navigate haunted corridors, solve puzzles, shoot zombies, and escape the facility. Armed with little to no resources, your ultimate objective is to make it out of there alive. This will be implemented in Unity Engine, utilizing C-Sharp for the scripts, as well as free assets sourced online. The aim is to develop a compelling, fully functional game demo that not only showcases outstanding capabilities as game developers but also captivates the player base. Subsequently, one of the goals is to release the completed game to a wide audience, providing an immersive gaming experience for all.",
         importance: "Labyrinth of the Damned will be a highly immersive game that provides players with unforgettable experiences, and some truly horrifying moments. The horrific nature of the game alongside the environmental story-telling that occurs throughout well-designed areas in the game are one of many selling points. This experience will also be accessible to all sorts of players, whether they play through a keyboard and mouse, or a controller.",
-        imageSrc: []
+        imageSrc: ["/images/prj_img/project_12/project12_1.gif"]
     },
     project13: {
         id: 13,
@@ -193,8 +199,8 @@ const projects = {
         id: 18,
         name: "TeknoHome",
         aim: "The primary aim of this project is to revolutionize the concept of home living by implementing a simple and personalized smart home automation system. Through intricate integration of the Tekno-Home system and IOT devices, the goal here is to create a place that suits the unique preferences and daily routines of the house residents. This project aims to redefine the way people feel and interact in their living spaces, offering not just convenience but an unparalleled level of enhancements that boosts comfort, energy efficiency, and overall well-being.",
-        importance: "In an era that’s affected heavily by rapid technological advancement, this project addresses the fundamental need for homes to evolve beyond just basic home needs. The importance lies in the creation of an intelligent yet easy living space that not only simplifies daily tasks through automation, but it also assures suitability to the dynamic lifestyles of its residents. By providing customized experiences like luminous varying lightings, environmental conditions, and automation settings, Tekno-Home seeks to enhance the quality of life, promote energy efficiency, and overall create the perfect home for modern living. This venture is not just about technology, it’s about creating homes that resonate with the individuality of each occupant, ultimately redefining the concept of home in the 21st century.",
-        imageSrc: "/images/prj_img/project_18/project18_1.jpg"
+        importance: "In an era that’s affected heavily by rapid technological advancement, this project addresses the fundamental need for homes to evolve beyond just basic home needs. The importance lies in the creation of an intelligent yet easy living space that not only simplifies daily tasks through automation, but it also assures suitability to the dynamic lifestyles of its residents. By providing customized experiences like luminous varying lightings, environmental conditions, and automation settings, Tekno-Home seeks to enhance the quality of life, promote energy efficiency, and overall create the perfect home for modern living. This venture is not just about technology, it’s about creating homes that resonate with the individuality of each occupant, ultimately redefining the concept of home in the 21st century.  \nLink: Contactx.tech" ,
+        imageSrc: ["/images/prj_img/project_18/project18_1.jpg"]
       },
     project19: {
         id: 19,
@@ -223,7 +229,7 @@ const projects = {
         id: 22,
         name: "Engineers Community Website",
         aim: "The project wants to create a friendly online space for engineers worldwide to work together on projects, encourage project management skills, build a supportive community, help engineers showcase their work, and have a big impact on engineering education.",
-        importance: "The project is very important for engineers as it encourages teamwork across different areas, lets students use what they learn in real projects, promotes creative thinking, prepares for real work situations, connects engineers from various fields, allows global collaboration, boosts career skills, introduces relevant technologies, contributes to research, and improves the overall quality of engineering education.",
+        importance: "The project is very important for engineers as it encourages teamwork across different areas, lets students use what they learn in real projects, promotes creative thinking, prepares for real work situations, connects engineers from various fields, allows global collaboration, boosts career skills, introduces relevant technologies, contributes to research, and improves the overall quality of engineering education.   \nLink: https://www.youtube.com/watch?v=OyauGGTB1ps",
         imageSrc:  ["/images/prj_img/project_22/project22_1.jpg",
           "/images/prj_img/project_22/project22_2.jpg",
           "/images/prj_img/project_22/project22_3.jpg",
