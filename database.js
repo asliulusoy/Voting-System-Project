@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Project from "./models/projectsModel.js";
+import User from "./models/userModel.js"
 
 const conn = async () => {
   try {
@@ -12,6 +13,8 @@ const conn = async () => {
     // Seed projects
     await seedProjects();
 
+    // Count the total number of users
+    await countUsers();
   } catch (err) {
     console.log(`Connection failed: ${err}`);
   }
@@ -61,5 +64,19 @@ const seedProjects = async () => {
     console.error('Error seeding projects:', error);
   }
 };
+const countUsers = async () => {
+  try {
+    // Count the total number of users
+    const totalUsersString = await User.countDocuments({});
+    
+    // Convert the string to an integer
+    const totalUsers = parseInt(totalUsersString, 10);
+    
+    return totalUsers; // Return the integer value
+  } catch (error) {
+    console.error('Error counting users:', error);
+    throw error;
+  }
+};
 
-export default conn;
+export { conn, seedProjects, countUsers };

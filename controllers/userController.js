@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from 'bcrypt';
 import User from "../models/userModel.js";
 import Project from "../models/projectsModel.js";
-
+import { countUsers } from "../database.js";
 
 
 const createUser = async (req, res) => {
@@ -120,6 +120,7 @@ const calculateResultVote = async (projectNumber) => {
   try {
     // Find the project based on projectid
     const project = await Project.findOne({ projectid: projectNumber });
+    const totalUsers = await countUsers();
 
     if (!project) {
       throw new Error(`Project with projectNumber ${projectNumber} not found.`);
@@ -133,7 +134,7 @@ const calculateResultVote = async (projectNumber) => {
     }
 
     // Calculate the result vote
-    const resultVote = project.starsGiven / project.totalVotes;
+    const resultVote = project.starsGiven / totalUsers;
 
     return resultVote;
   } catch (error) {
