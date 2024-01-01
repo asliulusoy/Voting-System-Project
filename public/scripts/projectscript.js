@@ -248,14 +248,10 @@ const projects = {
         imageSrc: [ ]
       }
 
-<<<<<<< HEAD
-    },
-=======
     // Diğer projeler...
 };
 
 let currentProjectId=0;
->>>>>>> main
 
 function toggleTik(button, projectId) {
   // Buton tıklanınca çağrılır
@@ -290,6 +286,7 @@ function toggleTik(button, projectId) {
   }
 
   showProjectInfo();
+  selectedProjectNumber = projectId;
 }
 
 function showProjectInfo() {
