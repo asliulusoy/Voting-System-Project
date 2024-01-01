@@ -51,7 +51,7 @@ body {
   opacity: 0.90;
   background: #003049;
   border-radius: 20px;
-  overflow: auto; /* Add this line to enable scrolling */
+  overflow: auto;
 }
 
 #imageSlider {
@@ -64,7 +64,7 @@ body {
   margin-bottom: 40px;
 }
 
-#imageSlider img {
+#projectImage {
   max-width: 120%;
   max-height: 120%;
   border: 1px solid #f2f2f2;
@@ -82,7 +82,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   position: absolute;
-  z-index: 2;
+
 }
 
 #imageSlider button.left {
@@ -123,18 +123,12 @@ body {
   margin-top: auto;
   margin-bottom: 50px;
 }
-.star {
-  width: 50%;
-  position: absolute;
-  top: 75%;
-  left: -60%;
-  transform: translate(-50%, -50%);
-}
+
 
 .submit-btn {
   position: relative;
-  top: -22px;
-  left: 110px;
+  top: 20px;
+  left: 450px;
   margin-left: 20px;
   padding: 10px 20px;
   cursor: pointer;
@@ -206,6 +200,13 @@ button {
   left: 10%; /* or adjust the value accordingly */
   transform: translateX(-100%);
 }
+.star {
+  width: 50%;
+  position: absolute;
+  top: 70%;
+  left: 8%;
+  transform: translate(-50%, -50%);
+}
 
 .star>* {
   float: inline-end;
@@ -217,6 +218,7 @@ button {
   position: relative;
   cursor: pointer;
   padding: 0 10px;
+  display: inline-block;
 }
 
 .star label:after {
@@ -226,6 +228,7 @@ button {
   color: orange;
   font-size: 65px;
 }
+
 
 .star input {
   display: none;
