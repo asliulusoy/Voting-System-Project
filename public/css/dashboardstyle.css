@@ -60,16 +60,20 @@ body {
 }
 
 .project-deadline {
-  font-size: 3vw;
-  font-weight: 1000;
-  color: #f2f2f2;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff; /* White text color */
   text-align: center;
   margin: 0;
+  padding: 0; /* Remove padding to ensure it's a single line */
+  white-space: nowrap; /* Prevent line breaks */
   position: absolute;
-  font-family: 'Tahoma', 'Geneva', sans-serif;
-  top: 10%;
+  font-family: 'Poppins', sans-serif; /* Use the imported Poppins font */
+  top: 30%; /* Adjusted the top position */
   left: 50%;
-  transform: translate(100%, -30%);
+  transform: translateX(-50%); /* Simplified translation */
+  letter-spacing: 1px; /* Add a bit of letter spacing */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow for contrast */
 }
 
 .clock {
