@@ -112,26 +112,28 @@
     var targetTime = new Date(2024, 0, 4, 19, 0, 0);
 
     function updateTime() {
-      var now = new Date();
+  var now = new Date();
 
-      var timeDifference = targetTime - now;
+  var timeDifference = targetTime - now;
 
-      if (timeDifference <= 0) {
-        // Eğer hedef tarih geçmişse, geri sayımı durdur
-        clearInterval(updateInterval);
-        return;
-      }
+  if (timeDifference <= 0) {
+    // Eğer hedef tarih geçmişse, geri sayımı durdur
+    clearInterval(updateInterval);
+    return;
+  }
 
-      var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      var hours = Math.floor(timeDifference / (1000 * 60 * 60));
-      var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  var remainingTime = timeDifference % (1000 * 60 * 60 * 24);
 
-      updateContainer(daysContainer, days);
-      updateContainer(hoursContainer, hours);
-      updateContainer(minutesContainer, minutes);
-      updateContainer(secondsContainer, seconds);
-    }
+  var hours = Math.floor(remainingTime / (1000 * 60 * 60));
+  var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+  updateContainer(daysContainer, days);
+  updateContainer(hoursContainer, hours);
+  updateContainer(minutesContainer, minutes);
+  updateContainer(secondsContainer, seconds);
+}
 
     function updateContainer(container, newTime) {
       var time = newTime.toString().split('');
