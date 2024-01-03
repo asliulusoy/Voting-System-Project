@@ -257,7 +257,11 @@ const projects = {
     // Diğer projeler...
 };
 
+<<<<<<< HEAD
 let currentProjectId=11;
+=======
+let currentProjectId=1;
+>>>>>>> main
 
 function toggleTik(button, projectId) {
   // Buton tıklanınca çağrılır
@@ -292,6 +296,7 @@ function toggleTik(button, projectId) {
   }
 
   showProjectInfo();
+  selectedProjectNumber = projectId;
 }
 
 function showProjectInfo() {
