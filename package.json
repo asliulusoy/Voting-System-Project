@@ -4,6 +4,9 @@
   "description": "A project for CMPE 331",
   "main": "app.js",
   "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "abbrev": "^1.1.1",
     "accepts": "^1.3.8",
@@ -158,9 +161,6 @@
     "wide-align": "^1.1.5",
     "wrappy": "^1.0.2",
     "yallist": "^4.0.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

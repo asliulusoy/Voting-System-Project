@@ -6,16 +6,21 @@
 
     <title>UVote - Student Project Evaluation</title>
     <!-- CSS -->
+    <link rel="stylesheet" href="/css/loaderstyle.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/indexstyle.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://kit.fontawesome.com/00541e821b.js" crossorigin="anonymous"></script>
     </link>
 
   </head>
   <body>
     <div class="img">
+      <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+      </div>
       <%- include("partials/_menu") %>
         <div class="container">
           <div class="content">
@@ -107,6 +112,17 @@
             </div>
           </div>
         </div>
+        <script>
+          // Show the loader immediately when the document starts loading
+          $(window).on("beforeunload", function () {
+              $(".loader-wrapper").fadeIn("slow");
+          });
+      
+          // Hide the loader once all resources are loaded
+          $(window).on("load", function () {
+              $(".loader-wrapper").fadeOut("slow");
+          });
+      </script>
         <script src="/scripts/indexscript.js"></script>
   </body>
 

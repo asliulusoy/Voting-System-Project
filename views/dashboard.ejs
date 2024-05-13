@@ -6,8 +6,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, width=device-width" />
     <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="/css/loaderstyle.css">
     <link rel="stylesheet" href="/css/dashboardstyle.css" />
     <title>Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
       <script>
@@ -20,6 +22,9 @@
 
   <body>
     <div class="img">
+      <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+      </div>
       <%- include("partials/_menu") %>
         <div>
           <div class="profile-box" onclick="redirectToProfile()">
@@ -31,7 +36,7 @@
         </div>
           <div class="containerall">
             <div class="container">
-              <b class="project-deadline"> Project Deadline</b>
+              <b class="project-deadline"> VOTING WILL BE CLOSED IN: </b>
             </div>
             <div class="clock">
               <div class="days">
@@ -87,6 +92,17 @@
 
   </body>
   <script>
+    // Show the loader immediately when the document starts loading
+    $(window).on("beforeunload", function () {
+        $(".loader-wrapper").fadeIn("slow");
+    });
+
+    // Hide the loader once all resources are loaded
+    $(window).on("load", function () {
+        $(".loader-wrapper").fadeOut("slow");
+    });
+</script>
+  <script>
     var daysContainer = document.querySelector('.days')
     var hoursContainer = document.querySelector('.hours')
     var minutesContainer = document.querySelector('.minutes')
@@ -96,26 +112,28 @@
     var targetTime = new Date(2024, 0, 4, 19, 30, 0);
 
     function updateTime() {
-      var now = new Date();
+  var now = new Date();
 
-      var timeDifference = targetTime - now;
+  var timeDifference = targetTime - now;
 
-      if (timeDifference <= 0) {
-        // Eğer hedef tarih geçmişse, geri sayımı durdur
-        clearInterval(updateInterval);
-        return;
-      }
+  if (timeDifference <= 0) {
+    // Eğer hedef tarih geçmişse, geri sayımı durdur
+    clearInterval(updateInterval);
+    return;
+  }
 
-      var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-      var hours = Math.floor(timeDifference / (1000 * 60 * 60));
-      var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  var remainingTime = timeDifference % (1000 * 60 * 60 * 24);
 
-      updateContainer(daysContainer, days);
-      updateContainer(hoursContainer, hours);
-      updateContainer(minutesContainer, minutes);
-      updateContainer(secondsContainer, seconds);
-    }
+  var hours = Math.floor(remainingTime / (1000 * 60 * 60));
+  var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+  updateContainer(daysContainer, days);
+  updateContainer(hoursContainer, hours);
+  updateContainer(minutesContainer, minutes);
+  updateContainer(secondsContainer, seconds);
+}
 
     function updateContainer(container, newTime) {
       var time = newTime.toString().split('');
